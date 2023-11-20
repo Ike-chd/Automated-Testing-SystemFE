@@ -13,4 +13,6 @@ public class JakartaEE91Resource {
                 .ok("ping Jakarta EE")
                 .build();
     }
+    
+    public void yourMOM(){}
 }
