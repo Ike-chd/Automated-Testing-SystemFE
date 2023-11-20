@@ -9,5 +9,8 @@ package com.mycompany.atsbe.resources;
  * @author Admin
  */
 public class NewClass {
+    public void testridwaan(){
+        
+    }
     
 }
