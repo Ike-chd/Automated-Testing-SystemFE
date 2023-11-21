@@ -15,5 +15,4 @@ public class testAttempt {
     private Date startDateTime;
     private Date endDateTime;
     private int marks;
-
 }
