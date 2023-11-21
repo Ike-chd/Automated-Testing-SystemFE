@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FacultyMember extends User {
-
     private boolean isProfessor;
 }
