@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
-
+public class Admin extends User{
     private boolean isSuperAdmin;
 }
