@@ -1,4 +1,4 @@
-package DAOs.DAOControllers;
+package DAOs.DAOControllers.Communications;
 
 import Models.Communication.Comment;
 
