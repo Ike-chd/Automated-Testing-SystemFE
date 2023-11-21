@@ -1,4 +1,4 @@
-package Models;
+package Models.QA;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Test {
+public class Question {
 
+    private int questionID;
+    private String question;
+    private int markAllocation;
+    private int topicID;
     private int testID;
-    private String testName;
-    private int moduleID;
-
 }

@@ -1,4 +1,4 @@
-package Models;
+package Models.Courses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +11,7 @@ import java.sql.SQLException;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Topic {
+
     private int topicID;
     private String topicName;
     private String description;
