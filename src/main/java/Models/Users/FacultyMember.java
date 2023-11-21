@@ -1,3 +1,4 @@
+
 package Models.Users;
 
 import lombok.AllArgsConstructor;
@@ -7,7 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FacultyMember extends User {
-
+public class FacultyMember extends User{
     private boolean isProfessor;
 }

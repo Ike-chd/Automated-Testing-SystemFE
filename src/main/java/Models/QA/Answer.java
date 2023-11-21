@@ -1,17 +1,11 @@
-
 package Models.QA;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
+@Data
 @AllArgsConstructor
-@Getter
-
 public class Answer {
-     private String answer;
+    private String answer;
     private boolean isCorrect;
-
-    public boolean isCorrect() {
-        return isCorrect;
-    }
 }
