@@ -11,6 +11,7 @@ import java.sql.SQLException;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Topic {
+
     private int topicID;
     private String topicName;
     private String description;

@@ -11,11 +11,11 @@ import java.sql.SQLException;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Module {
+
     private int moduleID;
     private String moduleName;
     private String moduleDescription;
 
-    
 //    Just example of to create and retrieve
 //    // Factory method to create Module instance from ResultSet
 //    public static Module fromResultSet(ResultSet resultSet) throws SQLException {
@@ -46,6 +46,4 @@ public class Module {
 //
 //    return modules;
 //}
-
-    
 }

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
+
     private int courseID;
     private String courseName;
     private String courseNumber;
@@ -23,4 +24,3 @@ public class Course {
         );
     }
 }
-
