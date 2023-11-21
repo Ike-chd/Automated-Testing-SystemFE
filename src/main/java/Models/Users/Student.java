@@ -1,6 +1,6 @@
 package Models.Users;
 
-import Models.Courses.Course;
+import Models.Course.Course;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

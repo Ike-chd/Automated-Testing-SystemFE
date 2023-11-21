@@ -1,4 +1,4 @@
-
+package Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Questions {
+public class Question {
 
     private int questionID;
     private String question;

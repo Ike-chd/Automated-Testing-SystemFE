@@ -22,6 +22,7 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+<<<<<<< HEAD
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -29,6 +30,17 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+=======
+        
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.30</version>
+    <scope>provided</scope>
+</dependency>
+
+>>>>>>> origin/ridwaan
     </dependencies>
     
     <build>

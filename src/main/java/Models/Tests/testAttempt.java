@@ -1,4 +1,4 @@
-
+package Models;
 
 import java.util.Date;
 import lombok.AllArgsConstructor;
