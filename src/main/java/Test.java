@@ -1,6 +1,5 @@
-package Models.Users;
 
-import Models.Courses.Course;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Student {
-    int studentNum;
-    Course currentCourse;
+
+public class Test {
+
+    private int testID;
+    private String testName;
+    private int moduleID;
+
 }
