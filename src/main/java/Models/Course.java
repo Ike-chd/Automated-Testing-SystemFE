@@ -1,4 +1,4 @@
-package Course_Module_Topic;
+package Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,6 @@ public class Course {
     private String courseName;
     private String courseNumber;
 
-    // Factory method to create Course instance from ResultSet
     public static Course fromResultSet(ResultSet resultSet) throws SQLException {
         return new Course(
                 resultSet.getInt("courseID"),
