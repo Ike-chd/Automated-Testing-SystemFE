@@ -1,6 +1,7 @@
 package Models.Users;
 
 import Models.Courses.Course;
+import Models.Report.Report;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Student extends User{
     int studentNum;
-    Course currentCourse;
+    private Course currentCourse;
+    private Report report;
 }
-

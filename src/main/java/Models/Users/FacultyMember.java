@@ -8,4 +8,5 @@ import lombok.EqualsAndHashCode;
 public class FacultyMember extends User {
     private String department;
     private boolean isProfessor;
+    private int facultyID;
 }
