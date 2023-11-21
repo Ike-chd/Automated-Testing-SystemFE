@@ -1,19 +1,11 @@
 package Models.Users;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class FacultyMember extends User {
-    private boolean isProfessor;
-    private int facultyID;
-    private String firstname;
-    private String surname;
-    private String email;
-    private String idNumber;
-    private String password;
     private String department;
+    private boolean isProfessor;
 }

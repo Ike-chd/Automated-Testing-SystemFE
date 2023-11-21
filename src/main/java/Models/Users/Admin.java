@@ -10,10 +10,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Admin extends User{
     private boolean isSuperAdmin;
-    private int adminID;
-    private String firstname;
-    private String surname;
-    private String email;
-    private String idNumber;
-    private String password;
 }
