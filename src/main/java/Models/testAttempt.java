@@ -1,12 +1,19 @@
 package Models;
 
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class testAttempt {
+
+    private int attemptID;
+    private int studentID;
+    private int testID;
+    private int rating;
+    private Date startDateTime;
+    private Date endDateTime;
+    private int marks;
+
 }
