@@ -11,7 +11,7 @@ import jakarta.ws.rs.core.MediaType;
 @Path("")
 public class UserREST {
     
-    @Path("")
+    @Path("/login")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -24,8 +24,8 @@ public class UserREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void signUp(String nUser){
-        User user = new Gson().fromJson(nUser, User.class);
+    public void signUp(User user){
+        
     }
     
     public void checkIfUsernameExists(){
