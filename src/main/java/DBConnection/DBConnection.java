@@ -1,5 +1,5 @@
 
-package DAOs.DBConnection;
+package DBConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
