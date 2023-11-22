@@ -1,7 +1,7 @@
 package DAOs;
 
 import DAOs.DAOControllers.Communications.CommentDAO;
-import DAOs.DBConnection.DBConnection;
+import DBConnection.DBConnection;
 import Models.Communication.Comment;
 import Models.Users.FacultyMember;
 import Models.Users.Student;
