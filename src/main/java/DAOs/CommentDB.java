@@ -38,5 +38,4 @@ public class CommentDB extends DBConnection implements CommentDAO{
     public List<Comment> getAllCommentsByFaculty(FacultyMember faculty) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
 }
