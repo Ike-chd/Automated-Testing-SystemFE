@@ -11,15 +11,21 @@ public class AdminHandler {
     private AdminService adminService;
 
     public void createModule(String moduleName, String moduleDescription) {
-        adminService.createModule(moduleName, moduleDescription);
+        if (moduleName != null) {
+            adminService.createModule(moduleName, moduleDescription);
+        }
     }
-
+ 
     public void modifyModule(int moduleID, String moduleName, String moduleDescription) {
-        adminService.modifyModule(moduleID, moduleName, moduleDescription);
+        if (moduleID != 0) {
+            adminService.modifyModule(moduleID, moduleName, moduleDescription);
+        }
     }
 
     public void deleteModule(int moduleID) {
-        adminService.deleteModule(moduleID);
+        if (moduleID != 0) {
+            adminService.deleteModule(moduleID);
+        }
     }
 
     public void createTest(String testName, int moduleID, List<Integer> topicIDs, int numQuestions, int numCorrectAnswersPerQuestion, int timeAllocation) {
@@ -27,23 +33,33 @@ public class AdminHandler {
     }
 
     public void modifyTest(int testID, String testName, int moduleID, List<Integer> topicIDs, int numQuestions, int numCorrectAnswersPerQuestion, int timeAllocation) {
-        adminService.modifyTest(testID, testName, moduleID, topicIDs, numQuestions, numCorrectAnswersPerQuestion, timeAllocation);
+        if (testID != 0) {
+            adminService.modifyTest(testID, testName, moduleID, topicIDs, numQuestions, numCorrectAnswersPerQuestion, timeAllocation);
+        }
     }
 
     public void deleteTest(int testID) {
-        adminService.deleteTest(testID);
+        if (testID != 0) {
+            adminService.deleteTest(testID);
+        }
     }
 
     public void manageAdminAccount(int adminID, boolean block) {
-        adminService.manageAdminAccount(adminID, block);
+        if (adminID != 0) {
+            adminService.manageAdminAccount(adminID, block);
+        }
     }
 
     public void suspendStudentAccount(int studentID, int duration, String reason) {
-        adminService.suspendStudentAccount(studentID, duration, reason);
+        if (studentID != 0) {
+            adminService.suspendStudentAccount(studentID, duration, reason);
+        }
     }
 
     public void defineTestWeight(int testID, double weight) {
-        adminService.defineTestWeight(testID, weight);
+        if (testID != 0) {
+            adminService.defineTestWeight(testID, weight);
+        }
     }
 
     public void viewOverallPerformanceData() {
