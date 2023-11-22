@@ -8,7 +8,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminHandler {
 
-    private final AdminService adminService;
+    private AdminService adminService;
 
     public void createModule(String moduleName, String moduleDescription) {
         adminService.createModule(moduleName, moduleDescription);
