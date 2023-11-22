@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 public class Student extends User{
     int studentNum;
     Course currentCourse;
+    
 }
