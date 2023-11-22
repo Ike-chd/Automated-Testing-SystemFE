@@ -1,7 +1,7 @@
 package DAOs;
 
 import DAOs.DAOControllers.Users.StudentDAO;
-import DAOs.DBConnection.DBConnection;
+import DBConnection.DBConnection;
 import Models.Courses.Course;
 import Models.Users.Student;
 import java.util.List;
