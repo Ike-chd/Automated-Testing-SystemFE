@@ -1,7 +1,8 @@
-package Services.ServicesInterfaces;
+package Services;
 
 import Models.Users.FacultyMember;
 import Models.Users.Student;
+import Services.ServicesInterfaces.FacultyMemberService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,7 +13,10 @@ public class FacultyMemberHandler implements FacultyMemberService{
 
     @Override
     public void viewStudentPerformance(Student student) {
-        
+        System.out.println("Viewing "+student.getFirstname()+" "+student.getSurname());
+        for (int i = 0; i < 10; i++) {
+            
+        }
     }
 
     @Override
