@@ -10,4 +10,4 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Admin extends User{
     private boolean isSuperAdmin;
-}
+    }
