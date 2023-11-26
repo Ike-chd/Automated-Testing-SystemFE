@@ -28,6 +28,13 @@ public class UserREST {
         
     }
     
+    @Path("/User")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void requestAccount(){
+        
+    }
+    
     public void checkIfUsernameExists(){
         
     }
