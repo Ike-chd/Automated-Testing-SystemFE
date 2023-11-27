@@ -157,7 +157,7 @@ public class CommentDB extends DBConnection implements CommentDAO{
         rs = ps.executeQuery();
         
         if(rs.next()){
-            return new Student();//TODO please resolve the Student class
+            return new Student(studentId, username, firstname, surname, email, idNumber, password, studentNum, currentCourse, report);//TODO please resolve the Student class
         }
         return null;
     }

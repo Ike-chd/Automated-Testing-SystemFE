@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Data
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Student extends User {
     private int studentNum;
     private Course currentCourse;
-    private Report report;
+    public Student(int userID, String username, String name, String surname, String email, String idNumber, String address, String password, int studentNum, Course currentCourse) {
+        super(userID, username, name, surname, email, idNumber, address, password);
+        this.studentNum = studentNum;
+        this.currentCourse = currentCourse;
+    }
 }
