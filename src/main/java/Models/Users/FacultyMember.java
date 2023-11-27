@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class FacultyMember extends User {
-
     private String department;
     private boolean isProfessor;
 }
