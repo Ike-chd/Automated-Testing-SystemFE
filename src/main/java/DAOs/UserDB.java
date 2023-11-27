@@ -43,8 +43,8 @@ public class UserDB extends DBConnection implements UserDAO{
             ps = con.prepareStatement("INSERT INTO accountreq(name, surname, email) "
                     + "VALUES(?, ?, ?)");
             ps.setString(1, student.getName());
-            ps.setString(1, student.getSurname());
-            ps.setString(1, student.getEmail());
+            ps.setString(2, student.getSurname());
+            ps.setString(3, student.getEmail());
             updated = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
