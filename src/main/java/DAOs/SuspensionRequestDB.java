@@ -159,6 +159,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         String idNumber = resultSet.getString("idNumber");
         int courseID = resultSet.getInt("courseID");
         String password = resultSet.getString("password");
-        return new Student(studentId, username, firstname, surname, email, idNumber, password, studentNum, currentCourse, report);
+//        return new Student(studentId, username, firstname, surname, email, idNumber, password, studentNum, currentCourse, report);
+        return null;
     }
 }
