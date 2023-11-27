@@ -13,9 +13,7 @@ import lombok.Setter;
 @Setter
 
 public class Test {
-
     private int testID;
     private String testName;
     private int moduleID;
-
 }
