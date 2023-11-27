@@ -12,6 +12,5 @@ public class Topic {
     private String topicName;
     private String description;
     private String infoLink;
-    private Module module;
 
 }

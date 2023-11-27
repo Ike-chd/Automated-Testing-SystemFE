@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 public class StudentAnswerDB implements StudentAnswerDAO {
     private PreparedStatement ps;
     private ResultSet rs;
@@ -169,7 +170,7 @@ public class StudentAnswerDB implements StudentAnswerDAO {
         }
         return null;
     }
-    private Test getTestById(int testId) throws SQLException {
+    private Test getTestById(int testId) throws SQLException, SQLException, SQLException, SQLException {
         ps = connection.getConnection().prepareStatement("SELECT * FROM Tests WHERE testID = ?");
         ps.setInt(1,testId);
         rs = ps.executeQuery();
@@ -209,10 +210,13 @@ public class StudentAnswerDB implements StudentAnswerDAO {
         int testId = resultSet.getInt("testID");
         Topic topic = getTopicById(topicID);
         Test test = getTestById(testId);
-        return new Question();
+        return new Question(questionId,question,markAllocation,test,topic);
     }
-    private Test extractTestFromResultSet(ResultSet resultSet){
-        return null;
+    private Test extractTestFromResultSet(ResultSet resultSet) throws SQLException{
+        int testID = resultSet.getInt("testID");
+        String testName = resultSet.getString("testName");
+        int moduleID = resultSet.getInt("moduleID");
+        return new Test(testID,testName,moduleID);
     }
     private Course extractCourseFromResultSet(ResultSet resultSet) throws SQLException {
         int courseId = resultSet.getInt("courseID");
@@ -220,10 +224,20 @@ public class StudentAnswerDB implements StudentAnswerDAO {
         String courseNumber = resultSet.getString("courseNumber");
         return new Course(courseId, courseName, courseNumber);
     }
-    private Topic getTopicById(int topicId){
-
+    private Topic getTopicById(int topicId) throws SQLException{
+        ps = connection.getConnection().prepareStatement("SELECT * FROM Topics WHERE topicID = ?");
+        ps.setInt(1, topicId);
+        rs=ps.executeQuery();
+        if(rs.next()){
+            return extractTopicFromResultSet(rs);
+        }
+        return null;
     }
-    private Test getTestById(int testId){
-
+    private Topic extractTopicFromResultSet(ResultSet resultSet) throws SQLException{
+        int topicID = resultSet.getInt("topicID");
+        String topicName = resultSet.getString("topicName");
+        String description = resultSet.getString("description");
+        String infoLink = resultSet.getString("infoLink");
+        return new Topic(topicID,topicName,description,infoLink);
     }
 }

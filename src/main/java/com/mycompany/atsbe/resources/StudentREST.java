@@ -7,24 +7,23 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.Response;
 
-@Path("/Students/{studentId}")
+@Path("Students")
 public class StudentREST {
-
-    TestService testSV;
-    @PathParam("studentId") int id;
-
-    @Path("comments/{testID}")
-    public Response getTest(@PathParam("testID") int testID) {
-        Response.ResponseBuilder response = Response.accepted();
-        String test = new Gson().toJson(testSV.getTest(testID));
-        return response
-                .entity(test)
-                .build();
-    }
-
-    @Path("comments/{commentID}")
-    public Response getComment(@PathParam("commentID") int commentID) {
-        Response.ResponseBuilder response = Response.accepted();
-        return response.build();
-    }
+//
+//    TestService testSV;
+//
+//    @Path("comments/{testID}")
+//    public Response getTest(@PathParam("testID") int testID) {
+//        Response.ResponseBuilder response = Response.accepted();
+//        String test = new Gson().toJson(testSV.getTest(testID));
+//        return response
+//                .entity(test)
+//                .build();
+//    }
+//
+//    @Path("comments/{commentID}")
+//    public Response getComment(@PathParam("commentID") int commentID) {
+//        Response.ResponseBuilder response = Response.accepted();
+//        return response.build();
+//    }
 }
