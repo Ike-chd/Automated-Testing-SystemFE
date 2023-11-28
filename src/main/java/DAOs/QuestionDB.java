@@ -1,10 +1,12 @@
 package DAOs;
 
+import DAOs.DAOControllers.Courses.TopicDAO;
 import DAOs.DAOControllers.QA.QuestionDAO;
+import DAOs.DAOControllers.Tests.TestDAO;
 import DBConnection.DBConnection;
 import Models.Courses.Topic;
 import Models.QA.Question;
-import java.sql.Connection;
+import Models.Tests.Test;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +17,8 @@ public class QuestionDB implements QuestionDAO{
     private PreparedStatement ps;
     private ResultSet rs;
     private DBConnection connection;
-    
+    private TestDAO tdao = new TestDB();
+    private TopicDAO topDao = new TopicDB();
     @Override
     public Question getQuestion(int questionId) {
         try {
@@ -23,14 +26,13 @@ public class QuestionDB implements QuestionDAO{
             ps.setInt(1, questionId);
             rs = ps.executeQuery();
             if(rs.next()){
-                return extractAnswerFromResultSet(rs);
+                return extractQuestionFromResultSet(rs);
             }
         } catch (SQLException ex) {
            ex.printStackTrace();
         }
         return null;
     }
-
     @Override
     public boolean insertQuestion(Question question) {
         try {
@@ -46,7 +48,6 @@ public class QuestionDB implements QuestionDAO{
         }
         return false;
     }
-
     @Override
     public boolean deleteQuestion(Question question) {
         try {
@@ -59,7 +60,6 @@ public class QuestionDB implements QuestionDAO{
         }
         return false;
     }
-
     @Override
     public boolean updateQuestion(Question question) {
         try {
@@ -75,7 +75,6 @@ public class QuestionDB implements QuestionDAO{
         }
         return false;
     }
-
     @Override
     public List<Question> allQuestionUnderATopic(Topic topic) {
         List <Question> questions = new ArrayList<>();
@@ -84,7 +83,7 @@ public class QuestionDB implements QuestionDAO{
             ps.setInt(1, topic.getTopicID());
             rs = ps.executeQuery();
             while(rs.next()){
-                Question question = extractAnswerFromResultSet(rs);
+                Question question = extractQuestionFromResultSet(rs);
                 questions.add(question);
             }
         } catch (SQLException ex) {
@@ -92,9 +91,13 @@ public class QuestionDB implements QuestionDAO{
         }
         return questions;
     }
-    
-    private Question extractAnswerFromResultSet(ResultSet resultSet){
-        return null;
+    private Question extractQuestionFromResultSet(ResultSet resultSet) throws SQLException {
+        int questionID = resultSet.getInt("questionID");
+        String question = resultSet.getString("question");
+        int markAllocation = resultSet.getInt("markAllocation");
+        int topicID = resultSet.getInt("topicID");
+        int testID = resultSet.getInt("testID");
+        return new Question(questionID,question,markAllocation,tdao.getTest(testID),topDao.getTopic(topicID));
     }
 
     @Override

@@ -12,7 +12,7 @@ public class DBConnection {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/Student_Enrolment_System";
-            this.connection = DriverManager.getConnection(url, "root", "root");
+            this.connection = DriverManager.getConnection(url, "root", "rootroot");
         } 
         catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();

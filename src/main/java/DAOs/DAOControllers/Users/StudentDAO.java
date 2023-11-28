@@ -8,8 +8,8 @@ public interface StudentDAO {
     public Student getStudent(int id);
     public Student getStudent(String stID);
     public List<Student> getStudentsByCourse(Course course);
-    public List<Student> getAllStudent();
+    public List<Student> getAllStudents();
     public boolean insertStudent(Student student);
-    public boolean deleteStudent(String stID);
+    public boolean deleteStudent(Student student);
     public boolean updateStudent(Student student);
 }

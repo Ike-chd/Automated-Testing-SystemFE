@@ -72,14 +72,12 @@ public class ModuleDB implements ModuleDAO{
         }
         return false;
     }
-
     @Override
     public List<Module> allModules() {
         List<Module> modules = new ArrayList<>();
         //TODO
         return null;
     }
-    
     private Module extractModuleFromResultSet(ResultSet resultSet){
         return null;
     }
