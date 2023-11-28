@@ -44,13 +44,10 @@ public class CommentDB extends DBConnection implements CommentDAO{
         try {
             con = getConnection();
             ps = con.prepareStatement("INSERT INTO Comments (comment, studentID, userID) VALUES (?, ?, ?)");
-            
             ps.setString(1, comment.getComment());
             ps.setString(2, comment.getStudent().getUsername());
             ps.setInt(3, comment.getFaculty().getUserID());
-            
             int affectedRows = ps.executeUpdate();
-            
             if(affectedRows > 0){
                 rs = ps.getGeneratedKeys();
                 if(rs.next()){
@@ -68,14 +65,10 @@ public class CommentDB extends DBConnection implements CommentDAO{
         try {
             con = getConnection();
             ps = con.prepareStatement("UPDATE Comment SET comment = ? WHERE commentID = ?");
-            
             ps.setString(1, comment.getComment());
             ps.setInt(2, comment.getCommentID());
-            
             int affectedRows = ps.executeUpdate();
-            
             return affectedRows > 0;
-            
         } catch (SQLException ex) {
         ex.printStackTrace();
         }
@@ -86,11 +79,8 @@ public class CommentDB extends DBConnection implements CommentDAO{
         try {
             con = getConnection();
             ps = con.prepareStatement("DELETE FROM Comment WHERE commentID = ?");
-            
             ps.setInt(1, comment.getCommentID());
-            
             int affectedRows = ps.executeUpdate();
-            
             return affectedRows > 0;
         } catch (SQLException ex) {
         ex.printStackTrace();
@@ -103,10 +93,8 @@ public class CommentDB extends DBConnection implements CommentDAO{
         try {
             con = getConnection();
             ps = con.prepareStatement("SELECT * FROM Comments WHERE studentID = ?");
-            
             ps.setString(1, student.getUsername());
             rs = ps.executeQuery();
-            
             while(rs.next()){
                 Comment comment = extractCommentFromResultSet(rs);
                 studentComments.add(comment);
@@ -122,10 +110,8 @@ public class CommentDB extends DBConnection implements CommentDAO{
         con = getConnection();
         try {
             ps = con.prepareStatement("SELECT * FROM Comments WHERE userID = ?");
-            
             ps.setInt(1, faculty.getUserID());
             rs = ps.executeQuery();
-            
             while(rs.next()){
                 Comment comment = extractCommentFromResultSet(rs);
                 facultyComments.add(comment);
