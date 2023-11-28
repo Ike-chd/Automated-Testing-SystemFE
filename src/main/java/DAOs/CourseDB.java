@@ -17,7 +17,6 @@ public class CourseDB implements CourseDAO{
     private ResultSet rs;
     private DBConnection connection;
     private Statement s;
-    
     @Override
     public Course getCourse(int courseId) {
         try {
@@ -32,7 +31,6 @@ public class CourseDB implements CourseDAO{
         }
         return null;
     }
-
     @Override
     public boolean insertCourse(Course course) {
         try {
@@ -46,7 +44,6 @@ public class CourseDB implements CourseDAO{
         }
         return false;
     }
-
     @Override
     public boolean deleteCourse(Course course) {
         try {
@@ -59,7 +56,6 @@ public class CourseDB implements CourseDAO{
         }
         return false;
     }
-
     @Override
     public boolean updateCourse(Course course) {
         try {
@@ -74,7 +70,6 @@ public class CourseDB implements CourseDAO{
         }
         return false;
     }
-
     @Override
     public List<Course> allCourses() {
         List<Course> courses = new ArrayList<>();
@@ -90,12 +85,10 @@ public class CourseDB implements CourseDAO{
         }
         return courses;
     }
-    
     private Course extractCourseFromResultSet(ResultSet resultSet) throws SQLException{
         int courseId = resultSet.getInt("courseID");
         String courseName = resultSet.getString("courseName");
         String courseNumber = resultSet.getString("courseNumber");
-        
         return new Course(courseId,courseName,courseNumber);
     }
 }

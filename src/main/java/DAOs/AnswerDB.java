@@ -1,6 +1,7 @@
 package DAOs;
 
 import DAOs.DAOControllers.QA.AnswerDAO;
+import DAOs.DAOControllers.QA.QuestionDAO;
 import DBConnection.DBConnection;
 import Models.QA.Answer;
 import Models.QA.Question;
@@ -17,6 +18,7 @@ public class AnswerDB implements AnswerDAO{
     private ResultSet rs;
     private DBConnection connection;
     private Statement s;
+    private QuestionDAO qdao = new QuestionDB();
 
     @Override
     public Answer getAnswer(int answerId) {
@@ -39,7 +41,7 @@ public class AnswerDB implements AnswerDAO{
             ps = connection.getConnection().prepareStatement("INSERT INTO Answers (questionID, answer, correctAnswer) VALUES(?,?,?)");
             ps.setInt(1, answer.getQuestion().getQuestionID());
             ps.setString(2, answer.getAnswer());
-            ps.setString(3, answer.getCorrectAnswer());
+           // ps.setString(3, answer.getCorrectAnswer());
             int affectedRows = ps.executeUpdate();
             return affectedRows>0;
         } catch (SQLException ex) {
@@ -54,7 +56,7 @@ public class AnswerDB implements AnswerDAO{
             ps = connection.getConnection().prepareStatement("UPDATE Answers SET questionID = ?, answer = ?, correctAnswer = ? WHERE answerID = ?");
             ps.setInt(1, answer.getQuestion().getQuestionID());
             ps.setString(2, answer.getAnswer());
-            ps.setString(3, answer.getCorrectAnswer());
+           // ps.setString(3, answer.getCorrectAnswer());
             ps.setInt(4, answer.getAnswerID());
             int affectedRows = ps.executeUpdate();
             return affectedRows>0;
@@ -95,8 +97,10 @@ public class AnswerDB implements AnswerDAO{
     }
     
     private Answer extractAnswerFromResultSet(ResultSet resultSet) throws SQLException {
-        int answerId = rs.getInt("answerID");
-        return null;
+        int answerId = resultSet.getInt("answerID");
+        String answer = resultSet.getString("answer");
+        int questionID = resultSet.getInt("questionID");
+        boolean correctAnswer = resultSet.getBoolean("correctAnswer");
+        return new Answer(answerId, answer,correctAnswer,qdao.getQuestion(questionID));
     }
-    
 }
