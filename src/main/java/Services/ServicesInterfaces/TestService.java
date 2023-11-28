@@ -1,8 +1,9 @@
 package Services.ServicesInterfaces;
 
 import Models.Tests.Test;
+import java.util.Optional;
 
 public interface TestService {
-    public Test getTest(int TestID);
+    public Optional<Test> getTest(int TestID);
     public void insertTest(Test test);
 }

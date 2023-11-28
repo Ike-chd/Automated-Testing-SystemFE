@@ -23,6 +23,14 @@ public class UserREST {
         return Response.ok(new Gson().toJson(user)).build();
     }
     
+    @Path("signup")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void signUp(User user){
+        
+    }
+    
     @Path("request")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
