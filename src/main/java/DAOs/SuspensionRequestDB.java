@@ -1,5 +1,6 @@
 package DAOs;
 
+import DAOs.DAOControllers.Courses.CourseDAO;
 import DAOs.DAOControllers.SuspensionRequest.SuspensionRequestDAO;
 import DBConnection.DBConnection;
 import Models.SuspensionRequest.SuspensionRequest;
@@ -14,6 +15,8 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
     private ResultSet rs;
     private DBConnection connection;
     private Statement statement;
+    private CourseDAO cdao;
+    
     @Override
     public SuspensionRequest getSuspensionRequest(int ssId) {
         try {
@@ -33,7 +36,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
     public boolean insertSuspensionRequest(SuspensionRequest ssRequest) {
         try {
             ps = connection.getConnection().prepareStatement("INSERT INTO SuspensionRequests (studentID, requestID, duration, confirmID, reason, active, dateInitiated) VALUES (?,?,?,?,?,?,?)");
-            ps.setInt(1, ssRequest.getStudent().getStudentNum());
+            ps.setString(1, ssRequest.getStudent().getUsername());
             ps.setInt(2,ssRequest.getRequestId());
             ps.setInt(3, ssRequest.getDuration());
             ps.setInt(4,ssRequest.getConfirmId());
@@ -52,7 +55,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
     public boolean updateSuspensionRequest(SuspensionRequest ssRequest) {
         try {
             ps = connection.getConnection().prepareStatement("UPDATE SuspensionRequests SET studentID = ?, requestID = ?, duration = ?, confirmID = ?, reason = ?, active = ?, dateInitiated = ? WHERE SSID = ?");
-            ps.setInt(1,ssRequest.getStudent().getStudentNum());
+            ps.setString(1,ssRequest.getStudent().getUsername());
             ps.setInt(2,ssRequest.getRequestId());
             ps.setInt(3,ssRequest.getDuration());
             ps.setInt(4,ssRequest.getConfirmId());
@@ -118,7 +121,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         List<SuspensionRequest> studentSuspensionRequest = new ArrayList<>();
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM SuspensionRequests WHERE studentID = ?");
-            ps.setInt(1,student.getStudentNum());
+            ps.setString(1,student.getUsername());
             rs = ps.executeQuery();
             while(rs.next()){
                 SuspensionRequest suspensionRequest = extractSuspensionRequestFromResultSet(rs);
@@ -141,6 +144,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         Student student = getStudentById(studentId);
         return new SuspensionRequest(ssId, student, requestId, duration, confirmId, reason,active, dateInitiated.toLocalDateTime());
     }
+    
     private Student getStudentById(int studentId) throws SQLException {
         ps = connection.getConnection().prepareStatement("SELECT * FROM Students WHERE studentID = ?");
         ps.setInt(1, studentId);
@@ -150,15 +154,19 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         }
         return null;
     }
+    
     private Student extractStudentFromResultSet(ResultSet resultSet) throws SQLException {
         int studentId = resultSet.getInt("studentID");
         String firstname = resultSet.getString("firstname");
+        String username = "";
         String surname = resultSet.getString("surname");
         String email = resultSet.getString("email");
         String address = resultSet.getString("address");
         String idNumber = resultSet.getString("idNumber");
         int courseID = resultSet.getInt("courseID");
         String password = resultSet.getString("password");
-        return new Student();
+        cdao = new CourseDB();
+//        return new Student(studentId, username, firstname, surname, email, idNumber, password, studentId, cdao.getCourse(courseID));
+        return null;
     }
 }

@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Answer {
     private int answerID;
-    private String answer, correctAnswer;
+    private String answer;
     private boolean isCorrect;
     private Question question;
 }

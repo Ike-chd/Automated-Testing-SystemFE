@@ -35,7 +35,7 @@ public class AdminDB {
     public static Test getTestByID(int testID) {
         String query = "SELECT * FROM tests WHERE testID = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, testID);
+            preparedStatement.setLong(1, testID);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {

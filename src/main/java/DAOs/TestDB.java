@@ -1,5 +1,6 @@
 package DAOs;
 
+import DAOs.DAOControllers.Courses.ModuleDAO;
 import DAOs.DAOControllers.Tests.TestDAO;
 import DBConnection.DBConnection;
 import Models.Courses.Module;
@@ -16,6 +17,7 @@ public class TestDB implements TestDAO{
     private ResultSet rs;
     private DBConnection connection;
     private Statement s;
+    private ModuleDAO mdao = new ModuleDB();
     
     @Override
     public Test getTest(int id) {
@@ -111,8 +113,7 @@ public class TestDB implements TestDAO{
         int testId = resultSet.getInt("testID");
         String testName = resultSet.getString("testName");
         int moduleId = resultSet.getInt("moduleID");
-        Module module = getModuleById(moduleId);
-        return new Test(testId,testName,module.getModuleID());
+        return new Test(testId,testName,mdao.getModule(moduleId).getModuleID());
     }
 
     private Module getModuleById(int moduleId){
