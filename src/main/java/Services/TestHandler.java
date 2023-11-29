@@ -2,6 +2,7 @@ package Services;
 
 import DAOs.DAOControllers.Tests.TestDAO;
 import DAOs.TestDB;
+import Models.QA.Question;
 import Models.Tests.Test;
 import Services.ServicesInterfaces.TestService;
 
@@ -17,5 +18,10 @@ public class TestHandler implements TestService {
     @Override
     public void insertTest(Test test) {
 
+    }
+
+    @Override
+    public void addQuestion(Test test, Question Question) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
