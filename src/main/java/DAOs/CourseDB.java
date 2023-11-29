@@ -3,7 +3,6 @@ package DAOs;
 import DAOs.DAOControllers.Courses.CourseDAO;
 import DBConnection.DBConnection;
 import Models.Courses.Course;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,15 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CourseDB implements CourseDAO{
+public class CourseDB extends DBConnection implements CourseDAO{
     private PreparedStatement ps;
     private ResultSet rs;
-    private DBConnection connection;
     private Statement s;
     @Override
     public Course getCourse(int courseId) {
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Courses WHERE courseID = ?");
+            ps = getConnection().prepareStatement("SELECT * FROM Courses WHERE courseID = ?");
             ps.setInt(1, courseId);
             rs = ps.executeQuery();
             if(rs.next()){
@@ -34,7 +32,7 @@ public class CourseDB implements CourseDAO{
     @Override
     public boolean insertCourse(Course course) {
         try {
-            ps = connection.getConnection().prepareStatement("INSERT INTO Courses (courseName, courseNumber) VALUES (?, ?)");
+            ps = getConnection().prepareStatement("INSERT INTO Courses (courseName, courseNumber) VALUES (?, ?)");
             ps.setString(1, course.getCourseName());
             ps.setString(2, course.getCourseNumber());
             int affectedRows = ps.executeUpdate();
@@ -47,7 +45,7 @@ public class CourseDB implements CourseDAO{
     @Override
     public boolean deleteCourse(Course course) {
         try {
-            ps = connection.getConnection().prepareStatement("DELETE FROM Courses WHERE courseID = ?");
+            ps = getConnection().prepareStatement("DELETE FROM Courses WHERE courseID = ?");
             ps.setInt(1, course.getCourseID());
             int affectedRows = ps.executeUpdate();
             return affectedRows>0;
@@ -59,7 +57,7 @@ public class CourseDB implements CourseDAO{
     @Override
     public boolean updateCourse(Course course) {
         try {
-            ps = connection.getConnection().prepareStatement("UPDATE Courses SET courseName = ?, courseNumber = ? WHERE courseID = ?");
+            ps = getConnection().prepareStatement("UPDATE Courses SET courseName = ?, courseNumber = ? WHERE courseID = ?");
             ps.setString(1, course.getCourseName());
             ps.setString(2, course.getCourseNumber());
             ps.setInt(3, course.getCourseID());
@@ -74,7 +72,7 @@ public class CourseDB implements CourseDAO{
     public List<Course> allCourses() {
         List<Course> courses = new ArrayList<>();
         try {
-            s = connection.getConnection().createStatement();
+            s = getConnection().createStatement();
             rs = s.executeQuery("SELECT * FROM Courses");
             while(rs.next()){
                 Course course = extractCourseFromResultSet(rs);
