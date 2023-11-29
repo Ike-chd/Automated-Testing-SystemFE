@@ -2,6 +2,7 @@ package com.mycompany.atsbe.resources;
 
 import Models.Courses.Topic;
 import Services.ServicesInterfaces.TopicService;
+import Services.TopicHandler;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -13,7 +14,7 @@ import java.util.NoSuchElementException;
 @Path("topics")
 public class TopicREST {
 
-    TopicService tops;
+    TopicService tops = new TopicHandler();
 
     @Path("postTopic")
     @POST
