@@ -10,7 +10,7 @@ public class DBConnection {
     private Connection connection;
     public DBConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.cj.Driver");
             String url = "jdbc:mysql://localhost:3306/ats?autoReconnect=true&useSSL=false";
             this.connection = DriverManager.getConnection(url, "root", "root");
         } 

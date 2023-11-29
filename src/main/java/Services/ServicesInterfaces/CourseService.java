@@ -7,5 +7,5 @@ public interface CourseService {
     public Optional<Course> getCourse(int courseId);
     public boolean addCourse(Course course);
     public boolean updateCourse(Course course);
-    public boolean deleteCourse(int courseId);
+    public boolean deleteCourse(Course course);
 }

@@ -41,7 +41,7 @@ public class AnswerDB implements AnswerDAO{
             ps = connection.getConnection().prepareStatement("INSERT INTO Answers (questionID, answer, correctAnswer) VALUES(?,?,?)");
             ps.setInt(1, answer.getQuestion().getQuestionID());
             ps.setString(2, answer.getAnswer());
-           // ps.setString(3, answer.getCorrectAnswer());
+            //ps.setString(3, answer.getCorrectAnswer());
             int affectedRows = ps.executeUpdate();
             return affectedRows>0;
         } catch (SQLException ex) {

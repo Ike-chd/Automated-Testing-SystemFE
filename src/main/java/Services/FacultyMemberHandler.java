@@ -1,39 +1,34 @@
 package Services;
 
+import DAOs.DAOControllers.Users.FacultyMemberDAO;
+import DAOs.FacultyMemberDB;
 import Models.Users.FacultyMember;
-import Models.Users.Student;
 import Services.ServicesInterfaces.FacultyMemberService;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
-@AllArgsConstructor
-@Data
+import java.util.List;
+import java.util.Optional;
+
 public class FacultyMemberHandler implements FacultyMemberService{
-    private FacultyMember facultyMember;
-
+    private FacultyMemberDAO fdao = new FacultyMemberDB();
     @Override
-    public void viewStudentPerformance(Student student) {
-        System.out.println("Viewing "+student.getName()+" "+student.getSurname());
-        for (int i = 0; i < 10; i++) { 
-        }
+    public Optional<FacultyMember> getFacultyMemberById(int facultyId) {
+        return Optional.ofNullable(fdao.getFacultyMember(facultyId));
     }
-
     @Override
-    public void makeSuspensionRequest(Student student, String reason) {
-        
+    public List<FacultyMember> getAllFacultyMembers() {
+        return fdao.getAllFacultyMembers();
     }
-
     @Override
-    public void commentOnStudent(Student student, String comment) {
-    
+    public boolean insertFacultyMember(FacultyMember facultyMember) {
+        return fdao.addFacultyMember(facultyMember);
     }
-    
+    @Override
+    public boolean updateFacultyMember(FacultyMember facultyMember) {
+        return fdao.updateFacultyMember(facultyMember);
+    }
+    @Override
+    public boolean deleteFacultyMember(FacultyMember facultyMember) {
+        return fdao.deleteFacultyMember(facultyMember);
+    }
 }
 
-@AllArgsConstructor
-@Data
-class SuspensionRequest {
-    private FacultyMember facultyMember;
-    private Student student;
-    private String reason;
-}

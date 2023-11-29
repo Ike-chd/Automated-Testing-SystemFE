@@ -11,16 +11,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionDB implements QuestionDAO{
+public class QuestionDB extends DBConnection implements QuestionDAO{
     private PreparedStatement ps;
     private ResultSet rs;
-    private DBConnection connection;
     private TopicDAO topDao = new TopicDB();
     @Override
+    
     public Question getQuestion(int questionId) {
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Questions WHERE questionID = ?");
-            ps.setInt(1, questionId);
+            ps = getConnection().prepareStatement("SELECT * FROM Questions WHERE questionID = ?");
+            ps.setInt(1 , questionId);
             rs = ps.executeQuery();
             if(rs.next()){
                 return extractQuestionFromResultSet(rs);
@@ -33,36 +33,36 @@ public class QuestionDB implements QuestionDAO{
     
     @Override
     public boolean insertQuestion(Question question) {
+        int updated = 0;
         try {
-            ps = connection.getConnection().prepareStatement("INSERT INTO Questions (question, markAllocation, topicID) VALUES (?,?,?,?)");
+            ps = getConnection().prepareStatement("INSERT INTO Questions (question, markAllocation, topicID) VALUES (?,?,?)");
             ps.setString(1, question.getQuestion());
             ps.setInt(2, question.getMarkAllocation());
             ps.setInt(3, question.getTopic().getTopicID());
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
+            updated = ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return updated == 1;
     }
     
     @Override
     public boolean deleteQuestion(int questionId) {
+        int updated = 0;
         try {
-            ps = connection.getConnection().prepareStatement("DELETE FROM Questions WHERE questionID = ?");
+            ps = getConnection().prepareStatement("DELETE FROM Questions WHERE questionID = ?");
             ps.setInt(1, questionId);
-            int affectedRows = ps.executeUpdate();
-            return affectedRows >0;
+            updated = ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return updated == 1;
     }
     
     @Override
     public boolean updateQuestion(Question question) {
         try {
-            ps = connection.getConnection().prepareStatement("UPDATE Questions SET question = ?, markAllocation = ?, topicID = ? WHERE questionID = ?");
+            ps = getConnection().prepareStatement("UPDATE Questions SET question = ?, markAllocation = ?, topicID = ? WHERE questionID = ?");
             ps.setString(1, question.getQuestion());
             ps.setInt(2, question.getMarkAllocation());
             ps.setInt(3, question.getTopic().getTopicID());
@@ -78,7 +78,7 @@ public class QuestionDB implements QuestionDAO{
     public List<Question> allQuestionUnderATopic(Topic topic) {
         List <Question> questions = new ArrayList<>();
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Questions WHERE topicID = ?");
+            ps = getConnection().prepareStatement("SELECT * FROM Questions WHERE topicID = ?");
             ps.setInt(1, topic.getTopicID());
             rs = ps.executeQuery();
             while(rs.next()){
