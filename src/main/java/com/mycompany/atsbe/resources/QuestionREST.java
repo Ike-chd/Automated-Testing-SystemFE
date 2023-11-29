@@ -5,6 +5,7 @@ import Models.QA.Question;
 import Services.QuestionHandler;
 import Services.ServicesInterfaces.QuestionService;
 import Services.ServicesInterfaces.TopicService;
+import Services.TopicHandler;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -19,7 +20,7 @@ import java.util.NoSuchElementException;
 public class QuestionREST {
 
     QuestionService qs = new QuestionHandler();
-    TopicService ts;
+    TopicService ts = new TopicHandler();
 
     @Path("postQuestion/{topicId}")
     @POST
@@ -29,6 +30,7 @@ public class QuestionREST {
         try {
             question.setTopic(ts.getTopic(id).orElseThrow());
         } catch (NoSuchElementException e) {
+            e.printStackTrace();
             return Response.ok("Topic not found").status(Response.Status.NOT_FOUND).build();
         }
         return (qs.addQuestion(question)) ? Response.ok("created").status(Response.Status.CREATED).build()
