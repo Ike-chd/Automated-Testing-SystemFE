@@ -11,8 +11,8 @@ public class DBConnection {
     public DBConnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/Student_Enrolment_System";
-            this.connection = DriverManager.getConnection(url, "root", "rootroot");
+            String url = "jdbc:mysql://localhost:3306/ats?autoReconnect=true&useSSL=false";
+            this.connection = DriverManager.getConnection(url, "root", "root");
         } 
         catch (SQLException | ClassNotFoundException ex) {
             ex.printStackTrace();
