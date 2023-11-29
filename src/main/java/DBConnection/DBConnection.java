@@ -10,8 +10,8 @@ public class DBConnection {
     private Connection connection;
     public DBConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/Student_Enrolment_System?autoReconnect=true&useSSL=false";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/ats?autoReconnect=true&useSSL=false";
             this.connection = DriverManager.getConnection(url, "root", "rootroot");
         } 
         catch (SQLException | ClassNotFoundException ex) {
