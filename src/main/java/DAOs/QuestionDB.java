@@ -61,17 +61,17 @@ public class QuestionDB extends DBConnection implements QuestionDAO{
     
     @Override
     public boolean updateQuestion(Question question) {
+        int updated = 0;
         try {
             ps = getConnection().prepareStatement("UPDATE Questions SET question = ?, markAllocation = ?, topicID = ? WHERE questionID = ?");
             ps.setString(1, question.getQuestion());
             ps.setInt(2, question.getMarkAllocation());
             ps.setInt(3, question.getTopic().getTopicID());
-            int affectedRows = ps.executeUpdate();
-            return affectedRows > 0;
+            updated = ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return updated == 1;
     }
     
     @Override
