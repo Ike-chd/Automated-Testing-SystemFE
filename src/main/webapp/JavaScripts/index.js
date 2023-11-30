@@ -17,13 +17,13 @@ $(function () {
             idNumber: $id.val()
         };
         var settings = {
-            url: "http://localhost:8080/Automated-Testing-SystemBE/resources/account/request",
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/account/request",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: account
+            data: JSON.stringify(account)
         };
 
         console.log(account);
