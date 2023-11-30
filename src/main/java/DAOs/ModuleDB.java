@@ -12,17 +12,19 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ModuleDB implements ModuleDAO{
+public class ModuleDB implements ModuleDAO {
+
     private PreparedStatement ps;
     private ResultSet rs;
     private DBConnection connection;
+
     @Override
     public Module getModule(int moduleId) {
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM Modules WHERE moduleID = ?");
             ps.setInt(1, moduleId);
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return extractModuleFromResultSet(rs);
             }
         } catch (SQLException ex) {
@@ -64,7 +66,7 @@ public class ModuleDB implements ModuleDAO{
             ps = connection.getConnection().prepareStatement("UPDATE Modules SET moduleName = ?, moduleDescription = ? WHERE moduleID = ?");
             ps.setString(1, module.getModuleName());
             ps.setString(2, module.getModuleDescription());
-            ps.setInt(3,module.getModuleID());
+            ps.setInt(3, module.getModuleID());
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException ex) {
@@ -72,13 +74,15 @@ public class ModuleDB implements ModuleDAO{
         }
         return false;
     }
+
     @Override
     public List<Module> allModules() {
         List<Module> modules = new ArrayList<>();
         //TODO
         return null;
     }
-    private Module extractModuleFromResultSet(ResultSet resultSet){
+
+    private Module extractModuleFromResultSet(ResultSet resultSet) {
         return null;
     }
 }

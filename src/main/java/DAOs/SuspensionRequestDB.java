@@ -11,19 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SuspensionRequestDB implements SuspensionRequestDAO {
+
     private PreparedStatement ps;
     private ResultSet rs;
     private DBConnection connection;
     private Statement statement;
     private CourseDAO cdao;
-    
+
     @Override
     public SuspensionRequest getSuspensionRequest(int ssId) {
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM SuspensionRequests WHERE SSID = ?");
             ps.setInt(1, ssId);
             rs = ps.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 return extractSuspensionRequestFromResultSet(rs);
             }
         } catch (SQLException e) {
@@ -37,14 +38,14 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         try {
             ps = connection.getConnection().prepareStatement("INSERT INTO SuspensionRequests (studentID, requestID, duration, confirmID, reason, active, dateInitiated) VALUES (?,?,?,?,?,?,?)");
             ps.setString(1, ssRequest.getStudent().getUsername());
-            ps.setInt(2,ssRequest.getRequestId());
+            ps.setInt(2, ssRequest.getRequestId());
             ps.setInt(3, ssRequest.getDuration());
-            ps.setInt(4,ssRequest.getConfirmId());
-            ps.setString(5,ssRequest.getReason());
-            ps.setBoolean(6,ssRequest.isActive());
+            ps.setInt(4, ssRequest.getConfirmId());
+            ps.setString(5, ssRequest.getReason());
+            ps.setBoolean(6, ssRequest.isActive());
             ps.setTimestamp(7, Timestamp.valueOf(ssRequest.getDateInitiated()));
             int affectedRows = ps.executeUpdate();
-            return affectedRows >0;
+            return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,16 +56,16 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
     public boolean updateSuspensionRequest(SuspensionRequest ssRequest) {
         try {
             ps = connection.getConnection().prepareStatement("UPDATE SuspensionRequests SET studentID = ?, requestID = ?, duration = ?, confirmID = ?, reason = ?, active = ?, dateInitiated = ? WHERE SSID = ?");
-            ps.setString(1,ssRequest.getStudent().getUsername());
-            ps.setInt(2,ssRequest.getRequestId());
-            ps.setInt(3,ssRequest.getDuration());
-            ps.setInt(4,ssRequest.getConfirmId());
-            ps.setString(5,ssRequest.getReason());
-            ps.setBoolean(6,ssRequest.isActive());
-            ps.setTimestamp(7,Timestamp.valueOf(ssRequest.getDateInitiated()));
-            ps.setInt(8,ssRequest.getSsId());
+            ps.setString(1, ssRequest.getStudent().getUsername());
+            ps.setInt(2, ssRequest.getRequestId());
+            ps.setInt(3, ssRequest.getDuration());
+            ps.setInt(4, ssRequest.getConfirmId());
+            ps.setString(5, ssRequest.getReason());
+            ps.setBoolean(6, ssRequest.isActive());
+            ps.setTimestamp(7, Timestamp.valueOf(ssRequest.getDateInitiated()));
+            ps.setInt(8, ssRequest.getSsId());
             int affectedRows = ps.executeUpdate();
-            return affectedRows>0;
+            return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,7 +76,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
     public boolean deleteSuspensionRequest(SuspensionRequest ssRequest) {
         try {
             ps = connection.getConnection().prepareStatement("DELETE FROM SuspensionRequests WHERE SSID = ?");
-            ps.setInt(1,ssRequest.getSsId());
+            ps.setInt(1, ssRequest.getSsId());
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
@@ -90,7 +91,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         try {
             statement = connection.getConnection().createStatement();
             rs = statement.executeQuery("SELECT * FROM SuspensionRequests");
-            while(rs.next()){
+            while (rs.next()) {
                 SuspensionRequest suspensionRequest = extractSuspensionRequestFromResultSet(rs);
                 suspensionRequests.add(suspensionRequest);
             }
@@ -106,7 +107,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         try {
             statement = connection.getConnection().createStatement();
             rs = statement.executeQuery("SELECT * FROM SuspensionRequests WHERE active = true");
-            while(rs.next()){
+            while (rs.next()) {
                 SuspensionRequest suspensionRequest = extractSuspensionRequestFromResultSet(rs);
                 activeSuspensionRequests.add(suspensionRequest);
             }
@@ -121,9 +122,9 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         List<SuspensionRequest> studentSuspensionRequest = new ArrayList<>();
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM SuspensionRequests WHERE studentID = ?");
-            ps.setString(1,student.getUsername());
+            ps.setString(1, student.getUsername());
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 SuspensionRequest suspensionRequest = extractSuspensionRequestFromResultSet(rs);
                 studentSuspensionRequest.add(suspensionRequest);
             }
@@ -132,6 +133,7 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         }
         return studentSuspensionRequest;
     }
+
     private SuspensionRequest extractSuspensionRequestFromResultSet(ResultSet resultSet) throws SQLException {
         int ssId = resultSet.getInt("SSID");
         int studentId = resultSet.getInt("studentID");
@@ -142,19 +144,19 @@ public class SuspensionRequestDB implements SuspensionRequestDAO {
         boolean active = resultSet.getBoolean("active");
         Timestamp dateInitiated = resultSet.getTimestamp("dateInitiated");
         Student student = getStudentById(studentId);
-        return new SuspensionRequest(ssId, student, requestId, duration, confirmId, reason,active, dateInitiated.toLocalDateTime());
+        return new SuspensionRequest(ssId, student, requestId, duration, confirmId, reason, active, dateInitiated.toLocalDateTime());
     }
-    
+
     private Student getStudentById(int studentId) throws SQLException {
         ps = connection.getConnection().prepareStatement("SELECT * FROM Students WHERE studentID = ?");
         ps.setInt(1, studentId);
         rs = ps.executeQuery();
-        if(rs.next()){
+        if (rs.next()) {
             return extractStudentFromResultSet(rs);
         }
         return null;
     }
-    
+
     private Student extractStudentFromResultSet(ResultSet resultSet) throws SQLException {
         int studentId = resultSet.getInt("studentID");
         String firstname = resultSet.getString("firstname");
