@@ -1,0 +1,97 @@
+:root {
+    --primary: #4e73df;
+    --info: #36b9cc;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --success: #1cc88a;
+    --warning: #f6c23e;
+    --secondary: #858796;
+    --dark: #5a5c69;
+}
+
+body {
+    background-color: var(--light);
+}
+
+.indexpage {
+    text-align: center;
+}
+
+.indexpage button {
+    width: 160px;
+    height: 50px;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: var(--primary);
+    color: var(--light);
+    border: none;
+    margin-top: 260px;
+}
+
+.indexpage p {
+    font-size: 9px;
+    font-weight: bold;
+    font-family: Roboto Mono;
+}
+
+#request {
+    text-decoration: underline;
+    color: blue;
+}
+
+#request:hover {
+    cursor: pointer;
+}
+
+.req {
+    width: 100%;
+/*    display: none;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1;*/
+}
+
+.reqFl {
+    width: 70%;
+    background-color: var(--secondary);
+    margin-left: 15%;
+    padding: 1px 0 20px;
+    margin-top: 40px;
+}
+
+.reqFl h1 {
+    font-family: Roboto Mono;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reqFl input {
+    display: block;
+    margin-bottom: 10px;
+    width: 43%;
+    margin-left: 7%;
+    height: 25px;
+}
+
+.reqFl label{
+    display: block;
+    margin-left: 7%;
+    font-weight: bold;
+    font-family: verdana;
+    font-size: 13px;
+}
+
+.reqFl input:focus {
+    outline: none;
+    width: 86%;
+    transition: 1s;
+}
+
+.reqFl button{
+    width: 30%;
+    margin-left: 35%;
+    height: 40px;
+    border: none;
+    box-sizing: border-box;
+}
