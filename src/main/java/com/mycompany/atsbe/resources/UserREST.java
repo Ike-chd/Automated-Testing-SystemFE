@@ -27,6 +27,7 @@ public class UserREST {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    
     public void signUp(User user){
         
     }
