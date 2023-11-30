@@ -11,7 +11,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("account")
+@Path("/account")
 public class UserREST {
     UserService us = new UserHandler();
     
@@ -24,7 +24,7 @@ public class UserREST {
         return Response.ok(new Gson().toJson(user)).build();
     }
     
-    @Path("request")
+    @Path("/request")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
