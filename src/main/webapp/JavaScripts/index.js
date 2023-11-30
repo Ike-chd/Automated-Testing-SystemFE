@@ -10,20 +10,23 @@ $(function () {
     var $id = $('#idnumber');
 
     $('#submit').click(function () {
+        var account = {
+            name: $name.val(),
+            surname: $surname.val(),
+            email: $email.val(),
+            idNumber: $id.val()
+        };
         var settings = {
             url: "http://localhost:8080/Automated-Testing-SystemBE/resources/account/request",
             method: "POST",
-            timeout: 0,
-            headers : {
-                "Content-Type": "application/json"
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
-            data: JSON.stringify({
-                name: $name.val(),
-                surname: $surname.val(),
-                email: $email.val(),
-                idNumber: $id.val()
-            })
+            data: account
         };
+
+        console.log(account);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
