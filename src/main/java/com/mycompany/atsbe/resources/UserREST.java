@@ -13,22 +13,15 @@ import jakarta.ws.rs.core.Response;
 
 @Path("account")
 public class UserREST {
-    UserService us;
+    UserService us = new UserHandler();
     
     @Path("login")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response logIn(User user){
-        return Response.ok(new Gson().toJson(user)).build();
-    }
-    
-    @Path("signup")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public void signUp(User user){
         
+        return Response.ok(new Gson().toJson(user)).build();
     }
     
     @Path("request")
@@ -36,12 +29,7 @@ public class UserREST {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response requestAccount(User student){
-        us = new UserHandler();
         us.addAccountRequest(student);
         return Response.ok(new Gson().toJson(student)).status(Response.Status.CREATED).build();
-    }
-    
-    public void checkIfUsernameExists(){
-        
     }
 }

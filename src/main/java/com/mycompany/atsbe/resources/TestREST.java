@@ -21,7 +21,7 @@ public class TestREST {
     @Path("getTest/{testId}")
     public Response getTest(@PathParam("testId")int id){
         Test test = ts.<Test>getTest(0).orElseGet(() -> new Test(0, "NotFound", 0));
-        return Response.ok(new Gson().toJson(test))
+        return Response.ok(test)
                 .status((test.getTestID() == 0) ? Response.Status.NOT_FOUND : Response.Status.FOUND)
                 .build();
     }

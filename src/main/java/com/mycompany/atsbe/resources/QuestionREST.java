@@ -5,6 +5,7 @@ import Models.QA.Question;
 import Services.QuestionHandler;
 import Services.ServicesInterfaces.QuestionService;
 import Services.ServicesInterfaces.TopicService;
+import Services.TopicHandler;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -19,7 +20,7 @@ import java.util.NoSuchElementException;
 public class QuestionREST {
 
     QuestionService qs = new QuestionHandler();
-    TopicService ts;
+    TopicService ts=new TopicHandler();
 
     @Path("postQuestion/{topicId}")
     @POST

@@ -29,6 +29,7 @@ public class CourseDB extends DBConnection implements CourseDAO{
         }
         return null;
     }
+    
     @Override
     public boolean insertCourse(Course course) {
         try {
@@ -42,6 +43,7 @@ public class CourseDB extends DBConnection implements CourseDAO{
         }
         return false;
     }
+    
     @Override
     public boolean deleteCourse(Course course) {
         try {
@@ -54,6 +56,7 @@ public class CourseDB extends DBConnection implements CourseDAO{
         }
         return false;
     }
+    
     @Override
     public boolean updateCourse(Course course) {
         try {
@@ -68,6 +71,7 @@ public class CourseDB extends DBConnection implements CourseDAO{
         }
         return false;
     }
+    
     @Override
     public List<Course> allCourses() {
         List<Course> courses = new ArrayList<>();
