@@ -114,7 +114,11 @@ public class CommentDB extends DBConnection implements CommentDAO {
     @Override
     public List<Comment> getAllCommentsByFaculty(FacultyMember faculty) {
         List<Comment> facultyComments = new ArrayList<>();
-        con = getConnection();
+        try {
+            con = getConnection();
+        } catch (SQLException ex) {
+            Logger.getLogger(CommentDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             ps = con.prepareStatement("SELECT * FROM Comments WHERE userID = ?");
             ps.setInt(1, faculty.getUserID());
