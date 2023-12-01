@@ -12,7 +12,7 @@ public class UserHandler implements UserService {
 
     @Override
     public boolean addAccountRequest(User student) {
-        if(checkIfEmailExists(student.getEmail())){
+        if (checkIfEmailExists(student.getEmail())) {
             return false;
         }
         return udao.createAccountReq(student);
@@ -22,8 +22,8 @@ public class UserHandler implements UserService {
     public Optional<User> getUser(User user) {
         return Optional.ofNullable(udao.getUser(user));
     }
-    
-    public boolean checkIfEmailExists(String string){
+
+    public boolean checkIfEmailExists(String string) {
         return udao.checkForEmail(string);
     }
 }

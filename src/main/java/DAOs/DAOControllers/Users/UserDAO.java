@@ -15,5 +15,6 @@ public interface UserDAO {
     public User getUser(User user);
 
     public boolean createAccountReq(User student);
+
     public boolean checkForEmail(String email);
 }
