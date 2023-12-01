@@ -9,6 +9,8 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class User {
 
     private int userID;
