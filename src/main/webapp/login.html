@@ -4,14 +4,29 @@
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CascadingStyleSheets/login.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
     </head>
     <body>
-        <form>
-            <input type="text" name="username">
-            <input>
-            <input>
-            <input>
-            <input>
-        </form>
+        <h1>Login</h1>
+        <div class="login">
+            <h2>Login Form</h2>
+            <div id="loginform">
+                <form>
+                    <label for='name'>UserName:</label>
+                    <span>
+                    <i class="fa fa-user icon" aria-hidden="true"></i>
+                    </span>
+                    <input id='name' type='text' placeholder="name..." required>
+                    <label for='surname'>Password:</label>
+                    <i class="fa fa-key icon"></i>
+                    <input id='psw' type='password' placeholder="password..." required>
+                    <button id="lbtn">Login</button>
+                </form>
+            </div>
+            <div id="linfo">
+                Welcome Back
+            </div>
+        </div>
     </body>
 </html>
