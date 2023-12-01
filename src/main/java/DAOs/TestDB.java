@@ -4,7 +4,6 @@ import DAOs.DAOControllers.Courses.ModuleDAO;
 import DAOs.DAOControllers.Tests.TestDAO;
 import DBConnection.DBConnection;
 import Models.Courses.Module;
-import Models.Courses.Topic;
 import Models.Tests.Test;
 
 import java.sql.*;
