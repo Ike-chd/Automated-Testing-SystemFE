@@ -11,21 +11,21 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+public class TestDB implements TestDAO {
 
-public class TestDB implements TestDAO{
     private PreparedStatement ps;
     private ResultSet rs;
     private DBConnection connection;
     private Statement s;
     private ModuleDAO mdao = new ModuleDB();
-    
+
     @Override
     public Test getTest(int id) {
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM Tests WHERE testID = ?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return extractTestFromResultSet(rs);
             }
         } catch (SQLException ex) {
@@ -67,7 +67,7 @@ public class TestDB implements TestDAO{
             ps = connection.getConnection().prepareStatement("UPDATE Tests SET testName = ?, moduleID = ? WHERE testID = ?");
             ps.setString(1, test.getTestName());
             ps.setInt(2, test.getModuleID());
-            ps.setInt(3,test.getTestID());
+            ps.setInt(3, test.getTestID());
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException ex) {
@@ -78,12 +78,12 @@ public class TestDB implements TestDAO{
 
     @Override
     public List<Test> allModuleTests(Module module) {
-        List <Test> tests = new ArrayList<>();
+        List<Test> tests = new ArrayList<>();
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM Tests WHERE moduleID = ?");
             ps.setInt(1, module.getModuleID());
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Test test = extractTestFromResultSet(rs);
                 tests.add(test);
             }
@@ -99,7 +99,7 @@ public class TestDB implements TestDAO{
         try {
             s = connection.getConnection().createStatement();
             rs = s.executeQuery("SELECT * FROM Tests");
-            while(rs.next()){
+            while (rs.next()) {
                 Test test = extractTestFromResultSet(rs);
                 tests.add(test);
             }
@@ -113,15 +113,15 @@ public class TestDB implements TestDAO{
         int testId = resultSet.getInt("testID");
         String testName = resultSet.getString("testName");
         int moduleId = resultSet.getInt("moduleID");
-        return new Test(testId,testName,mdao.getModule(moduleId).getModuleID());
+        return new Test(testId, testName, mdao.getModule(moduleId).getModuleID());
     }
 
-    private Module getModuleById(int moduleId){
+    private Module getModuleById(int moduleId) {
         try {
             ps = connection.getConnection().prepareStatement("SELECT * FROM Modules WHERE moduleID = ?");
             ps.setInt(1, moduleId);
             rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return extractModuleFromResultSet(rs);
             }
         } catch (SQLException e) {
@@ -134,6 +134,6 @@ public class TestDB implements TestDAO{
         int moduleId = resultSet.getInt("moduleID");
         String moduleName = resultSet.getString("moduleName");
         String moduleDescription = resultSet.getString("moduleDescription");
-        return new Module(moduleId,moduleName,moduleDescription);
+        return new Module(moduleId, moduleName, moduleDescription);
     }
 }

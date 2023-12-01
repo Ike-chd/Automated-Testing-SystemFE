@@ -3,7 +3,6 @@ package DAOs;
 import DAOs.DAOControllers.Users.FacultyMemberDAO;
 import DBConnection.DBConnection;
 import Models.Users.FacultyMember;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
