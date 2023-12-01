@@ -14,14 +14,13 @@ public class TestDB implements TestDAO {
 
     private PreparedStatement ps;
     private ResultSet rs;
-    private DBConnection connection;
     private Statement s;
     private ModuleDAO mdao = new ModuleDB();
 
     @Override
     public Test getTest(int id) {
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Tests WHERE testID = ?");
+            ps = DBConnection.getConnection().prepareStatement("SELECT * FROM Tests WHERE testID = ?");
             ps.setInt(1, id);
             rs = ps.executeQuery();
             if (rs.next()) {
@@ -36,7 +35,7 @@ public class TestDB implements TestDAO {
     @Override
     public boolean insetTest(Test test) {
         try {
-            ps = connection.getConnection().prepareStatement("INSERT INTO Tests (testName, moduleID) VALUES (?,?)");
+            ps = DBConnection.getConnection().prepareStatement("INSERT INTO Tests (testName, moduleID) VALUES (?,?)");
             ps.setString(1, test.getTestName());
             ps.setInt(2, test.getModuleID());
             int affectedRows = ps.executeUpdate();
@@ -50,7 +49,7 @@ public class TestDB implements TestDAO {
     @Override
     public boolean deleteTest(Test test) {
         try {
-            ps = connection.getConnection().prepareStatement("DELETE FROM Tests WHERE testID = ?");
+            ps = DBConnection.getConnection().prepareStatement("DELETE FROM Tests WHERE testID = ?");
             ps.setInt(1, test.getTestID());
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0;
@@ -63,7 +62,7 @@ public class TestDB implements TestDAO {
     @Override
     public boolean updateTest(Test test) {
         try {
-            ps = connection.getConnection().prepareStatement("UPDATE Tests SET testName = ?, moduleID = ? WHERE testID = ?");
+            ps = DBConnection.getConnection().prepareStatement("UPDATE Tests SET testName = ?, moduleID = ? WHERE testID = ?");
             ps.setString(1, test.getTestName());
             ps.setInt(2, test.getModuleID());
             ps.setInt(3, test.getTestID());
@@ -79,7 +78,7 @@ public class TestDB implements TestDAO {
     public List<Test> allModuleTests(Module module) {
         List<Test> tests = new ArrayList<>();
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Tests WHERE moduleID = ?");
+            ps = DBConnection.getConnection().prepareStatement("SELECT * FROM Tests WHERE moduleID = ?");
             ps.setInt(1, module.getModuleID());
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -96,7 +95,7 @@ public class TestDB implements TestDAO {
     public List<Test> getAllTests() {
         List<Test> tests = new ArrayList<>();
         try {
-            s = connection.getConnection().createStatement();
+            s = DBConnection.getConnection().createStatement();
             rs = s.executeQuery("SELECT * FROM Tests");
             while (rs.next()) {
                 Test test = extractTestFromResultSet(rs);
@@ -117,7 +116,7 @@ public class TestDB implements TestDAO {
 
     private Module getModuleById(int moduleId) {
         try {
-            ps = connection.getConnection().prepareStatement("SELECT * FROM Modules WHERE moduleID = ?");
+            ps = DBConnection.getConnection().prepareStatement("SELECT * FROM Modules WHERE moduleID = ?");
             ps.setInt(1, moduleId);
             rs = ps.executeQuery();
             if (rs.next()) {
