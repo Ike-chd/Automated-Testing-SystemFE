@@ -5,7 +5,6 @@ import DAOs.DAOControllers.QA.QuestionDAO;
 import DBConnection.DBConnection;
 import Models.QA.Answer;
 import Models.QA.Question;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

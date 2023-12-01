@@ -2,15 +2,12 @@ package DAOs;
 
 import DAOs.DAOControllers.Courses.ModuleDAO;
 import DBConnection.DBConnection;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import Models.Courses.Module;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ModuleDB implements ModuleDAO {
 

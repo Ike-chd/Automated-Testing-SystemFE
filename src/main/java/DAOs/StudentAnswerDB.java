@@ -1,15 +1,12 @@
 package DAOs;
 
-import DAOs.DAOControllers.Courses.CourseDAO;
 import DAOs.DAOControllers.QA.QuestionDAO;
 import DAOs.DAOControllers.QA.StudentAnswerDAO;
 import DAOs.DAOControllers.Tests.TestDAO;
 import DAOs.DAOControllers.Users.StudentDAO;
 import DBConnection.DBConnection;
-import Models.Courses.Course;
 import Models.QA.Question;
 import Models.QA.StudentAnswer;
-import Models.Courses.Topic;
 import Models.Tests.Test;
 import Models.Users.Student;
 
