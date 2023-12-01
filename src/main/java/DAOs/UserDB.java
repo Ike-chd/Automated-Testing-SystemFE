@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lombok.Builder;
 
 public class UserDB extends DBConnection implements UserDAO {
 
@@ -31,7 +32,19 @@ public class UserDB extends DBConnection implements UserDAO {
 
     @Override
     public User getUser(int userId) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            ps = getConnection().prepareStatement("SELECT * FROM users "
+                    + "WHERE username = ?");
+            ps.setInt(1, userId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return extractUserFromDB(rs);
+            }
+            return null;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @Override
@@ -69,6 +82,25 @@ public class UserDB extends DBConnection implements UserDAO {
     }
 
     public User extractUserFromDB(ResultSet rs) {
-        return null;
+        User user = new User();
+        return user;
+    }
+
+    @Override
+    public boolean checkForEmail(String email) {
+        try {
+            ps = getConnection().prepareStatement("SELECT email FROM users "
+                    + "WHERE email = ?");
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                if (rs.getString("email").equals(email)) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
