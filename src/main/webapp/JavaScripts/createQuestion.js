@@ -13,12 +13,10 @@ $(function(){
             mark : $mark.val(),
             q1 : $q1.val()
         };
-        
         console.log(data);
     });
     $('#add').click(function () {
         ans++;
-        $('#inputs').append('<input type="text" id="q'+ans+'">');
+        $('#answers').append('<input type="text" id="q'+ans+'">');
     });
-    
 });

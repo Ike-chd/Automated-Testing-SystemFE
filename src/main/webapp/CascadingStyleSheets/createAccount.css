@@ -18,7 +18,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+.create {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,8 +73,12 @@ body {
     width: 100%;
 }
 
+#sbtn {
+    margin-top: 100px;
+}
+
 .wrapper {
-    width: 420px;
+    width: 500px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
