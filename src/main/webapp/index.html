@@ -1,34 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="CascadingStyleSheets/index.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <div class='indexpage'>
-            <button>Login</button>
-            <br>
-            <p>Don't have an account yet? <span id='request'>Request an account</span> an we will get back to you shortly</p>
-        </div>
-        <div class='req'>
-            <div class='reqFl'>
-                <h1>Request An Account</h1>
-                <label for='name'>Name:</label>
-                <input id='name' type='text' placeholder="John" required>
-                <label for='surname'>Surname:</label>
-                <input id='surname' type='text' placeholder="Cena" required>
-                <label for='idnumber'>ID No.:</label>
-                <input id='idnumber' type='text' placeholder="020419 7654321" required>
-                <label for='email'>E-mail:</label>
-                <input id='email' type='email' placeholder="john.cena@gmail.com" required>
-                <label for='phoneNumber'>Phone No.:</label>
-                <input id='phoneNumber' type='text' placeholder="065 393 3239">
-                <button id='submit'>Submit</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>VZAP Login</title>
+    <!-- Bootstrap CSS -->
+    <link id="bootstrap-style" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">VZAP Login</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <script src="JavaScripts/index.js"></script>
-    </body>
+    </div>
+    <div class="text-center mt-3">
+        <button id="toggle-mode" class="btn btn-link">Toggle Dark Mode</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- Dark Mode Toggle Script -->
+<script>
+    const toggleButton = document.getElementById('toggle-mode');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+    });
+</script>
+
+</body>
 </html>
