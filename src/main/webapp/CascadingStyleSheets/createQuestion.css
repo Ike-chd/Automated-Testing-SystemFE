@@ -21,60 +21,13 @@
 .qpage {
     display: flex;
     justify-content: center;
-    min-height: 100vh;
-    background: var(--ligh);
-/*    background: url('') no-repeat;
-    background-size: cover;
-    background-position: center;*/
-}
-
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 32px;
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.navbar a {
-    position: relative;
-    font-size: 18px;
-    color: var(--dark);
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 40px
-}
-
-.navbar a::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--dark);
-    transition: .3s;
-}
-
-.navbar a:hover::before {
-    width: 100%;
+    background: var(--light);
 }
 
 h1{
-    margin-top: 70px;
+    margin-top: 35px;
     display: block;
+    margin-left: 10%;
 }
 
 h2 {
@@ -108,28 +61,28 @@ h2 {
 }
 
 .textarea {
-  border: 1px solid #ccc;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 1px 6px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 6px;
+    color: black;
 }
+
 .width-machine {
-  /*   Sort of a magic number to add extra space for number spinner */
-  padding: 0 1rem;
+    padding: 0 1rem;
 }
 
 .textarea {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  resize: both;
-  min-height: 40px;
-  line-height: 20px;
+    display: block;
+    overflow: hidden;
+    resize: none;
+    min-height: 40px;
+    line-height: 20px;
 }
 
 .textarea[contenteditable]:empty::before {
-  content: "Placeholder still possible";
-  color: gray;
+    content: "Question...";
+    color: gray;
 }
 
 .wrapper .btn {
@@ -163,9 +116,90 @@ input {
     padding-left: 30px
 }
 
-.fa-user {
-    font-size: 30px;
+.container {
+    display: inline;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 3px;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
     position: absolute;
-    z-index: 2;
-    margin-left: 50px;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.answers {
+    display: inline;
+}
+
+#mark {
+    display: inline;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 0;
+    padding: 10px;
+    border-radius: 200px;
+    margin-top: 12px;
+}
+
+#add {
+    margin-left: auto;
+    display: inline;
+    width: 120px;
+    height: 35px;
+}
+
+#submit {
+    display: block;
+    margin: auto;
 }

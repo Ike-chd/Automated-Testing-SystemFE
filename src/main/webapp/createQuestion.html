@@ -10,41 +10,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <header class='header'>
-            <a href='#' class='logo'>Logo</a>
-            <nav class='navbar'>
-                <a href='#'>Home</a>
-                <a href='#'>About</a>
-                <a href='#'>Contact</a>
-                <a href='#'>Services</a>
-            </nav>
-        </header>
         <h1>Create A Question</h1>
         <div class="qpage">
             <div class='wrapper'>
                 <h2>Question</h2>
-                <textarea id="question" placeholder="Question..."></textarea>
-                <p><strong>Solution with span:</strong> <span class="textarea" role="textbox" contenteditable></span></p>
-                <h2>Answers</h2>
+                <p><span id="q" class="textarea" role="textbox" contenteditable></span></p>
+                <br>
+                <hr>
+                <h2 style="display: inline;">Mark Allocation</h2>
+                <input id="mark" type="text">
+                <hr>
+                <br>
+                <h2 style="display: inline;">Answers</h2><button id="add" class="btn">Add Answer</button>
+                <br>
+                <br>
                 <div id="answers">
                 </div>
-                <button id="add" class="btn">Add Answer</button>
+                <button id="submit" class="btn">Submit</button>
             </div>
         </div>
-        <!--        <div class="question">
-                    <label for="qname">Question</label>
-                    <br>
-                    <input class="hfsjn" id="qname" type="text" placeholder="Quesiton Name">
-                    <br>
-                    <label for="mark">Mark Allocation</label><br>
-                    <input id="mark">
-                    <h1>Enter Answers</h1>
-                    <div id="inputs">
-                        <input id="q1" placeholder="First Question">
-                    </div>
-                    <button id="add">add</button>
-                    <button id="submit">Submit</button>
-                </div>-->
         <script src="JavaScripts/createQuestion.js"></script>
     </body>
 </html>
