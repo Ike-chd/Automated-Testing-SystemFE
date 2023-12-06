@@ -52,7 +52,7 @@ $(function () {
             idNumber: $('#id').val()
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount",
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/facM",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -76,7 +76,7 @@ $(function () {
             idNumber: $('#id3').val()
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/courses/create",
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/admin",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
