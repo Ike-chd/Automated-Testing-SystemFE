@@ -20,7 +20,7 @@
             </nav>
         </header>
         <div id='wr1' class='wrapper'>
-            <form action=''>
+            <form action='UserSession' method="post">
                 <h1>Login</h1>
                 <div class="input-box">
                     <input id='emial' type="text" placeholder="Email" required>
@@ -37,7 +37,7 @@
                     </label>
                     <a href="#">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button id="lsubmit" type="submit" class="btn">Login</button>
                 <div class="register-link">
                     <p>Don't have an account? 
                         <a id='reg' href='#'>Register</a>
@@ -68,7 +68,11 @@
                                 <i class='bx bxs-calendar'></i>
                                 <i class='bx bx-stats' ></i>-->
                 <div class="input-box">
-                    <input id='n' type="text" placeholder="Full Name..." required>
+                    <input id='name' type="text" placeholder="Name..." required>
+                    <i class='bx bx-user'></i>
+                </div>
+                <div class="input-box">
+                    <input id='surname' type="text" placeholder="Surname..." required>
                     <i class='bx bx-user'></i>
                 </div>
                 <div class="input-box">
@@ -76,14 +80,18 @@
                     <i class='bx bxs-id-card'></i>
                 </div>
                 <div class="input-box">
-                    <input id='emial2' type="email" placeholder="Email" required>
+                    <input id='email2' type="email" placeholder="e-mail" required>
                     <i class='bx bx-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input id='address' type="text" placeholder="Address..." required>
+                    <i class='bx bxs-home-alt-2'></i>
                 </div>
                 <div class="input-box">
                     <input id='phone' type="text" placeholder="Phone No." required>
                     <i class='bx bx-phone'></i>
                 </div>
-                <button type="submit" class="btn">Request</button>
+                <button id="asubmit" class="btn">Request</button>
                 <div class="register-link">
                     <p>Already have an account? 
                         <a id='log' href='#'>Login</a>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -45,7 +46,11 @@
                                     <i class='bx bxs-calendar'></i>
                                     <i class='bx bx-stats' ></i>-->
                     <div class="input-box">
-                        <input id='n' type="text" placeholder="Full Name..." required>
+                        <input id='name' type="text" placeholder="Full Name..." required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='surname' type="text" placeholder="Surname..." required>
                         <i class='bx bx-user'></i>
                     </div>
                     <div class="input-box">
@@ -53,7 +58,11 @@
                         <i class='bx bxs-id-card'></i>
                     </div>
                     <div class="input-box">
-                        <input id='emial2' type="email" placeholder="Email" required>
+                        <input id='email' type="email" placeholder="Email" required>
+                        <i class='bx bx-envelope'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='address' type="text" placeholder="Email" required>
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
@@ -65,14 +74,26 @@
                         <i id='lock' class='bx bxs-lock-alt'></i>
                         <i id='olock' class='bx bx-lock-open-alt'></i>
                     </div>
-                    <button type="submit" class="btn">Request</button>
+                    <button id="createS" type="submit" class="btn">Create</button>
                 </form>
             </div>
             <div id='wr2' class='wrapper' style="display: none;">
                 <form action=''>
                     <h1>Create Faculty Member</h1>
+                     <div class="input-box">
+                        <input id='name2' type="text" placeholder="Full Name..." required>
+                        <i class='bx bx-user'></i>
+                    </div>
                     <div class="input-box">
-                        <input id='emial1' type="text" placeholder="Email" required>
+                        <input id='surname2' type="text" placeholder="Surname..." required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='id2' type="text" placeholder="ID_Number" required>
+                        <i class='bx bxs-id-card'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='email2' type="text" placeholder="Email" required>
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
@@ -86,7 +107,7 @@
                         </label>
                         <a href="#">Forgot password?</a>
                     </div>
-                    <button type="submit" class="btn">Login</button>
+                    <button id="createF" type="submit" class="btn">Create</button>
                     <div class="register-link">
                         <p>Don't have an account? 
                             <a id='reg2' href='#'>Register</a>
@@ -97,8 +118,20 @@
             <div id='wr3' class='wrapper' style="display: none;">
                 <form action=''>
                     <h1>Create Administrator</h1>
+                     <div class="input-box">
+                        <input id='name3' type="text" placeholder="Full Name..." required>
+                        <i class='bx bx-user'></i>
+                    </div>
                     <div class="input-box">
-                        <input id='emial3' type="text" placeholder="Email" required>
+                        <input id='surname3' type="text" placeholder="Surname..." required>
+                        <i class='bx bx-user'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='id3' type="text" placeholder="ID_Number" required>
+                        <i class='bx bxs-id-card'></i>
+                    </div>
+                    <div class="input-box">
+                        <input id='email3' type="text" placeholder="Email" required>
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
@@ -112,7 +145,7 @@
                         </label>
                         <a href="#">Forgot password?</a>
                     </div>
-                    <button type="submit" class="btn">Login</button>
+                    <button id="createA" type="submit" class="btn">Create</button>
                     <div class="register-link">
                         <p>Don't have an account? 
                             <a id='reg3' href='#'>Register</a>
