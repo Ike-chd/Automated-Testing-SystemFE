@@ -18,16 +18,67 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
+.create {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--light);
+    background: var(--ligh);
+/*    background: url('') no-repeat;
+    background-size: cover;
+    background-position: center;*/
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: var(--dark);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark);
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+#sbtn {
+    margin-top: 100px;
 }
 
 .wrapper {
-    width: 420px;
+    width: 500px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -37,9 +88,30 @@ body {
     padding: 30px 40px;
 }
 
+#wr2 {
+    width: 500px;
+    margin-top: 100px;
+    margin-bottom: 15px;
+    display: none;
+}
+
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+#caplogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#caplogo i {
+    font-size: 100px;
 }
 
 .wrapper .input-box {
@@ -71,7 +143,32 @@ body {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
+    font-size: 20px
+}
+
+#olock {
+    display: none;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
 }
 
 .wrapper .btn {
@@ -86,7 +183,6 @@ body {
     font-size: 16px;
     color: var(--light);
     font-weight: 600;
-    margin-top: 20px;
 }
 
 .wrapper .register-link {
