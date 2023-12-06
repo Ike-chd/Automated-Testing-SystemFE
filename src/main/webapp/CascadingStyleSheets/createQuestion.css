@@ -7,32 +7,84 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-.material-icons-outlined {
-    vertical-align: middle;
-    line-height: 1px;
+.qpage {
+    display: flex;
+    justify-content: center;
+    background: var(--light);
 }
 
-.text-primary {
-    color: #666666;
+h1{
+    margin-top: 35px;
+    display: block;
+    margin-left: 10%;
 }
 
-.text-blue {
-    color: #246dec;
+h2 {
+    color: black;
 }
 
-.text-red {
-    color: #cc3c43;
+.wrapper {
+    width: 80%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 30px 40px;
 }
 
-.text-green {
-    color: #367952;
+#question {
+    width: 80%;
+    resize: vertical;
+    max-height: 400px;
+    background-color: rgb(230, 240, 242);
+    outline: none;
+    border: none;
+    border: 2px solid black;
 }
 
-.text-orange {
-    color: #f5b74f;
+#question:focus {
+    outline: none;
+    background-color: rgba(230, 240, 242, .7);
 }
 
-.font-weight-bold {
+.textarea {
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1px 6px;
+    color: black;
+}
+
+.width-machine {
+    padding: 0 1rem;
+}
+
+.textarea {
+    display: block;
+    overflow: hidden;
+    resize: none;
+    min-height: 40px;
+    line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+    content: "Question...";
+    color: gray;
+}
+
+.wrapper .btn {
+    width: 150px;
+    height: 45px;
+    background: var(--primary);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--light);
     font-weight: 600;
 }
 
@@ -44,77 +96,90 @@ body {
     height: 100vh;
 }
 
-.header {
-    grid-area: header;
-    height: 70px;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px 0 30px;
-    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-}
-
-.menu-icon {
-    display: none;
-}
-
-#sidebar {
-    grid-area: sidebar;
-    height: 100%;
-    background-color: #21232d;
-    color: #9799ab;
-    overflow-y: auto;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-}
-
-.sidebar-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 20px 20px 20px;
-    margin-bottom: 30px;
-}
-
-.sidebar-title > span {
-    display: none;
-}
-
-.sidebar-brand {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.sidebar-list {
-    padding: 0;
-    margin-top: 15px;
-    list-style-type: none;
-}
-
-.sidebar-list-item {
-    padding: 20px 20px 20px 20px;
-}
-
-.sidebar-list-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.container {
+    display: inline;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 3px;
+    padding-left: 35px;
     cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.sidebar-list-item > a {
-    text-decoration: none;
-    color: #9799ab;
-}
-
-.sidebar-responsive {
-    display: inline !important;
+.container input {
     position: absolute;
-    z-index: 12 !important;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 }
 
-.main-container {
-    grid-area: main;
-    overflow-y: auto;
-    padding: 20px 20px;
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.answers {
+    display: inline;
+}
+
+#mark {
+    display: inline;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    padding: 0;
+    padding: 10px;
+    border-radius: 200px;
+    margin-top: 12px;
+}
+
+#add {
+    margin-left: auto;
+    display: inline;
+    width: 120px;
+    height: 35px;
+}
+
+#submit {
+    display: block;
+    margin: auto;
 }

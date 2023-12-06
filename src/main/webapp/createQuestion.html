@@ -43,11 +43,19 @@
         <div class="qpage">
             <div class='wrapper'>
                 <h2>Question</h2>
-                <textarea id="question" placeholder="Question..."></textarea>
-                <p><strong>Solution with span:</strong> <span class="textarea" role="textbox" contenteditable></span></p>
-                <h2>Answers</h2>
-                <div id="answers"></div>
-                <button id="add" class="btn">Add Answer</button>
+                <p><span id="q" class="textarea" role="textbox" contenteditable></span></p>
+                <br>
+                <hr>
+                <h2 style="display: inline;">Mark Allocation</h2>
+                <input id="mark" type="text">
+                <hr>
+                <br>
+                <h2 style="display: inline;">Answers</h2><button id="add" class="btn">Add Answer</button>
+                <br>
+                <br>
+                <div id="answers">
+                </div>
+                <button id="submit" class="btn">Submit</button>
             </div>
         </div>
 
