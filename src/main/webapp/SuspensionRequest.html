@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/SuspensionRequest.css">
+        <title>Suspension Request</title>
+    </head>
+    <body>
+        <header class='header'>
+            <a href='#' class='logo'></a>
+            <nav class='navbar'>
+                <a href='#'>Home</a>
+                <a href='#'>About</a>
+                <a href='#'>Contact</a>
+                <a href='#'>Services</a>
+            </nav>
+        </header>
+        <div class="wrapper">
+            <h1>Suspension Request</h1>
+            
+            <form id="suspensionRequestForm">
+                <label for="studentName">Search Student by Name:</label>
+                <input type="text" id="studentName" name="studentName" oninput="searchStudents()" required>
+
+                <select id="studentDropdown" name="selectedStudent" style="display: none;" required>
+                   
+                </select>
+
+                <label for="duration">Suspension Duration (in days):</label>
+                <input type="number" id="duration" name="duration" required>
+
+                <label for="reason">Reason for Suspension:</label>
+                <textarea id="reason" name="reason" required></textarea>
+
+                <button type="button">Submit Request</button>
+            </form>
+            <script src="JavaScripts/SuspensionRequest.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="JavaScripts/SuspensionRequest.js"></script>
+</body>
+</html>
