@@ -20,14 +20,14 @@
             </nav>
         </header>
         <div id='wr1' class='wrapper'>
-            <form action='UserSession' method="post">
+            <form action='LoginServlet' method="post">
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input id='emial' type="text" placeholder="Email" required>
+                    <input name="email" id='email' type="text" placeholder="Email" required>
                     <i class='bx bx-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input id='password' type="password" placeholder="Password" required>
+                    <input name="password" id='password' type="password" placeholder="Password" required>
                     <i id='lock' class='bx bxs-lock-alt'></i>
                     <i id='olock' class='bx bx-lock-open-alt'></i>
                 </div>
