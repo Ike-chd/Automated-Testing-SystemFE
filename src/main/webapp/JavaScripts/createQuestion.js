@@ -9,7 +9,7 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/topics/allTopics",
+        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/topics/allTopics",
         success: function (topics) {
             $.each(topics, function (i, topic) {
                 topicName = topic.topic;
@@ -38,7 +38,7 @@ $(function () {
         
         var sTopic = document.getElementById('topics');
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/topics/postQuestion/" + sTopic.id,
+            url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/questions/postQuestion/" + 1/*sTopic.id*/,
             method: "POST",
             headers: {
                 'Accept': 'application/json',

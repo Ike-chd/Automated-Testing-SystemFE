@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --primary: #4e73df;
+    --info: #36b9cc;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --success: #1cc88a;
+    --warning: #f6c23e;
+    --secondary: #858796;
+    --dark: #5a5c69;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.qpage {
+    display: flex;
+    justify-content: center;
+    background: var(--light);
+}
+
+h1{
+    margin-top: 35px;
+    display: block;
+    margin-left: 10%;
+}
+
+h2, h3 {
+    color: black;
+    display: inline;
+}
+
+.wrapper {
+    width: 80%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 20px;
+    padding: 30px 40px;
+}
+
+.container {
+    display: inline;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 3px;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
