@@ -14,7 +14,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css"> 
-
 </head>
 
 <body>
@@ -92,43 +91,40 @@
             </div>
 
             <div class="main-cards">
-
-                <div class="card">
+                <div class="card" id="students-card">
                     <div class="card-inner">
                         <p class="text-primary">STUDENTS</p>
                         <span class="material-icons-outlined text-blue">people</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Total: XXX</span>
+                    <span class="text-primary font-weight-bold" id="totalStudents">Total: XXX</span>
                 </div>
 
-                <div class="card">
+                <div class="card" id="courses-card">
                     <div class="card-inner">
                         <p class="text-primary">COURSES</p>
-                        <span class="material-icons-outlined text-orange">class</span>
+                        <span class="material-icons-outlined text-blue">class</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Total: XXX</span>
+                    <span class="text-primary font-weight-bold" id="totalCourses">Total: XXX</span>
                 </div>
 
-                <div class="card">
+                <div class="card" id="enrollments-card">
                     <div class="card-inner">
                         <p class="text-primary">ENROLLMENTS</p>
-                        <span class="material-icons-outlined text-green">event_note</span>
+                        <span class="material-icons-outlined text-blue">event_note</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Pending: XXX</span>
+                    <span class="text-primary font-weight-bold" id="pendingEnrollments">Pending: XXX</span>
                 </div>
 
-                <div class="card">
+                <div class="card" id="grades-card">
                     <div class="card-inner">
                         <p class="text-primary">GRADES</p>
-                        <span class="material-icons-outlined text-red">grading</span>
+                        <span class="material-icons-outlined text-blue">grading</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Average: XX</span>
+                    <span class="text-primary font-weight-bold" id="averageGrades">Average: XX</span>
                 </div>
-
             </div>
 
             <div class="charts">
-
                 <div class="charts-card">
                     <p class="chart-title">Top Performing Courses</p>
                     <div id="bar-chart"></div>
@@ -138,7 +134,13 @@
                     <p class="chart-title">Enrollment Trends</p>
                     <div id="area-chart"></div>
                 </div>
+            </div>
 
+            <!-- Buttons and Loading Indicator -->
+            <div class="dashboard-controls">
+                <button id="update-button">Update Charts</button>
+                <button id="fetch-data-button">Fetch Data</button>
+                <div id="loading-indicator" class="loading-indicator"></div>
             </div>
         </main>
         <!-- End Main -->
@@ -150,7 +152,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="JavaScripts/dashboard.js"></script> 
-
 </body>
 
 </html>

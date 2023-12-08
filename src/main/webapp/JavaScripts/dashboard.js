@@ -1,29 +1,13 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
-// SIDEBAR TOGGLE
-
+// Sidebar Toggle
 let sidebarOpen = false;
 const sidebar = document.getElementById('sidebar');
 
-function openSidebar() {
-  if (!sidebarOpen) {
-    sidebar.classList.add('sidebar-responsive');
-    sidebarOpen = true;
-  }
+function toggleSidebar() {
+  sidebar.classList.toggle('sidebar-responsive', sidebarOpen);
+  sidebarOpen = !sidebarOpen;
 }
 
-function closeSidebar() {
-  if (sidebarOpen) {
-    sidebar.classList.remove('sidebar-responsive');
-    sidebarOpen = false;
-  }
-}
-
-// ---------- CHARTS ----------
-
-// BAR CHART
+// Charts
 const barChartOptions = {
   series: [
     {
@@ -37,7 +21,7 @@ const barChartOptions = {
       show: false,
     },
   },
-  colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
+  colors: ['#E8EAE3'],
   plotOptions: {
     bar: {
       distributed: true,
@@ -53,11 +37,11 @@ const barChartOptions = {
     show: false,
   },
   xaxis: {
-    categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
+    categories: ['Math', 'History', 'Physics', 'Biology', 'Chemistry'],
   },
   yaxis: {
     title: {
-      text: 'Count',
+      text: 'Average Grade',
     },
   },
 };
@@ -68,16 +52,11 @@ const barChart = new ApexCharts(
 );
 barChart.render();
 
-// AREA CHART
 const areaChartOptions = {
   series: [
     {
-      name: 'Purchase Orders',
-      data: [31, 40, 28, 51, 42, 109, 100],
-    },
-    {
-      name: 'Sales Orders',
-      data: [11, 32, 45, 32, 34, 52, 41],
+      name: 'Test Scores',
+      data: [75, 92, 84, 67, 88, 95, 78],
     },
   ],
   chart: {
@@ -87,27 +66,21 @@ const areaChartOptions = {
       show: false,
     },
   },
-  colors: ['#4f35a1', '#246dec'],
+  colors: ['#373833'],
   dataLabels: {
     enabled: false,
   },
   stroke: {
     curve: 'smooth',
   },
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+  labels: ['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6', 'Test 7'],
   markers: {
     size: 0,
   },
   yaxis: [
     {
       title: {
-        text: 'Purchase Orders',
-      },
-    },
-    {
-      opposite: true,
-      title: {
-        text: 'Sales Orders',
+        text: 'Test Scores',
       },
     },
   ],
@@ -122,3 +95,49 @@ const areaChart = new ApexCharts(
   areaChartOptions
 );
 areaChart.render();
+
+// Tiles and Buttons
+const fetchDataButton = document.getElementById('fetch-data-button');
+const loadingIndicator = document.getElementById('loading-indicator');
+
+// Function to update tile content based on student data
+function updateTiles(data) {
+  const tileContents = [
+    `Total Students: ${data.totalStudents}`,
+    `Average Test Score: ${data.averageTestScore.toFixed(2)}`,
+    // Add more tile contents as needed...
+  ];
+
+  const tiles = document.querySelectorAll('.card');
+  tiles.forEach((tile, index) => {
+    tile.innerHTML = `
+      <div class="card-inner">
+        <p class="text-primary">${tileContents[index]}</p>
+        <span class="material-icons-outlined text-blue">info</span>
+      </div>
+    `;
+  });
+}
+
+// Function to fetch student data
+async function fetchStudentData() {
+  try {
+    loadingIndicator.style.display = 'block';
+    // Replace '/api/student-data' with your actual API endpoint
+    const response = await fetch('/api/student-data');
+    const data = await response.json();
+    updateTiles(data);
+    barChart.updateSeries([{ data: data.barChartData }]);
+    areaChart.updateSeries([{ data: data.areaChartData }]);
+  } catch (error) {
+    console.error('Error fetching student data:', error);
+  } finally {
+    loadingIndicator.style.display = 'none';
+  }
+}
+
+// Event Listener
+fetchDataButton.addEventListener('click', fetchStudentData);
+
+// Initial fetch on page load
+fetchStudentData();
