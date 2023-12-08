@@ -33,17 +33,17 @@ $(function () {
             mark: $mark.val(),
             answers: answers
         };
-        
+
         console.log(data);
-        
+
         var sTopic = document.getElementById('topics');
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/topics/postQuestion/" + sTopic.id,
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/questins/postQuestion/" + 1/*sTopic.id*/,
             method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+//            headers: {
+//                'Accept': 'application/json',
+//                'Content-Type': 'application/json'
+//            },
             data: JSON.stringify(data)
         };
 
@@ -51,7 +51,7 @@ $(function () {
             console.log(response);
         });
     });
-    
+
     $('#add').click(function () {
         ans++;
         $('#answers').append('\
