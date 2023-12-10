@@ -18,6 +18,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,21 +32,21 @@ public class LoginServlet extends HttpServlet {
         User loggedIn = new User();
         loggedIn.setEmail(request.getParameter("email"));
         loggedIn.setPassword(request.getParameter("password"));
-//        try {
-//            HttpRequest getRequest = HttpRequest.newBuilder()
-//                    .uri(new URI("http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/"+request.getParameter("email")))
-//                    .GET()
-//                    .build();
-//            HttpClient client = HttpClient.newHttpClient();
-//            HttpResponse<String> response1 = client.send(getRequest, BodyHandlers.ofString());
-//            Gson gson = new Gson();
-//            loggedIn = gson.fromJson(response1.body(), User.class);
-//        } catch (URISyntaxException ex) {
-//            ex.printStackTrace();
-//        } catch (InterruptedException ex) {
-//            ex.printStackTrace();
-//        }
-        if(loggedIn.getPassword().equals(request.getParameter("password"))){
+        try {
+            HttpRequest getRequest = HttpRequest.newBuilder()
+                    .uri(new URI("http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
+                    .GET()
+                    .build();
+            HttpClient client = HttpClient.newHttpClient();
+            HttpResponse<String> response1 = client.send(getRequest, BodyHandlers.ofString());
+            Gson gson = new Gson();
+            loggedIn = gson.fromJson(response1.body(), User.class);
+        } catch (URISyntaxException ex) {
+            ex.printStackTrace();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        if (loggedIn.getPassword().equals(request.getParameter("password"))) {
             session.setAttribute("user", loggedIn);
             request.getRequestDispatcher("JavaServerPages/DashboardSuperAdmin.jsp").include(request, response);
         } else {

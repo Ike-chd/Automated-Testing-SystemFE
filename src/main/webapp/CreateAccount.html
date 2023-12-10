@@ -11,15 +11,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <header class='header'>
-            <a href='#' class='logo'></a>
-            <nav class='navbar'>
-                <a href='#'>Home</a>
-                <a href='#'>About</a>
-                <a href='#'>Contact</a>
-                <a href='#'>Services</a>
-            </nav>
-        </header>
         <button id="sbtn">Student</button>
         <button id="fbtn">Faculty Member</button>
         <button id="abtn">Administrator</button>
@@ -27,7 +18,7 @@
             <div id='wr1' class='wrapper'>
                 <form>
                     <h1>Create Student</h1>
-                    <div id="caplogo">
+                    <div id="logo">
                         <i class="fa fa-graduation-cap"></i>
                     </div>
                     <!--                <i class='bx bx-bookmark'></i>
@@ -80,6 +71,9 @@
             <div id='wr2' class='wrapper' style="display: none;">
                 <form action=''>
                     <h1>Create Faculty Member</h1>
+                    <div id="logo">
+                        <i class='bx bx-book-alt'></i>
+                    </div>
                      <div class="input-box">
                         <input id='name2' type="text" placeholder="Full Name..." required>
                         <i class='bx bx-user'></i>
@@ -97,27 +91,22 @@
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
+                        <input id='professor' type="checkbox">Professor
+                    </div>
+                    <div class="input-box">
                         <input id='password2' type="password" placeholder="Password" required>
                         <i id='lock2' class='bx bxs-lock-alt'></i>
                         <i id='olock2' class='bx bx-lock-open-alt'></i>
                     </div>
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox">Remember me
-                        </label>
-                        <a href="#">Forgot password?</a>
-                    </div>
                     <button id="createF" type="submit" class="btn">Create</button>
-                    <div class="register-link">
-                        <p>Don't have an account? 
-                            <a id='reg2' href='#'>Register</a>
-                        </p>
-                    </div>
                 </form>
             </div>
             <div id='wr3' class='wrapper' style="display: none;">
                 <form action=''>
                     <h1>Create Administrator</h1>
+                    <div id="logo">
+                        <i class='bx bx-book-open' ></i>
+                    </div>
                      <div class="input-box">
                         <input id='name3' type="text" placeholder="Full Name..." required>
                         <i class='bx bx-user'></i>
@@ -135,22 +124,14 @@
                         <i class='bx bx-envelope'></i>
                     </div>
                     <div class="input-box">
+                        <input id='superAdmin' type="checkbox">Super Admin
+                    </div>
+                    <div class="input-box">
                         <input id='password3' type="password" placeholder="Password" required>
                         <i id='lock3' class='bx bxs-lock-alt'></i>
                         <i id='olock3' class='bx bx-lock-open-alt'></i>
                     </div>
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox">Remember me
-                        </label>
-                        <a href="#">Forgot password?</a>
-                    </div>
                     <button id="createA" type="submit" class="btn">Create</button>
-                    <div class="register-link">
-                        <p>Don't have an account? 
-                            <a id='reg3' href='#'>Register</a>
-                        </p>
-                    </div>
                 </form>
             </div>
         </div>

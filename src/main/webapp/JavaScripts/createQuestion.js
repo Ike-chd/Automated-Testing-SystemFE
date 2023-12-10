@@ -7,6 +7,28 @@ $(function () {
     var topicId;
     var topicHTML = '<option value=' + topicId + '>' + topicName + '</option>';
 
+    $('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+
+    $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+
+    $('.dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    });
+
+    $('.dropdown-menu li').click(function () {
+        input = $(this).parents('.dropdown').find('input').val(),
+                msg = '<span id="input" class="msg">';
+        $('.msg').html(msg + input + '</span>');
+    });
+
     $.ajax({
         type: 'GET',
         url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/topics/allTopics",
@@ -18,7 +40,7 @@ $(function () {
             });
         }
     });
-
+    
     $('#submit').click(function () {
         var answers = $('.answers').map(function () {
             check++;
@@ -33,9 +55,9 @@ $(function () {
             mark: $mark.val(),
             answers: answers
         };
-        
+
         console.log(data);
-        
+
         var sTopic = document.getElementById('topics');
         var settings = {
             url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/questions/postQuestion/" + 1/*sTopic.id*/,
@@ -51,7 +73,7 @@ $(function () {
             console.log(response);
         });
     });
-    
+
     $('#add').click(function () {
         ans++;
         $('#answers').append('\
