@@ -1,159 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CascadingStyleSheets/createAccount.css">
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <header class='header'>
-            <a href='#' class='logo'></a>
-            <nav class='navbar'>
-                <a href='#'>Home</a>
-                <a href='#'>About</a>
-                <a href='#'>Contact</a>
-                <a href='#'>Services</a>
-            </nav>
-        </header>
-        <button id="sbtn">Student</button>
-        <button id="fbtn">Faculty Member</button>
-        <button id="abtn">Administrator</button>
-        <div class="create">
-            <div id='wr1' class='wrapper'>
-                <form>
-                    <h1>Create Student</h1>
-                    <div id="caplogo">
-                        <i class="fa fa-graduation-cap"></i>
-                    </div>
-                    <!--                <i class='bx bx-bookmark'></i>
-                                    <i class='bx bxs-bookmark'></i>
-                                    <i class='bx bx-bookmarks'></i>
-                                    <i class='bx bxs-bookmarks' ></i>
-                                    <i class='bx bx-book-alt'></i>
-                                    <i class='bx bx-book-open' ></i>
-                                    <i class='bx bx-comment'></i>
-                                    <i class='bx bxs-comment' ></i>
-                                    <i class='bx bxs-report'></i>
-                                    <i class='bx bxs-notification'></i>
-                                    <i class='bx bxs-checkbox'></i>
-                                    <i class='bx bxs-edit' ></i>
-                                    <i class='bx bxs-x-square'></i>
-                                    <i class='bx bxs-calendar'></i>
-                                    <i class='bx bx-stats' ></i>-->
-                    <div class="input-box">
-                        <input id='name' type="text" placeholder="Full Name..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='surname' type="text" placeholder="Surname..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='id' type="text" placeholder="ID_Number" required>
-                        <i class='bx bxs-id-card'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='email' type="email" placeholder="Email" required>
-                        <i class='bx bx-envelope'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='address' type="text" placeholder="Email" required>
-                        <i class='bx bx-envelope'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='phone' type="text" placeholder="Phone No." required>
-                        <i class='bx bx-phone'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='password' type="password" placeholder="Password" required>
-                        <i id='lock' class='bx bxs-lock-alt'></i>
-                        <i id='olock' class='bx bx-lock-open-alt'></i>
-                    </div>
-                    <button id="createS" type="submit" class="btn">Create</button>
-                </form>
+    <html>
+        <head>
+            <title>TODO supply a title</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="CascadingStyleSheets/createAccount.css">
+            <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        </head>
+        <body>
+            <button id="sbtn">Student</button>
+            <button id="fbtn">Faculty Member</button>
+            <button id="abtn">Administrator</button>
+            <div class="create">
+                <div id='wr1' class='wrapper'>
+                    <form>
+                        <h1>Create Student</h1>
+                        <div id="logo">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <!--                <i class='bx bx-bookmark'></i>
+                                        <i class='bx bxs-bookmark'></i>
+                                        <i class='bx bx-bookmarks'></i>
+                                        <i class='bx bxs-bookmarks' ></i>
+                                        <i class='bx bx-book-alt'></i>
+                                        <i class='bx bx-book-open' ></i>
+                                        <i class='bx bx-comment'></i>
+                                        <i class='bx bxs-comment' ></i>
+                                        <i class='bx bxs-report'></i>
+                                        <i class='bx bxs-notification'></i>
+                                        <i class='bx bxs-checkbox'></i>
+                                        <i class='bx bxs-edit' ></i>
+                                        <i class='bx bxs-x-square'></i>
+                                        <i class='bx bxs-calendar'></i>
+                                        <i class='bx bx-stats' ></i>-->
+                        <div class="input-box">
+                            <input id='name' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='surname' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='id' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email' type="email" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='address' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='phone' type="text" placeholder="Phone No." required>
+                            <i class='bx bx-phone'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='password' type="password" placeholder="Password" required>
+                            <i id='lock' class='bx bxs-lock-alt'></i>
+                            <i id='olock' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <button id="createS" type="submit" class="btn">Create</button>
+                    </form>
+                </div>
+                <div id='wr2' class='wrapper' style="display: none;">
+                    <form action=''>
+                        <h1>Create Faculty Member</h1>
+                        <div id="logo">
+                            <i class='bx bx-book-alt'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='name2' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='surname2' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='id2' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email2' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='professor' type="checkbox">Professor
+                        </div>
+                        <div class="input-box">
+                            <input id='password2' type="password" placeholder="Password" required>
+                            <i id='lock2' class='bx bxs-lock-alt'></i>
+                            <i id='olock2' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <button id="createF" type="submit" class="btn">Create</button>
+                    </form>
+                </div>
+                <div id='wr3' class='wrapper' style="display: none;">
+                    <form action=''>
+                        <h1>Create Administrator</h1>
+                        <div id="logo">
+                            <i class='bx bx-book-open' ></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='name3' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='surname3' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='id3' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email3' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='superAdmin' type="checkbox">Super Admin
+                        </div>
+                        <div class="input-box">
+                            <input id='password3' type="password" placeholder="Password" required>
+                            <i id='lock3' class='bx bxs-lock-alt'></i>
+                            <i id='olock3' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <button id="createA" type="submit" class="btn">Create</button>
+                    </form>
+                </div>
             </div>
-            <div id='wr2' class='wrapper' style="display: none;">
-                <form action=''>
-                    <h1>Create Faculty Member</h1>
-                     <div class="input-box">
-                        <input id='name2' type="text" placeholder="Full Name..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='surname2' type="text" placeholder="Surname..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='id2' type="text" placeholder="ID_Number" required>
-                        <i class='bx bxs-id-card'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='email2' type="text" placeholder="Email" required>
-                        <i class='bx bx-envelope'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='password2' type="password" placeholder="Password" required>
-                        <i id='lock2' class='bx bxs-lock-alt'></i>
-                        <i id='olock2' class='bx bx-lock-open-alt'></i>
-                    </div>
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox">Remember me
-                        </label>
-                        <a href="#">Forgot password?</a>
-                    </div>
-                    <button id="createF" type="submit" class="btn">Create</button>
-                    <div class="register-link">
-                        <p>Don't have an account? 
-                            <a id='reg2' href='#'>Register</a>
-                        </p>
-                    </div>
-                </form>
-            </div>
-            <div id='wr3' class='wrapper' style="display: none;">
-                <form action=''>
-                    <h1>Create Administrator</h1>
-                     <div class="input-box">
-                        <input id='name3' type="text" placeholder="Full Name..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='surname3' type="text" placeholder="Surname..." required>
-                        <i class='bx bx-user'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='id3' type="text" placeholder="ID_Number" required>
-                        <i class='bx bxs-id-card'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='email3' type="text" placeholder="Email" required>
-                        <i class='bx bx-envelope'></i>
-                    </div>
-                    <div class="input-box">
-                        <input id='password3' type="password" placeholder="Password" required>
-                        <i id='lock3' class='bx bxs-lock-alt'></i>
-                        <i id='olock3' class='bx bx-lock-open-alt'></i>
-                    </div>
-                    <div class="remember-forgot">
-                        <label>
-                            <input type="checkbox">Remember me
-                        </label>
-                        <a href="#">Forgot password?</a>
-                    </div>
-                    <button id="createA" type="submit" class="btn">Create</button>
-                    <div class="register-link">
-                        <p>Don't have an account? 
-                            <a id='reg3' href='#'>Register</a>
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <script src="JavaScripts/createAccount.js"></script>
-    </body>
-</html>
+            <script src="JavaScripts/createAccount.js"></script>
+        </body>
+    </html>
