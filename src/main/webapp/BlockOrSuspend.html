@@ -1,46 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/BlockOrSuspend.css">
-    <title>Block or Suspend Student</title>
-</head>
-<body>
-    <header class='header'>
-        <a href='#' class='logo'>Your Logo</a>
-        <nav class='navbar'>
-            <a href='#'>Home</a>
-            <a href='#'>About</a>
-            <a href='#'>Contact</a>
-            <a href='#'>Services</a>
-        </nav>
-    </header>
-    
-    <div class="wrapper">
-        <h1>Block or Suspend Students</h1>
-        
-        <form id="blockOrSuspendForm">
-            <label for="studentName">Student Name:</label>
-            <input type="text" id="studentName" name="studentName" required>
-            
-            <label for="action">Select Action:</label>
-            <select id="action" name="action">
-                <option value="block">Block</option>
-                <option value="suspend">Suspend</option>
-            </select>
-            
-            <label for="duration">Duration (if suspending):</label>
-            <input type="text" id="duration" name="duration">
-            
-            <label for="reason">Reason:</label>
-            <textarea id="reason" name="reason" required></textarea>
-            
-            <button type="button">Submit</button>
-        </form>
-    </div>
-    
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="JavaScripts/BlockOrSuspend.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Block or Suspend Students</title>
+        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/BlockOrSuspend.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Request Suspension</h1>
+        <div class="wrapper">
+            <h3>Select Student</h3>
+            <form action="DashboardSuperAdmin.html" id="blockOrSuspendForm">
+                <div class="container">    
+                    <div class="dropdown">
+                        <div class="select">
+                            <span>Select Topic</span>
+                            <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <input type="hidden" name="gender">
+                        <ul class="dropdown-menu">
+                            <li id="hello">Male<br>1234</li>
+                            <li id="female">Female</li>
+                        </ul>
+                    </div>
+                    <span class="msg"></span>
+                </div>
+                <h3>Duration</h3>
+                <h4>Start</h4>
+                <input type="date" id="start" name="duration">
+                <h4>End</h4>
+                <input type="date" id="end" name="duration">
+                <h3>Reason</h3>
+                <p><span id="reason" class="textarea" role="textbox" contenteditable></span></p>
+                <button id="submit" class="btn" type="submit">Submit</button>
+            </form>
+        </div>
+        <script src="JavaScripts/BlockOrSuspend.js"></script>
+    </body>
 </html>

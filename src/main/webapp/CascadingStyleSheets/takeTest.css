@@ -37,6 +37,8 @@ h2, h3 {
 
 .wrapper {
     width: 80%;
+    position: relative;
+    margin-left: 10%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -105,4 +107,111 @@ h2, h3 {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.prev-next {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+    margin-bottom: 40px;
+}
+
+.prev-next button {
+    margin-left: 70px;
+    margin-right: 70px;
+    width: 150px;
+    height: 45px;
+    background: var(--primary);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--light);
+    font-weight: 600;
+}
+
+.questions {
+    margin-left: 100%;
+    display: none;
+}
+
+#que0 {
+    margin-left: 0;
+    display: block;
+}
+
+.bx-bookmark {
+    position: absolute;
+    padding: 4px;
+    top: 10px;
+    right: 10px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    font-size: 13px;
+    color: red;
+}
+
+.bxs-bookmark {
+    position: absolute;
+    padding: 4px;
+    top: 10px;
+    right: 10px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    font-size: 13px;
+    color: red;
+}
+
+.bx-bookmarks {
+    position: absolute;
+    padding: 8px;
+    top: 80%;
+    left: 95%;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.bxs-bookmarks {
+    position: absolute;
+    padding: 8px;
+    top: 80%;
+    left: 95%;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+#finish {
+    width: 150px;
+    height: 45px;
+    background: var(--dark);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--light);
+    font-weight: 600;
+}
+
+.countFin {
+    top: 30px;
+    text-align: center;
+    margin: auto auto;
+    width: 60%;
+    left: 20%;
 }

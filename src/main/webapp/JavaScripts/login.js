@@ -1,7 +1,6 @@
 var lock = document.getElementById('lock');
 var open = document.getElementById('olock');
 var password = document.getElementById('password');
-var ip = "192.168.8.131";
 
 lock.addEventListener('click', hideL);
 open.addEventListener('click', hideO);
@@ -35,7 +34,7 @@ $(function () {
     $('#email').blur(function () {
         $.ajax({
             type: 'GET',
-            url: "http://"+ ip +":8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + $('#email').val(),
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/getAccount/byEmail/" + $('#email').val(),
             success: function (account) {
                 email = account.email;
                 password = account.password;
@@ -50,7 +49,7 @@ $(function () {
             password: $('#password').val()
         };
         var settings = {
-            url: "http://"+ ip +":8080/Automated-Testing-SystemBE/resources/courses/create",
+            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/courses/create",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -75,7 +74,7 @@ $(function () {
 
             };
             var settings = {
-                url: "http://"+ ip +":8080/Automated-Testing-SystemBE/resources/account/request",
+                url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/request",
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
