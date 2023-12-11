@@ -10,14 +10,12 @@ function hideL() {
     open.style.display = 'block';
     password.type = 'text';
 }
-;
 
 function hideO() {
     lock.style.display = 'block';
     open.style.display = 'none';
     password.type = 'password';
 }
-;
 
 $(function () {
     var email;

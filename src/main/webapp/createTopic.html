@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Create a Topic</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Create a Course - Automated Testing System</title>
-        <link rel="stylesheet" href="CascadingStyleSheets/CreateCourse.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/createTopic.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Create A Course</h1>
-        <div class="cpage">
+        <h1>Create A Topic</h1>
+        <div class="tpage">
             <div class='wrapper'>
-                <h2>Course</h2>
-                <input type="text" id="cname" placeholder="Course...">
-                <h2>Course Number</h2>
-                <input type="text" id="cnum" placeholder="Course Number...">
+                <h2>Topic</h2>
+                <input type="text" id="topic" placeholder="Topic...">
+                <h2>Topic Description</h2>
+                <p><span id="desc" class="textarea" role="textbox" contenteditable></span></p>
+                <br>
+                <h2>Info Link: </h2>
+                <input type="text" id="link" placeholder="Info Link...">
                 <button id="submit" class="btn">Submit</button>
             </div>
         </div>
-        <script src="JavaScripts/createCourse.js"></script>
+        <script src="JavaScripts/createTopic.js"></script>
     </body>
 </html>
