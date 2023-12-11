@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
@@ -17,7 +16,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    color: black;
+    background: var(--light);
+}
+
+.cpage {
+    display: flex;
+    justify-content: center;
 }
 
 h1{
@@ -26,17 +30,12 @@ h1{
     margin-left: 20%;
 }
 
-.wrapper h1 {
-    margin: 0;
-}
-
 h2 {
     color: black;
 }
 
 .wrapper {
     width: 60%;
-    margin: auto;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -62,20 +61,14 @@ h2 {
 }
 
 .textarea {
-    width: 90%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
     border: 2px solid rgba(0, 0, 0, .2);
     border-radius: 7px;
-    font-size: 16px;
-    color: var(--dark);
-    padding: 20px 45px 20px 20px;
-    margin-bottom: 10px;
+    font-family: inherit;
+    font-size: inherit;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 30px
+    padding-left: 30px;
+    color: black;
 }
 
 .width-machine {
@@ -86,12 +79,13 @@ h2 {
     display: block;
     overflow: hidden;
     resize: none;
-    min-height: 40px;
+    min-height: 50px;
     line-height: 20px;
+    width: 100%;
 }
 
 .textarea[contenteditable]:empty::before {
-    content: "Reason...";
+    content: "Topic Link...";
     color: gray;
 }
 
@@ -110,8 +104,8 @@ h2 {
 }
 
 input {
-    width: 90%;
-    height: 100%;
+    width: 100%;
+    height: 50px;
     background: transparent;
     border: none;
     outline: none;
@@ -123,89 +117,82 @@ input {
     margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 30px
+    padding-left: 30px;
 }
 
-span.msg,
-span.choose {
-  color: #555;
-  padding: 5px 0 10px;
-  display: inherit
-}
 .container {
-  width: 90%;
-  text-align: center
+    display: inline;
+    position: relative;
+    margin-left: 30px;
+    margin-top: 3px;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.dropdown {
-  width: 100%;
-  display: inline-block;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0 2px rgb(204, 204, 204);
-  transition: all .5s ease;
-  position: relative;
-  font-size: 14px;
-  color: #474747;
-  height: 100%;
-  text-align: left
-}
-.dropdown .select {
-    cursor: pointer;
-    display: block;
-    padding: 10px
-}
-.dropdown .select > i {
-    font-size: 13px;
-    color: #888;
-    cursor: pointer;
-    transition: all .3s ease-in-out;
-    float: right;
-    line-height: 20px
-}
-.dropdown:hover {
-    box-shadow: 0 0 4px rgb(204, 204, 204)
-}
-.dropdown:active {
-    background-color: #f8f8f8
-}
-.dropdown.active:hover,
-.dropdown.active {
-    box-shadow: 0 0 4px rgb(204, 204, 204);
-    border-radius: 2px 2px 0 0;
-    background-color: #f8f8f8
-}
-.dropdown.active .select > i {
-    transform: rotate(-90deg)
-}
-.dropdown .dropdown-menu {
+.container input {
     position: absolute;
-    background-color: #fff;
-    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
     left: 0;
-    margin-top: 1px;
-    box-shadow: 0 1px 2px rgb(204, 204, 204);
-    border-radius: 0 1px 2px 2px;
-    overflow: hidden;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
     display: none;
-    max-height: 144px;
-    overflow-y: auto;
-    z-index: 9
 }
-.dropdown .dropdown-menu li {
-    padding: 10px;
-    transition: all .2s ease-in-out;
-    cursor: pointer
-} 
-.dropdown .dropdown-menu {
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.answers {
+    display: inline;
+}
+
+#mark {
+    display: inline;
+    height: 55px;
+    width: 55px;
+    text-align: center;
     padding: 0;
-    list-style: none
-}
-.dropdown .dropdown-menu li:hover {
-    background-color: #f2f2f2
-}
-.dropdown .dropdown-menu li:active {
-    background-color: #e2e2e2
+    padding: 10px;
+    border-radius: 200px;
 }
 
 #add {
