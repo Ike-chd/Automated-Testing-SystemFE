@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create a Question</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CascadingStyleSheets/createQuestion.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Create A Question</h1>
+        <div class="qpage">
+            <div class='wrapper'>
+                <h2>Question</h2>
+                <p><span id="q" class="textarea" role="textbox" contenteditable></span></p>
+                <br>
+                <h2 style="display: inline;">Mark Allocation</h2>
+                <input id="mark" type="text">
+                <br>
+                <h2 style="display: inline;">Answers</h2><button id="add" class="btn">Add Answer</button>
+                <br>
+                <br>
+                <div id="answers">
+                </div>
+                <h2>Select Topic</h2>
+                <div class="container2">    
+                    <div class="dropdown">
+                        <div class="select">
+                            <span>Select Student</span>
+                            <i class="fa fa-chevron-left"></i>
+                        </div>
+                        <input type="hidden" name="gender">
+                        <ul class="dropdown-menu">
+                            <li id="hello">Male<br>1234</li>
+                            <li id="female">Female</li>
+                        </ul>
+                    </div>
+                    <span class="msg"></span>
+                </div>
+                <button id="submit" class="btn">Submit</button>
+            </div>
+        </div>
+        <script src="JavaScripts/createQuestion.js"></script>
+    </body>
+</html>
