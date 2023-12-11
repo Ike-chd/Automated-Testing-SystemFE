@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment test</title>
+    <link rel="stylesheet" href="CascadingStyleSheets/studentSidebar.css">
+</head>
+<body>
+    <aside id="sidebar">
+        <nav id="top-nav">
+            <div class="logo">
+                <h2><span class="danger">Welcome, </span><span id="student-name"></span></h2>
+            </div>
+            <button id="menu-btn">
+                <span class="material-icons-sharp">menu</span>
+            </button>
+        </nav>
+
+        <nav id="main-nav">
+            <a href="studentDashboard.html">
+                <span class="material-icons-sharp">dashboard</span>
+                <h3>Dashboard</h3>
+            </a>
+            <a href="studentModules.html">
+                <span class="material-icons-sharp">book</span>
+                <h3>Modules</h3>
+            </a>
+            <a href="studentStatistics.html">
+                <span class="material-icons-sharp">insights</span>
+                <h3>Statistics</h3>
+            </a>
+            <a href="studentSettings.html">
+                <span class="material-icons-sharp">settings</span>
+                <h3>Settings</h3>
+            </a>
+        </nav>
+
+        <nav id="bottom-nav">
+            <a href="/logout">
+                <span class="material-icons-sharp">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </nav>
+    </aside>
+
+    <script>
+        let studentName = "John Doe"; 
+        document.getElementById('student-name').textContent = studentName;
+    </script>
+</body>
+</html>
