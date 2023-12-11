@@ -49,8 +49,7 @@ $(function () {
             name: $('#name').val(),
             surname: $('#surname').val(),
             email: $('#email').val(),
-            idNumber: $('#id').val(),
-            professor: document.querySelector('#professor').checked
+            idNumber: $('#id').val()
         };
         var settings = {
             url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/facM",
@@ -74,8 +73,7 @@ $(function () {
             name: $('#name3').val(),
             surname: $('#surname3').val(),
             email: $('#email3').val(),
-            idNumber: $('#id3').val(),
-            superAdmin: document.querySelector('#superAdmin').checked
+            idNumber: $('#id3').val()
         };
         var settings = {
             url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/admin",

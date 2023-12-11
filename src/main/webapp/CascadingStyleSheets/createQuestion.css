@@ -1,21 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-:root {
-    --primary: #4e73df;
-    --info: #36b9cc;
-    --danger: #e74a3b;
-    --light: #f8f9fc;
-    --success: #1cc88a;
-    --warning: #f6c23e;
-    --secondary: #858796;
-    --dark: #5a5c69;
-}
-
-* {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    background-color: #e6e8ed;
+    color: #666666;
+    font-family: "Montserrat", sans-serif;
 }
 
 .qpage {
@@ -99,21 +88,12 @@ h2 {
     font-weight: 600;
 }
 
-input {
-    width: 80%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgba(0, 0, 0, .2);
-    border-radius: 7px;
-    font-size: 16px;
-    color: var(--dark);
-    padding: 20px 45px 20px 20px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px
+.grid-container {
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas: "sidebar header header header" "sidebar main main main";
+    height: 100vh;
 }
 
 .container {

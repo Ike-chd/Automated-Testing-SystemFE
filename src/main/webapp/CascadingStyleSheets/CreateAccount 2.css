@@ -23,7 +23,54 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--light);
+    background: var(--ligh);
+/*    background: url('') no-repeat;
+    background-size: cover;
+    background-position: center;*/
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: var(--dark);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark);
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
 }
 
 #sbtn {
@@ -41,6 +88,13 @@
     padding: 30px 40px;
 }
 
+#wr2 {
+    width: 500px;
+    margin-top: 100px;
+    margin-bottom: 15px;
+    display: none;
+}
+
 .wrapper h1 {
     font-size: 36px;
     text-align: center;
@@ -50,13 +104,13 @@ h3 {
     text-align: center;
 }
 
-#logo {
+#caplogo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#logo i {
+#caplogo i {
     font-size: 100px;
 }
 

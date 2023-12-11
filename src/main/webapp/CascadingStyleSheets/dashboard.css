@@ -85,13 +85,13 @@ body {
 .sub-menu {
     background: #fff;
     padding: 20px;
-    margin: 10px;
+    /*margin: 10px;*/
 }
 
-.user-info {
+/*.user-info {
     display: flex;
-    align-items:  center;
-}
+    
+}*/
 
 .user-info h3 {
     font-weight: 500;
@@ -123,6 +123,7 @@ body {
     border-radius: 50%;
     margin-right: 15px;
     font-weight: 600;
+    user-select: none;
 }
 
 .sub-menu-link span {
