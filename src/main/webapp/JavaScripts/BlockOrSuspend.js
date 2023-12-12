@@ -1,69 +1,66 @@
+var allSusp;
+var conbtns = document.getElementsByClassName("con");
+var wrapper =
+        <div class="wrapper">
+            <div class="studentInfo">
+                <h1>
+                    Ike
+                </h1>
+                <h5><i class='bx bx-check-double'></i><span>80 marks</span></h5>
+                <h5><i class='bx bxs-time-five'></i><span class="time">2:30</span></h5>
+            </div>
+            <div class="btns">
+                <button id='' class='con'>Confirm</button>
+                <button class='rej'>Reject</button>
+            </div>
+        </div>;
+
+for (var i = 0; i < conbtns.length; i++) {
+    conbtns[i].addEventListener('click', function () {
+
+    });
+}
+
+let sidebarOpen = false;
+const sidebar = document.getElementById('sidebar');
+
+function openSidebar() {
+    if (!sidebarOpen) {
+        sidebar.classList.add('sidebar-responsive');
+        sidebarOpen = true;
+    }
+}
+
+function closeSidebar() {
+    if (sidebarOpen) {
+        sidebar.classList.remove('sidebar-responsive');
+        sidebarOpen = false;
+    }
+}
+
+$(function () {
+    $('#profile').click(function () {
+        $("#slideMenu").slideToggle(500);
+    });
+});
+
 $(document).ready(function () {
-    var input;
-    var students;
-    $('.dropdown').click(function () {
-        $(this).attr('tabindex', 1).focus();
-        $(this).toggleClass('active');
-        $(this).find('.dropdown-menu').slideToggle(300);
-    });
-
-    $('.dropdown').focusout(function () {
-        $(this).removeClass('active');
-        $(this).find('.dropdown-menu').slideUp(300);
-    });
-
-    $('.dropdown .dropdown-menu li').click(function () {
-        $(this).parents('.dropdown').find('span').text($(this).text());
-        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-    });
-
-    $('.dropdown-menu li').click(function () {
-        input = $(this).parents('.dropdown').find('input').val(),
-                msg = '<span id="input" class="msg">';
-        $('.msg').html(msg + input + '</span>');
-    });
-    
     $.ajax({
         type: 'GET',
-        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/topics/allTopics",
-        success: function (allStudents) {
-            students = allStudents;
-            $.each(students, function (i, student) {
-                $('#dropdown-menu').append('<li id=' + i + '>' + student.name + ' ' + student.surname + '</li>')
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/courses/allCourses",
+        success: function (suspensions) {
+            allSusp = suspensions;
+            $.each(suspensions, function (i, sus) {
+                topicName = sus.courseName;
+                courseId = i;
+                $('#allcourses').append(courseHTML);
             });
         }
     });
-
-    $('#blockOrSuspendForm').submit(function (event) {
-        event.preventDefault();
-
-//        var $student = students[input.innerHTML];
-
-        var data = {
-            student: $('#input').html(),
-            reason: $('#reason').html(),
-            requestedBy: {
-                email: $('cur').val()
-            },
-            start: $('#start').val(),
-            end: $('#end').val()
-        };
+    
+    var arr = [1, 2];
+    
+    for (var i = 0; i < arr.length; i++) {
         
-        console.log(data);
-        
-        $.ajax({
-            url: 'http://localhost:8080/resources/block-suspend-endpoint',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (response) {
-                console.log('Successfully submitted form:', response);
-                alert('Action completed successfully!');
-            }
-//            error: function (error) {
-//                console.error('Error submitting form:', error);
-//                alert('Error completing action. Please try again.');
-//            }
-        });
-    });
+    }
 });

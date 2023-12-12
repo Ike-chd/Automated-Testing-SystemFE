@@ -1,3 +1,15 @@
+var module;
+var moduleId;
+var moduleHTML = '\
+<label class="container">' + module + '\
+    <input type="checkbox" name="category" value="' + moduleId + '">\n\
+    <span class="checkmark"></span>\n\
+</label>';
+
+var allModules;
+var ip;
+var numOfModules = 0;
+
 $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
     $(this).toggleClass('active');
@@ -12,7 +24,6 @@ $('.dropdown .dropdown-menu li').click(function () {
     $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
 });
 
-
 $('.dropdown-menu li').click(function () {
     var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
             msg = '<span class="msg">Hidden input value: ';
@@ -20,12 +31,34 @@ $('.dropdown-menu li').click(function () {
 });
 
 $(function () {
+
     $('#request').click(function () {
         $('.req').slideToggle(1000);
     });
     var $moduleName = $('#module-name');
     var $moduleDescription = $('#module-description');
     var $numTests = $('#num-tests');
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/allTopics",
+        success: function (modules) {
+            allModules = modules;
+            $.each(modules, function (i, module) {
+                module = module.moduleName;
+                moduleId = i;
+                $('#allModules').append(moduleHTML);
+            });
+        }
+    });
+
+//    function addModules(i) {
+//        $.each(allModules, function (i, module) {
+//            moduleName = module.topic;
+//            moduleId = i;
+//            $('#modules' + i).append(moduleHTML);
+//        });
+//    }
 
     $('#submit').click(function (event) {
         event.preventDefault();
@@ -35,7 +68,7 @@ $(function () {
             numTests: $numTests.val()
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/modules/create",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/create",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -48,4 +81,34 @@ $(function () {
             console.log(response);
         });
     });
+
+    $('#add').click(function () {
+        $('#answers').append('\
+<input type="text" class="answers" id="q' + numOfModules + '">\n\
+<label class="container">\n\
+    <input type="checkbox" id="check' + numOfModules + '">\n\
+    <span class="checkmark"></span>\n\
+</label>');
+        numOfModules++;
+    });
+
+//    $('#add').click(function () {
+//        numOfModules++;
+//        $('#allModules').append('\
+//<div class="container">\n\
+//    <span class="choose">Choose Module</span>\n\
+//    <div class="dropdown">\n\
+//        <div class="select">\n\
+//            <span>Select Modules</span>\n\
+//            <i class="fa fa-chevron-left"></i>\n\
+//        </div>\n\
+//        <input type="hidden" name="gender">\n\
+//        <ul id="modules' + numOfModules + '" class="dropdown-menu">\n\
+//        <li id="Networking">Networking</li>\n\
+//        </ul>\n\
+//    </div>\n\
+//    <span class="msg"></span>\n\
+//</div>');
+//        addModules(numOfModules);
+//    });
 });

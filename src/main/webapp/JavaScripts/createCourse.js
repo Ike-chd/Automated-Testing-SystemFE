@@ -1,6 +1,7 @@
 $(function () {
     var $cname = $('#cname');
     var $cnum = $('#cnum');
+    var ip = "192.168.8.131";
 
     $('#submit').click(function () {
         check = 0;
@@ -8,10 +9,9 @@ $(function () {
             courseName: $cname.val(),
             courseNumber: $cnum.val()
         };
-        
         console.log(data);
         var settings = {
-            url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/courses/createCourse",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/courses/postCourse",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -19,6 +19,7 @@ $(function () {
             },
             data: JSON.stringify(data)
         };
+        
         $.ajax(settings).done(function (response) {
             console.log(response);
         });

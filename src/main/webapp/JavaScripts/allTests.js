@@ -69,7 +69,7 @@ var alltests = [
         ]
     },
     {
-        test: "Test 2",
+        test: "Java",
         questions: [
             {
                 question: "What is a Constructor",
@@ -146,13 +146,13 @@ for (var i = 0; i < tests.length; i++) {
     tests[i].addEventListener('click', function () {
         localStorage.setItem("currentTest", JSON.stringify(alltests[parseInt(this.id[1]-1)]));
         console.log(localStorage.getItem("currentTest"));
-        localStorage.setItem("currentTime", null);
-        if(localStorage.getItem("endTime") !== null){
+        localStorage.removeItem("currentTime");
+        if(localStorage.getItem(alltests[parseInt(this.id[1]-1)].testName) === null){
             var time = this.querySelector('.time').innerHTML.split(":");
             var date = new Date();
             date.setHours(date.getHours()+parseInt(time[0]));
             date.setMinutes(date.getMinutes()+parseInt(time[1]));
-            localStorage.setItem("endTime", date);
+            localStorage.setItem(alltests[parseInt(this.id[1]-1)].testName, date);
         }
     });
 }

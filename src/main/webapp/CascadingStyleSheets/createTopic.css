@@ -85,7 +85,7 @@ h2 {
 }
 
 .textarea[contenteditable]:empty::before {
-    content: "Topic Link...";
+    content: "Topic Description...";
     color: gray;
 }
 

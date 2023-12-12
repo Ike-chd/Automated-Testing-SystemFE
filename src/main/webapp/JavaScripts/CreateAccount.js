@@ -2,6 +2,9 @@ $(function () {
     var $sbtn = $('#sbtn');
     var $fbtn = $('#fbtn');
     var $abtn = $('#abtn');
+    var allCourses;
+    var ip = "192.168.8.131";
+
     $sbtn.click(function () {
         $('#wr2').fadeOut(1000);
         $('#wr3').fadeOut(1000);
@@ -17,43 +20,80 @@ $(function () {
         $('#wr2').fadeOut(1000);
         $('#wr3').fadeIn(1000);
     });
-    
+
+    $('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+
+    $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+
+    $('.dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    });
+
+    $('.dropdown-menu li').click(function () {
+        input = $(this).parents('.dropdown').find('input').val(),
+                msg = '<span id="input" class="msg">';
+        $('.msg').html(msg + input + '</span>');
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/courses/allCourses",
+        success: function (courses) {
+            allCourses = courses;
+            $.each(courses, function (i, course) {
+                $('#courses').append("<li id=" + i + ">" + course.courseName + "</li>");
+            });
+        }
+    });
+
     $('#createS').click(function () {
-        var course = {
+        var student = {
             name: $('#name').val(),
             surname: $('#surname').val(),
             email: $('#email').val(),
             idNumber: $('#id').val(),
             address: $('#address').val(),
-            phoneNumber: $('#phone').val()
+            phoneNumber: $('#phone').val(),
+            password: $('#password').val(),
+            currentCourse: allCourses[parseInt($('#input').html())]
         };
+
+        console.log(student);
+
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/students/createAccount/1",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/students/createAccount",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(course)
+            data: JSON.stringify(student)
         };
-
-        console.log(course);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
     });
-    
+
     $('#createF').click(function () {
         var course = {
-            name: $('#name').val(),
-            surname: $('#surname').val(),
-            email: $('#email').val(),
-            idNumber: $('#id').val(),
-            professor: document.querySelector('#professor').checked
+            name: $('#name2').val(),
+            surname: $('#surname2').val(),
+            email: $('#email2').val(),
+            idNumber: $('#id2').val(),
+            password: $('#password2').val(),
+            isProfessor: $('#input').html() === "true"
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/facM",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/createAccount/facM",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -68,17 +108,18 @@ $(function () {
             console.log(response);
         });
     });
-    
+
     $('#createA').click(function () {
         var data = {
             name: $('#name3').val(),
             surname: $('#surname3').val(),
             email: $('#email3').val(),
             idNumber: $('#id3').val(),
-            superAdmin: document.querySelector('#superAdmin').checked
+            password: $('#password3').val(),
+            isSuperAdmin: $('#input').html() === "true"
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/createAccount/admin",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/createAccount/admin",
             method: "POST",
             headers: {
                 'Accept': 'application/json',

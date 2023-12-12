@@ -1,12 +1,13 @@
+var numOfQuestions = 0;
+var q = 0;
+
 $(function () {
     makePage(JSON.parse(localStorage.getItem("currentTest")));
     var test = {test: "greetings"};
     var student = {name: "Ike"};
-    var q = 0;
-    var numOfQuestions = 4;
     var ip;
-    
-    var countDownDate = new Date(localStorage.getItem("endTime")).getTime();
+
+    var countDownDate = new Date(localStorage.getItem(JSON.parse(localStorage.getItem("currentTest")).testName)).getTime();
 
     var x = setInterval(function () {
         var now = new Date().getTime();
@@ -20,12 +21,12 @@ $(function () {
         document.getElementById("timel").innerHTML = "Time Left : " + hours + ":"
                 + minutes + ":" + seconds;
     }, 1000);
-    
+
     function makePage(gotTest) {
         test = gotTest;
         var questions = test.questions;
         $.each(questions, function (i, question) {
-            numOfQuestions++;
+            numOfQuestions = numOfQuestions + 1;
             $('#body').append('<div class="questions" id="que' + i + '"><h1 id="ques' + i + '">' + question.question + '</h1>');
             $('#que' + i).append('<div class="wrapper" id="q' + i + '"></div></div>');
             var answers = question.answers;
@@ -49,7 +50,7 @@ $(function () {
     });
 
     $('#next').click(function () {
-        if (q < numOfQuestions) {
+        if (q < numOfQuestions-1) {
             $("#que" + q).animate({'margin-right': '100%'});
             $("#que" + q).fadeOut(0);
             q++;

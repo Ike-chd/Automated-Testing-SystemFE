@@ -1,82 +1,68 @@
 $(document).ready(function () {
-    // Function to search students based on name
-    function searchStudents() {
-        var studentName = $('#studentName').val();
-
-        // Make an AJAX call to fetch search results based on studentName
-        $.ajax({
-            url: 'http://localhost:8080/resources/students/search?name=' + studentName,
-            method: 'GET',
-            contentType: 'application/json',
-            success: function (response) {
-                // Populate the dropdown with search results
-                var dropdown = $('#studentDropdown');
-                dropdown.empty();
-
-                if (response.length > 0) {
-                    dropdown.append($('<option>').text('Select a Student').attr('disabled', 'disabled').attr('selected', 'selected'));
-                    $.each(response, function (index, student) {
-                        dropdown.append($('<option>').text(student.firstname + ' ' + student.surname).val(student.studentID));
-                    });
-                    dropdown.show();
-                } else {
-                    dropdown.hide();
-                }
+    var input;
+    var students;
+    $('.dropdown').click(function () {
+        $(this).attr('tabindex', 1).focus();
+        $(this).toggleClass('active');
+        $(this).find('.dropdown-menu').slideToggle(300);
+    });
+    
+    $('.dropdown').focusout(function () {
+        $(this).removeClass('active');
+        $(this).find('.dropdown-menu').slideUp(300);
+    });
+    
+    $('.dropdown .dropdown-menu li').click(function () {
+        $(this).parents('.dropdown').find('span').text($(this).text());
+        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    });
+    
+    $('.dropdown-menu li').click(function () {
+        input = $(this).parents('.dropdown').find('input').val(),
+                msg = '<span id="input" class="msg">';
+        $('.msg').html(msg + input + '</span>');
+    });
+    
+    $.ajax({
+        type: 'GET',
+        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/students/allStudents",
+        success: function (allStudents) {
+            students = allStudents;
+            $.each(students, function (i, student) {
+                $('#dropdown-menu').append('<li id=' + i + '>' + student.name + ' ' + student.surname + '</li>');
+            });
+        }
+    });
+    
+    $('#blockOrSuspendForm').submit(function (event) {
+        event.preventDefault();
+        
+//        var $student = students[input.innerHTML];
+        
+        var data = {
+            student: $('#input').html(),
+            reason: $('#reason').html(),
+            requestedBy: {
+                email: localStorage.getItem('email')
             },
-            error: function (error) {
-                console.error('Error searching students:', error);
-            }
-        });
-    }
-
-    // Function to submit suspension request
-    function submitSuspensionRequest() {
-        var selectedStudent = $('#studentDropdown').val();
-        var duration = $('#duration').val();
-        var reason = $('#reason').val();
-
-        // Validate selected student and other inputs
-        if (selectedStudent === 'Select a Student') {
-            alert('Please select a valid student.');
-            return;
-        }
-
-        if (!duration || duration <= 0) {
-            alert('Please enter a valid suspension duration.');
-            return;
-        }
-
-        if (!reason.trim()) {
-            alert('Please provide a reason for suspension.');
-            return;
-        }
-
-        // Create an object with the suspension request details
-        var suspensionRequest = {
-            studentID: selectedStudent,
-            duration: duration,
-            reason: reason
-            // Add more fields if needed
+            start: $('#start').val(),
+            end: $('#end').val(),
+            active: false
         };
-
-        // Make an AJAX call to submit the suspension request
+        
         $.ajax({
-            url: 'http://localhost:8080/resources/suspensionRequests/submitRequest',
+            url: 'http://localhost:8080/resources/suspension-requests/createSuspensionRequest',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(suspensionRequest),
+            data: JSON.stringify(data),
             success: function (response) {
-                console.log('Successfully submitted suspension request:', response);
-                alert('Suspension request submitted successfully!');
-            },
-            error: function (error) {
-                console.error('Error submitting suspension request:', error);
-                alert('Error submitting suspension request. Please try again.');
+                console.log('Successfully submitted form:', response);
+                alert('Action completed successfully!');
             }
+//            error: function (error) {
+//                console.error('Error submitting form:', error);
+//                alert('Error completing action. Please try again.');
+//            }
         });
-    }
-
-    // Attach event listeners
-    $('#studentName').on('input', searchStudents);
-    $('#submitRequest').click(submitSuspensionRequest);
+    });
 });

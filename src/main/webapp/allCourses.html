@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
+        <title>All Courses</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Block or Suspend Students</title>
-        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/BlockOrSuspend.css">
-        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/dashboard.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/allCourses.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
@@ -97,41 +97,11 @@
                 </ul>
             </aside>
             <main class="main-container">
-                <h1>Request Suspension</h1>
-                <div class="wrapper">
-                    <h3>Select Student</h3>
-                    <form action="DashboardSuperAdmin.html" id="blockOrSuspendForm">
-                        <div class="container">    
-                            <div class="dropdown">
-                                <div class="select">
-                                    <span>Select Student</span>
-                                    <i class="fa fa-chevron-left"></i>
-                                </div>
-                                <input type="hidden" name="gender">
-                                <ul class="dropdown-menu">
-                                    <li id="Ike">Ike</li>
-                                    <li id="Junior">Junior</li>
-                                    <li id="Ridwaan">Ridwaan</li>
-                                    <li id="Saif">Saif</li>
-                                    <li id="Jeff">Jeff</li>
-                                    <li id="Quinton">Quinton</li>
-                                    <li id="Brian">Brian</li>
-                                </ul>
-                            </div>
-                            <span class="msg"></span>
-                        </div>
-                        <h3>Duration</h3>
-                        <h4>Start</h4>
-                        <input type="date" id="start" name="duration">
-                        <h4>End</h4>
-                        <input type="date" id="end" name="duration">
-                        <h3>Reason</h3>
-                        <p><span id="reason" class="textarea" role="textbox" contenteditable></span></p>
-                        <button id="submit" class="btn" type="submit">Submit</button>
-                    </form>
+                <script src="JavaScripts/allCourses.js"></script>
+                <div id="allcourses">
+                    <h1 id="head">All Courses</h1>
                 </div>
             </main>
         </div>
-        <script src="JavaScripts/SuspensionRequest.js"></script>
     </body>
 </html>
