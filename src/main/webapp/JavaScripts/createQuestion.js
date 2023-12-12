@@ -1,12 +1,11 @@
-$(function () {
-    var $qname = $('#q');
-    var $mark = $('#mark');
-    var ans = 0;
-    var check = 0;
-    var topicName;
-    var topicId;
-    var topicHTML = '<option value=' + topicId + '>' + topicName + '</option>';
+var $qname = $('#q');
+var $mark = $('#mark');
+var ans = 0;
+var check = 0;
+var allTopics;
+var ip = "192.168.8.131";
 
+$(function () {
     $('.dropdown').click(function () {
         $(this).attr('tabindex', 1).focus();
         $(this).toggleClass('active');
@@ -31,16 +30,22 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/topics/allTopics",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/allTopics",
         success: function (topics) {
+            console.log(topics);
+            console.log(topics);
+            allTopics = topics;
             $.each(topics, function (i, topic) {
-                topicName = topic.topic;
-                topicId = topic.topicId;
-                $('#topics').append(topicHTML);
+                $('#topics').append('<li value=' + i + '>' + topic.topicName + '</li>');
             });
+        },
+        error: function() {
+            console.log("Not Found");
         }
     });
-    
+
+    console.log(allTopics);
+
     $('#submit').click(function () {
         var answers = $('.answers').map(function () {
             check++;
@@ -52,15 +57,16 @@ $(function () {
         check = 0;
         var data = {
             question: $qname.html(),
-            mark: $mark.val(),
-            answers: answers
+            markAllocation: $mark.val(),
+            answers: answers,
+            topic: allTopics[parseInt($('#input').html())]
         };
 
         console.log(data);
 
         var sTopic = document.getElementById('topics');
         var settings = {
-            url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/questions/postQuestion/" + 1/*sTopic.id*/,
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/postQuestion",
             method: "POST",
 //            headers: {
 //                'Accept': 'application/json',
