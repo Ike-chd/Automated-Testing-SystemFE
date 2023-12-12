@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Student Dashboard</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -69,47 +69,38 @@
         <aside id="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined">school</span> Automated Testing System
+                    <span class="material-icons-outlined">school</span> Student Dashboard
                 </div>
-                <span class="material-icons-outlined" onclick="toggleSidebar()">close</span>
+                <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
 
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
-                    <a href="DashboardSuperAdmin.html">
+                    <a href="studentDashboard.html">
                         <span class="material-icons-outlined">dashboard</span> Dashboard
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="allStudents.html">
-                        <span class="material-icons-outlined">people</span> Students
+                    <a href="studentModules.html">
+                        <span class="material-icons-outlined">event_note</span> Modules
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="CreateCourse.html">
-                        <span class="material-icons-outlined">class</span> Create Course
+                    <a href="studentTests.html">
+                        <span class="material-icons-outlined">grading</span> Tests
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="CreateModule.html">
-                        <span class="material-icons-outlined">event_note</span> Create Module
+                    <a href="studentStatistics.html">
+                        <span class="material-icons-outlined">analytics</span> Statistics
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="createQuestion.html">
-                        <span class="material-icons-outlined">grading</span> Create Question
+                    <a href="studentChallenges.html">
+                        <span class="material-icons-outlined">error_outline</span> Challenging Topics
                     </a>
                 </li>
-                <li class="sidebar-list-item">
-                    <a href="#">
-                        <span class="material-icons-outlined">assignment</span> Assignments
-                    </a>
-                </li>
-                <li class="sidebar-list-item">
-                    <a href="#">
-                        <span class="material-icons-outlined">settings</span> Settings
-                    </a>
-                </li>
+                <!-- Add more links for additional features as needed -->
             </ul>
         </aside>
         <!-- End Sidebar -->
@@ -117,41 +108,57 @@
         <!-- Main -->
         <main class="main-container">
             <div class="main-title">
-                <p class="font-weight-bold">DASHBOARD</p>
+                <p class="font-weight-bold">STUDENT TESTS</p>
             </div>
 
             <div class="main-cards">
 
+                <!-- Notification for Upcoming Test -->
                 <div class="card">
                     <div class="card-inner">
-                        <p class="text-primary">STUDENTS</p>
-                        <span class="material-icons-outlined text-blue">people</span>
+                        <p class="text-primary">Upcoming Test Notification</p>
+                        <span class="material-icons-outlined text-yellow">notification_important</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Total: XXX</span>
+                    <span class="text-primary font-weight-bold">Time Remaining: <span
+                            id="notification-timer">30:00</span></span>
                 </div>
 
+                <!-- Upcoming Tests -->
                 <div class="card">
                     <div class="card-inner">
-                        <p class="text-primary">COURSES</p>
-                        <span class="material-icons-outlined text-orange">class</span>
+                        <p class="text-primary">Upcoming Tests</p>
+                        <span class="material-icons-outlined text-orange">schedule</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Total: XXX</span>
+                    <div id="upcomingTests">
+                        <!-- Display upcoming tests here -->
+                    </div>
                 </div>
 
-                <div class="card">
+                <!-- Ongoing Test -->
+                <div class="card" onclick="startTest()">
                     <div class="card-inner">
-                        <p class="text-primary">ENROLLMENTS</p>
-                        <span class="material-icons-outlined text-green">event_note</span>
+                        <p class="text-primary">Ongoing Test</p>
+                        <span class="material-icons-outlined text-red">timer</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Pending: XXX</span>
+                    <span class="text-primary font-weight-bold">Module: Module Name 2</span>
+                    <span class="text-primary font-weight-bold">Test Name: Chemistry Exam</span>
+                    <button id="startTestButton">Start Test</button>
+                    <button id="completeTestButton">Complete Test</button>
+                    <div id="testInProgressMessage" style="display: none;">
+                        Test in progress...
+                    </div>
+                    <div id="completedTestMessage" style="display: none;">
+                        Test completed. Waiting for results...
+                    </div>
                 </div>
 
+                <!-- Completed Tests -->
                 <div class="card">
                     <div class="card-inner">
-                        <p class="text-primary">GRADES</p>
-                        <span class="material-icons-outlined text-red">grading</span>
+                        <p class="text-primary">Completed Tests</p>
+                        <span class="material-icons-outlined text-green">done</span>
                     </div>
-                    <span class="text-primary font-weight-bold">Average: XX</span>
+                    <!-- Completed tests will be moved here -->
                 </div>
 
             </div>
@@ -163,12 +170,9 @@
     <!-- Scripts -->
     <!-- Custom JS -->
     <script src="JavaScripts/dashboard.js"></script>
+    <!-- Link the studentTest.js script -->
+    <script src="JavaScripts/studentTest.js"></script>
 
-    <script>
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-        }
-    </script>
 
 </body>
 
