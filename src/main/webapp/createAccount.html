@@ -1,260 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-    <html>
-        <head>
-            <title>TODO supply a title</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="CascadingStyleSheets/createAccount.css">
-            <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
-            <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
-            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        </head>
-        <body>
-            <div class="grid-container">
-                <header class="header">
-                    <div class="menu-icon" onclick="openSidebar()">
-                        <span class="material-icons-outlined">menu</span>
-                    </div>
-                    <div class="header-left">
-                        <span class="material-icons-outlined">search</span>
-                    </div>
-                    <div class="header-right">
-                        <span class="material-icons-outlined">notifications</span>
-                        <span class="material-icons-outlined">email</span>
-                        <a id="profile" class="material-icons-outlined">account_circle</a>
-                        <div id="slideMenu" class="sub-menu-wrap">
-                            <div class="sub-menu">
-                                <div class="user-info">
-                                    <h2>Ike</h2>
-                                </div>
-                                <hr>
-                                <a href="#" class="sub-menu-link">
-                                    <i class='bx bx-user'></i>
-                                    <p>Edit profile</p>
-                                    <span>></span>
-                                </a>
-                                <a href="#" class="sub-menu-link">
-                                    <i class='bx bx-cog'></i>
-                                    <p>Settings</p>
-                                    <span>></span>
-                                </a>
-                                <a href="#" class="sub-menu-link">
-                                    <i class='bx bx-log-out' ></i>
-                                    <p>Logout</p>
-                                    <span>></span>
-                                </a>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CascadingStyleSheets/createAccount.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                    <a id="profile" class="material-icons-outlined">account_circle</a>
+                    <div id="slideMenu" class="sub-menu-wrap">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <h2>Ike</h2>
                             </div>
+                            <hr>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-user'></i>
+                                <p>Edit profile</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-cog'></i>
+                                <p>Settings</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-log-out' ></i>
+                                <p>Logout</p>
+                                <span>></span>
+                            </a>
                         </div>
                     </div>
-                </header>
-                <aside id="sidebar">
-                    <div class="sidebar-title">
-                        <div class="sidebar-brand">
-                            <span class="material-icons-outlined">school</span> Enrollment System
-                        </div>
-                        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+            </header>
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">school</span> Enrollment System
                     </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
 
-                    <ul class="sidebar-list">
-                        <li class="sidebar-list-item">
-                            <a href="DashboardSuperAdmin.html">
-                                <span class="material-icons-outlined">dashboard</span> Dashboard
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="allStudents.html">
-                                <span class="material-icons-outlined">people</span> Students
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="CreateCourse.html">
-                                <span class="material-icons-outlined">class</span> Create Course
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="CreateModule.html">
-                                <span class="material-icons-outlined">event_note</span> Create Module
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="createQuestion.html">
-                                <span class="material-icons-outlined">grading</span> Create Question
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="#">
-                                <span class="material-icons-outlined">assignment</span> Assignments
-                            </a>
-                        </li>
-                        <li class="sidebar-list-item">
-                            <a href="#">
-                                <span class="material-icons-outlined">settings</span> Settings
-                            </a>
-                        </li>
-                    </ul>
-                </aside>
-                <main class="main-container">
-                    <div class="btns">
-                        <button id="sbtn">Student</button>
-                        <button id="fbtn">Faculty Member</button>
-                        <button id="abtn">Administrator</button>
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <a href="DashboardSuperAdmin.html">
+                            <span class="material-icons-outlined">dashboard</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="allStudents.html">
+                            <span class="material-icons-outlined">people</span> Students
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="CreateCourse.html">
+                            <span class="material-icons-outlined">class</span> Create Course
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="CreateModule.html">
+                            <span class="material-icons-outlined">event_note</span> Create Module
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="createQuestion.html">
+                            <span class="material-icons-outlined">grading</span> Create Question
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="#">
+                            <span class="material-icons-outlined">assignment</span> Assignments
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="#">
+                            <span class="material-icons-outlined">settings</span> Settings
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <main class="main-container">
+                <div class="btns">
+                    <button id="sbtn">Student</button>
+                    <button id="fbtn">Faculty Member</button>
+                    <button id="abtn">Administrator</button>
+                </div>
+                <div class="create">
+                    <div id='wr1' class='wrapper'>
+                        <h1>Create Student</h1>
+                        <div id="logo">
+                            <i class="fa fa-graduation-cap"></i>
+                        </div>
+                        <!--                <i class='bx bx-bookmark'></i>
+                                        <i class='bx bxs-bookmark'></i>
+                                        <i class='bx bx-bookmarks'></i>
+                                        <i class='bx bxs-bookmarks' ></i>
+                                        <i class='bx bx-book-alt'></i>
+                                        <i class='bx bx-book-open' ></i>
+                                        <i class='bx bx-comment'></i>
+                                        <i class='bx bxs-comment' ></i>
+                                        <i class='bx bxs-report'></i>
+                                        <i class='bx bxs-notification'></i>
+                                        <i class='bx bxs-checkbox'></i>
+                                        <i class='bx bxs-edit' ></i>
+                                        <i class='bx bxs-x-square'></i>
+                                        <i class='bx bxs-calendar'></i>
+                                        <i class='bx bx-stats' ></i>-->
+                        <div class="input-box">
+                            <input id='name' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='surname' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='id' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email' type="email" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='address' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='phone' type="text" placeholder="Phone No." required>
+                            <i class='bx bx-phone'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='password' type="password" placeholder="Password" required>
+                            <i id='lock' class='bx bxs-lock-alt'></i>
+                            <i id='olock' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <h2>Select Course</h2>
+                        <div class="container2">    
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span style="margin-left: 5%">Select Course</span>
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <input type="hidden" name="topic">
+                                <ul id="courses" class="dropdown-menu">
+                                </ul>
+                            </div>
+                            <span class="msg"></span>
+                        </div>
+                        <button id="createS" class="btn">Create</button>
                     </div>
-                    <div class="create">
-                        <div id='wr1' class='wrapper'>
-                            <h1>Create Student</h1>
-                            <div id="logo">
-                                <i class="fa fa-graduation-cap"></i>
-                            </div>
-                            <!--                <i class='bx bx-bookmark'></i>
-                                            <i class='bx bxs-bookmark'></i>
-                                            <i class='bx bx-bookmarks'></i>
-                                            <i class='bx bxs-bookmarks' ></i>
-                                            <i class='bx bx-book-alt'></i>
-                                            <i class='bx bx-book-open' ></i>
-                                            <i class='bx bx-comment'></i>
-                                            <i class='bx bxs-comment' ></i>
-                                            <i class='bx bxs-report'></i>
-                                            <i class='bx bxs-notification'></i>
-                                            <i class='bx bxs-checkbox'></i>
-                                            <i class='bx bxs-edit' ></i>
-                                            <i class='bx bxs-x-square'></i>
-                                            <i class='bx bxs-calendar'></i>
-                                            <i class='bx bx-stats' ></i>-->
-                            <div class="input-box">
-                                <input id='name' type="text" placeholder="Full Name..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='surname' type="text" placeholder="Surname..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='id' type="text" placeholder="ID_Number" required>
-                                <i class='bx bxs-id-card'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='email' type="email" placeholder="Email" required>
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='address' type="text" placeholder="Email" required>
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='phone' type="text" placeholder="Phone No." required>
-                                <i class='bx bx-phone'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='password' type="password" placeholder="Password" required>
-                                <i id='lock' class='bx bxs-lock-alt'></i>
-                                <i id='olock' class='bx bx-lock-open-alt'></i>
-                            </div>
-                            <h2>Select Course</h2>
-                            <div class="container2">    
-                                <div class="dropdown">
-                                    <div class="select">
-                                        <span style="margin-left: 5%">Select Course</span>
-                                        <i class="fa fa-chevron-left"></i>
-                                    </div>
-                                    <input type="hidden" name="topic">
-                                    <ul id="courses" class="dropdown-menu">
-                                    </ul>
-                                </div>
-                                <span class="msg"></span>
-                            </div>
-                            <button id="createS" class="btn">Create</button>
+                    <div id='wr2' class='wrapper' style="display: none;">
+                        <h1>Create Faculty Member</h1>
+                        <div id="logo">
+                            <i class='bx bx-book-alt'></i>
                         </div>
-                        <div id='wr2' class='wrapper' style="display: none;">
-                            <h1>Create Faculty Member</h1>
-                            <div id="logo">
-                                <i class='bx bx-book-alt'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='name2' type="text" placeholder="Full Name..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='surname2' type="text" placeholder="Surname..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='id2' type="text" placeholder="ID_Number" required>
-                                <i class='bx bxs-id-card'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='email2' type="text" placeholder="Email" required>
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='password2' type="password" placeholder="Password" required>
-                                <i id='lock2' class='bx bxs-lock-alt'></i>
-                                <i id='olock2' class='bx bx-lock-open-alt'></i>
-                            </div>
-                            <h2>Select Role</h2>
-                            <div class="container2">    
-                                <div class="dropdown">
-                                    <div class="select">
-                                        <span style="margin-left: 5%">Select Role</span>
-                                        <i class="fa fa-chevron-left"></i>
-                                    </div>
-                                    <input type="hidden" name="topic">
-                                    <ul id="prof" class="dropdown-menu">
-                                        <li id="false">Faculty Member</li>
-                                        <li id="true">Professor</li>
-                                    </ul>
-                                </div>
-                                <span class="msg"></span>
-                            </div>
-                            <button id="createF" class="btn">Create</button>
+                        <div class="input-box">
+                            <input id='name2' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
                         </div>
-                        <div id='wr3' class='wrapper' style="display: none;">
-                            <h1>Create Administrator</h1>
-                            <div id="logo">
-                                <i class='bx bx-book-open' ></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='name3' type="text" placeholder="Full Name..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='surname3' type="text" placeholder="Surname..." required>
-                                <i class='bx bx-user'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='id3' type="text" placeholder="ID_Number" required>
-                                <i class='bx bxs-id-card'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='email3' type="text" placeholder="Email" required>
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                            <div class="input-box">
-                                <input id='password3' type="password" placeholder="Password" required>
-                                <i id='lock3' class='bx bxs-lock-alt'></i>
-                                <i id='olock3' class='bx bx-lock-open-alt'></i>
-                            </div>
-                            <h2>Select Role</h2>
-                            <div class="container2">    
-                                <div class="dropdown">
-                                    <div class="select">
-                                        <span style="margin-left: 5%">Select Role</span>
-                                        <i class="fa fa-chevron-left"></i>
-                                    </div>
-                                    <input type="hidden" name="topic">
-                                    <ul id="admin" class="dropdown-menu">
-                                        <li id="afalse">Administrator</li>
-                                        <li id="atrue">Super Administrator</li>
-                                    </ul>
-                                </div>
-                                <span class="msg"></span>
-                            </div>
-                            <button id="createA" class="btn">Create</button>
+                        <div class="input-box">
+                            <input id='surname2' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
                         </div>
+                        <div class="input-box">
+                            <input id='id2' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email2' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='password2' type="password" placeholder="Password" required>
+                            <i id='lock2' class='bx bxs-lock-alt'></i>
+                            <i id='olock2' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <h2>Select Role</h2>
+                        <div class="container2">    
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span style="margin-left: 5%">Select Role</span>
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <input type="hidden" name="topic">
+                                <ul id="prof" class="dropdown-menu">
+                                    <li id="false">Faculty Member</li>
+                                    <li id="true">Professor</li>
+                                </ul>
+                            </div>
+                            <span class="msg"></span>
+                        </div>
+                        <button id="createF" class="btn">Create</button>
                     </div>
-                </main>
-            </div>
-            <script src="JavaScripts/CreateAccount.js"></script>
-        </body>
-    </html>
+                    <div id='wr3' class='wrapper' style="display: none;">
+                        <h1>Create Administrator</h1>
+                        <div id="logo">
+                            <i class='bx bx-book-open' ></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='name3' type="text" placeholder="Full Name..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='surname3' type="text" placeholder="Surname..." required>
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='id3' type="text" placeholder="ID_Number" required>
+                            <i class='bx bxs-id-card'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='email3' type="text" placeholder="Email" required>
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id='password3' type="password" placeholder="Password" required>
+                            <i id='lock3' class='bx bxs-lock-alt'></i>
+                            <i id='olock3' class='bx bx-lock-open-alt'></i>
+                        </div>
+                        <h2>Select Role</h2>
+                        <div class="container2">    
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span style="margin-left: 5%">Select Role</span>
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <input type="hidden" name="topic">
+                                <ul id="admin" class="dropdown-menu">
+                                    <li id="afalse">Administrator</li>
+                                    <li id="atrue">Super Administrator</li>
+                                </ul>
+                            </div>
+                            <span class="msg"></span>
+                        </div>
+                        <button id="createA" class="btn">Create</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="JavaScripts/CreateAccount.js"></script>
+    </body>
+</html>
