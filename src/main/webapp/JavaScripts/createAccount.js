@@ -21,28 +21,6 @@ $(function () {
         $('#wr3').fadeIn(1000);
     });
 
-    $('.dropdown').click(function () {
-        $(this).attr('tabindex', 1).focus();
-        $(this).toggleClass('active');
-        $(this).find('.dropdown-menu').slideToggle(300);
-    });
-
-    $('.dropdown').focusout(function () {
-        $(this).removeClass('active');
-        $(this).find('.dropdown-menu').slideUp(300);
-    });
-
-    $('.dropdown .dropdown-menu li').click(function () {
-        $(this).parents('.dropdown').find('span').text($(this).text());
-        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-    });
-
-    $('.dropdown-menu li').click(function () {
-        input = $(this).parents('.dropdown').find('input').val(),
-                msg = '<span id="input" class="msg">';
-        $('.msg').html(msg + input + '</span>');
-    });
-
     $.ajax({
         type: 'GET',
         url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/courses/allCourses",
@@ -50,6 +28,27 @@ $(function () {
             allCourses = courses;
             $.each(courses, function (i, course) {
                 $('#courses').append("<li id=" + i + ">" + course.courseName + "</li>");
+            });
+            $('.dropdown').click(function () {
+                $(this).attr('tabindex', 1).focus();
+                $(this).toggleClass('active');
+                $(this).find('.dropdown-menu').slideToggle(300);
+            });
+
+            $('.dropdown').focusout(function () {
+                $(this).removeClass('active');
+                $(this).find('.dropdown-menu').slideUp(300);
+            });
+
+            $('.dropdown .dropdown-menu li').click(function () {
+                $(this).parents('.dropdown').find('span').text($(this).text());
+                $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+            });
+
+            $('.dropdown-menu li').click(function () {
+                input = $(this).parents('.dropdown').find('input').val(),
+                        msg = '<span id="input" class="msg">';
+                $('.msg').html(msg + input + '</span>');
             });
         }
     });
@@ -116,7 +115,7 @@ $(function () {
             email: $('#email3').val(),
             idNumber: $('#id3').val(),
             password: $('#password3').val(),
-            isSuperAdmin: $('#input').html() === "true"
+            isSuperAdmin: $('#input').html() === "atrue"
         };
         var settings = {
             url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/createAccount/admin",
@@ -134,4 +133,6 @@ $(function () {
             console.log(response);
         });
     });
+
+
 });
