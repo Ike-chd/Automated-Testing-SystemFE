@@ -1,7 +1,7 @@
 var allCourses;
 var courseId;
 var Course;
-var ip = "192.168.8.131";
+var ip = "localhost";
 
 $(function () {
     $.ajax({

@@ -7,7 +7,7 @@ var moduleHTML = '\
 </label>';
 
 var allModules;
-var ip;
+var ip = "localhost";
 var numOfModules = 0;
 
 $('.dropdown').click(function () {

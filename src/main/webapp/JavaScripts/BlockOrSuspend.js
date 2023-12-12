@@ -1,4 +1,5 @@
 var allSusp;
+var ip = "localhost";
 var conbtns = document.getElementsByClassName("con");
 var wrapper =
         <div class="wrapper">

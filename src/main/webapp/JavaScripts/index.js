@@ -12,7 +12,7 @@ $(function () {
             courseDescription: $courseDescription.val()
         };
         var settings = {
-            url: "http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/courses/create",
+            url: "http://localhost:8080/Automated-Testing-SystemBE/resources/courses/create",
             method: "POST",
             headers: {
                 'Accept': 'application/json',

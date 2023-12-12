@@ -5,7 +5,7 @@ $(function () {
     makePage(JSON.parse(localStorage.getItem("currentTest")));
     var test = {test: "greetings"};
     var student = {name: "Ike"};
-    var ip;
+    var ip="localhost";
 
     var countDownDate = new Date(localStorage.getItem(JSON.parse(localStorage.getItem("currentTest")).testName)).getTime();
 

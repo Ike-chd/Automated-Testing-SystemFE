@@ -2,7 +2,7 @@ $(function () {
     var $tname = $('#topic');
     var $desc = $('#desc');
     var $link = $('#link');
-    var ip = "192.168.8.131";
+    var ip = "1ocalhost";
 
     $('#submit').click(function () {
         check = 0;

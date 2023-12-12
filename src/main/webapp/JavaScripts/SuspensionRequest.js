@@ -25,7 +25,7 @@ $(document).ready(function () {
     
     $.ajax({
         type: 'GET',
-        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/students/allStudents",
+        url: "http://localhost:8080/Automated-Testing-SystemBE/resources/students/allStudents",
         success: function (allStudents) {
             students = allStudents;
             $.each(students, function (i, student) {

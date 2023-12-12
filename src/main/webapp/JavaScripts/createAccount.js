@@ -3,7 +3,7 @@ $(function () {
     var $fbtn = $('#fbtn');
     var $abtn = $('#abtn');
     var allCourses;
-    var ip = "192.168.8.131";
+    var ip = "localhost";
 
     $sbtn.click(function () {
         $('#wr2').fadeOut(1000);
@@ -63,7 +63,7 @@ $(function () {
             address: $('#address').val(),
             phoneNumber: $('#phone').val(),
             password: $('#password').val(),
-            currentCourse: allCourses[parseInt($('#input').html())]
+            currentCourse: allCourses[parseInt($('#input').val())]
         };
 
         console.log(student);
@@ -75,6 +75,7 @@ $(function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
+            contentType: 'application/json',
             data: JSON.stringify(student)
         };
 

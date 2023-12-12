@@ -1,7 +1,7 @@
 $(function () {
     var $cname = $('#cname');
     var $cnum = $('#cnum');
-    var ip = "192.168.8.131";
+    var ip = "localhost";
 
     $('#submit').click(function () {
         check = 0;
