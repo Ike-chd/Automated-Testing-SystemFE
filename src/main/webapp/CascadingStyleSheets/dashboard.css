@@ -207,6 +207,10 @@ body {
 
 /* ---------- MAIN ---------- */
 
+a{
+    text-decoration: none;
+}
+
 .main-container {
     grid-area: main;
     overflow-y: auto;

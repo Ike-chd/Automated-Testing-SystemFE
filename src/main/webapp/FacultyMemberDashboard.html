@@ -1,24 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="jakarta.servlet.http.HttpSession;"%>
-<%@ page import="jakarta.servlet.http.HttpServletRequest;"%>
-<%@ page import="jakarta.servlet.http.HttpServletResponse;"%>
-<%@ page import="Models.Users.User"%>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <%session = request.getSession();%>
-        <%User loggedIn = (User) session.getAttribute("user");%>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title><%=loggedIn.getName() + "'s"%> Dashboard</title>
+        <title>Admin Dashboard</title>
 
         <!-- Montserrat Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
         <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -44,9 +36,7 @@
                     <div id="slideMenu" class="sub-menu-wrap">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <h1>Welcome</h1>
-                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2>
-                                <h4><%=loggedIn.getEmail()%></h4>
+                                <h2>Ike</h2>
                             </div>
                             <hr>
                             <a href="#" class="sub-menu-link">
@@ -216,6 +206,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- Custom JS -->
         <script src="JavaScripts/dashboard.js"></script> 
-
     </body>
 </html>

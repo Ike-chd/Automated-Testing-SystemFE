@@ -1,3 +1,5 @@
+var ip = "192.168.8.113";
+
 $(function () {
     $('#s1').mouseenter(function () {
         $(document.getElementById('f1')).slideDown(250);
@@ -14,7 +16,7 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: "/recourses/students/allstudents",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/students/allStudents",
         success: function (students) {
             $.each(students, function (i, student) {
                 $students.append('\n\

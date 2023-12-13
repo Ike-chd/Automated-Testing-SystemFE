@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CascadingStyleSheets/allCourses.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-        <!-- Material Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <title>Create a Course - Automated Testing System</title>
+        <link rel="stylesheet" href="CascadingStyleSheets/CreateCourse.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -101,12 +94,18 @@
                 </ul>
             </aside>
             <main class="main-container">
-                <div id="alltopics">
-                    <h1 id="head">All Topics</h1>
+                <h1>Create A Course</h1>
+                <div class="cpage">
+                    <div class='wrapper'>
+                        <h2>Course</h2>
+                        <input type="text" id="cname" placeholder="Course...">
+                        <h2>Course Number</h2>
+                        <input type="text" id="cnum" placeholder="Course Number...">
+                        <button id="submit" class="btn">Submit</button>
+                    </div>
                 </div>
             </main>
         </div>
-        <script src="JavaScripts/allTopics.js"></script>
-        <script src="JavaScripts/dashboard.js"></script>
+        <script src="JavaScripts/updateCourse.js"></script>
     </body>
 </html>

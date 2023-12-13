@@ -6,14 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Getter
 @Setter
-public class User {
+public class AccessRole {
 
-    private int userID;
-    private String name, surname, email, idNumber, password;
-    private AccessRole accessRole;
+    private int accessRoleID;
+    private String roleName;
 }

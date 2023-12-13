@@ -32,7 +32,7 @@
                     <span class="material-icons-outlined">search</span>
                 </div>
                 <div class="header-right">
-                    <span class="material-icons-outlined">notifications</span>
+                    <i class='bx bxs-bell bx-tada-hover' style="font-size: 25px; color: black;"></i>
                     <span class="material-icons-outlined">email</span>
                     <a id="profile" class="material-icons-outlined">account_circle</a>
                     <div id="slideMenu" class="sub-menu-wrap">
@@ -78,11 +78,6 @@
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="allStudents.html">
-                            <span class="material-icons-outlined">people</span> Students
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
                         <a href="CreateCourse.html">
                             <span class="material-icons-outlined">class</span> Create Course
                         </a>
@@ -98,13 +93,13 @@
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">assignment</span> Assignments
+                        <a href="createTopic.html">
+                            <span class="material-icons-outlined">assignment</span> Create A Topic
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">settings</span> Settings
+                        <a href="createTest.html">
+                            <span class="material-icons-outlined">assignment</span> Create A Test
                         </a>
                     </li>
                 </ul>
@@ -118,43 +113,80 @@
                 </div>
 
                 <div class="main-cards">
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <p class="text-primary">STUDENTS</p>
-                            <span class="material-icons-outlined text-blue">people</span>
+                    <a href="allStudents.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">STUDENTS</p>
+                                <span class="material-icons-outlined text-blue">people</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
-                        <span class="text-primary font-weight-bold">Total: XXX</span>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <p class="text-primary">COURSES</p>
-                            <span class="material-icons-outlined text-orange">class</span>
+                    </a>
+                    <a href="allFacultyMembers.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Faculty Members</p>
+                                <span class="material-icons-outlined text-blue">people</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
-                        <span class="text-primary font-weight-bold">Total: XXX</span>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <p class="text-primary">ENROLLMENTS</p>
-                            <span class="material-icons-outlined text-green">event_note</span>
+                    </a>
+                    <a href="allAdmins.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Administrators</p>
+                                <span class="material-icons-outlined text-blue">people</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
-                        <span class="text-primary font-weight-bold">Pending: XXX</span>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-inner">
-                            <p class="text-primary">GRADES</p>
-                            <span class="material-icons-outlined text-red">grading</span>
+                    </a>
+                    <a href="allCourses.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">COURSES</p>
+                                <span class="material-icons-outlined text-orange">class</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
-                        <span class="text-primary font-weight-bold">Average: XX</span>
-                    </div>
-
+                    </a>
+                    <a href="allModules.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Modules</p>
+                                <span class="material-icons-outlined text-green">event_note</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                        </div>
+                    </a>
+                    <a href="allTopics.html" >
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Topics</p>
+                                <span class="material-icons-outlined text-red">grading</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XX</span>
+                        </div>
+                    </a>
+                    <a href="allTests.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Tests</p>
+                                <span class="material-icons-outlined text-red">grading</span>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XX</span>
+                        </div>
+                    </a>
+                    <a href="BlockOrSuspend.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Suspension Requests</p>
+                                <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
                 </div>
-
                 <div class="charts">
-
                     <div class="charts-card">
                         <p class="chart-title">Top Performing Courses</p>
                         <div id="bar-chart"></div>

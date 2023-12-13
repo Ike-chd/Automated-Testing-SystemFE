@@ -23,9 +23,7 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     </head>
-
     <body>
         <div class="grid-container">
 
@@ -62,15 +60,12 @@
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-log-out' ></i>
                                 <p>Logout</p>
-                                <span>></span>
+                                <span></span>
                             </a>
                         </div>
                     </div>
                 </div>
             </header>
-            <!-- End Header -->
-
-            <!-- Sidebar -->
             <aside id="sidebar">
                 <div class="sidebar-title">
                     <div class="sidebar-brand">
