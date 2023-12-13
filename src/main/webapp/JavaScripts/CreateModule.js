@@ -1,14 +1,11 @@
 var module;
 var moduleId;
-var moduleHTML = '\
-<label class="container">' + module + '\
-    <input type="checkbox" name="category" value="' + moduleId + '">\n\
-    <span class="checkmark"></span>\n\
-</label>';
-
+var moduleHTML;
+var modules;
 var allModules;
 var ip;
 var numOfModules = 0;
+var sendingModules = [];
 
 $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
@@ -41,16 +38,31 @@ $(function () {
 
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/allTopics",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/module/allModules",
         success: function (modules) {
             allModules = modules;
             $.each(modules, function (i, module) {
                 module = module.moduleName;
                 moduleId = i;
-                $('#allModules').append(moduleHTML);
+                $('#allModules').append('\
+<label class="container">' + module + '\
+    <input class="modules" id="' + i + '" type="checkbox" name="category" value="' + moduleId + '">\n\
+    <span class="checkmark"></span>\n\
+</label>');
             });
+
+            modules = document.getElementsByClassName('modules');
+            for (var i = 0; i < modules.length; i++) {
+                modules[i].addEventListener('click', function () {
+                    if (this.querySelector('input').checked === 'checked') {
+                        sendingModules[i] = allModules[parseInt(this.id)];
+                    }
+                });
+            }
         }
     });
+
+
 
 //    function addModules(i) {
 //        $.each(allModules, function (i, module) {
@@ -65,7 +77,8 @@ $(function () {
         var module = {
             moduleName: $moduleName.val(),
             moduleDescription: $moduleDescription.val(),
-            numTests: $numTests.val()
+            numTests: $numTests.val(),
+            modules: sendingModules
         };
         var settings = {
             url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/create",

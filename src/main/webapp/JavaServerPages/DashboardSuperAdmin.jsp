@@ -81,8 +81,13 @@
 
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="DashboardSuperAdmin.html">
+                        <a href="/JavaServerPages/DashboardSuperAdmin.jsp">
                             <span class="material-icons-outlined">dashboard</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="CreateAccount.html">
+                            <span class="material-icons-outlined">class</span> Create Account
                         </a>
                     </li>
                     <li class="sidebar-list-item">

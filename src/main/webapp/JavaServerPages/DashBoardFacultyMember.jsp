@@ -11,25 +11,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title><%=loggedIn.getName() + "'s"%> Dashboard</title>
-
-        <!-- Montserrat Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-        <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     </head>
-
     <body>
         <div class="grid-container">
-
-            <!-- Header -->
             <header class="header">
                 <div class="menu-icon" onclick="openSidebar()">
                     <span class="material-icons-outlined">menu</span>
@@ -68,9 +58,6 @@
                     </div>
                 </div>
             </header>
-            <!-- End Header -->
-
-            <!-- Sidebar -->
             <aside id="sidebar">
                 <div class="sidebar-title">
                     <div class="sidebar-brand">
@@ -112,9 +99,6 @@
                     </li>
                 </ul>
             </aside>
-            <!-- End Sidebar -->
-
-            <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
                     <p class="font-weight-bold">DASHBOARD</p>
@@ -207,15 +191,9 @@
 
                 </div>
             </main>
-            <!-- End Main -->
-
         </div>
-
-        <!-- Scripts -->
-        <!-- ApexCharts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- Custom JS -->
         <script src="JavaScripts/dashboard.js"></script> 
-
     </body>
 </html>

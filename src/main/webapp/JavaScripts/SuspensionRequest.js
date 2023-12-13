@@ -1,28 +1,9 @@
+var ip = "192.168.8.131";
+
 $(document).ready(function () {
     var input;
     var students;
-    $('.dropdown').click(function () {
-        $(this).attr('tabindex', 1).focus();
-        $(this).toggleClass('active');
-        $(this).find('.dropdown-menu').slideToggle(300);
-    });
-    
-    $('.dropdown').focusout(function () {
-        $(this).removeClass('active');
-        $(this).find('.dropdown-menu').slideUp(300);
-    });
-    
-    $('.dropdown .dropdown-menu li').click(function () {
-        $(this).parents('.dropdown').find('span').text($(this).text());
-        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-    });
-    
-    $('.dropdown-menu li').click(function () {
-        input = $(this).parents('.dropdown').find('input').val(),
-                msg = '<span id="input" class="msg">';
-        $('.msg').html(msg + input + '</span>');
-    });
-    
+
     $.ajax({
         type: 'GET',
         url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/students/allStudents",
@@ -31,14 +12,35 @@ $(document).ready(function () {
             $.each(students, function (i, student) {
                 $('#dropdown-menu').append('<li id=' + i + '>' + student.name + ' ' + student.surname + '</li>');
             });
+            $('.dropdown').click(function () {
+                $(this).attr('tabindex', 1).focus();
+                $(this).toggleClass('active');
+                $(this).find('.dropdown-menu').slideToggle(300);
+            });
+
+            $('.dropdown').focusout(function () {
+                $(this).removeClass('active');
+                $(this).find('.dropdown-menu').slideUp(300);
+            });
+
+            $('.dropdown .dropdown-menu li').click(function () {
+                $(this).parents('.dropdown').find('span').text($(this).text());
+                $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+            });
+
+            $('.dropdown-menu li').click(function () {
+                input = $(this).parents('.dropdown').find('input').val(),
+                        msg = '<span id="input" class="msg">';
+                $('.msg').html(msg + input + '</span>');
+            });
         }
     });
-    
+
     $('#blockOrSuspendForm').submit(function (event) {
         event.preventDefault();
-        
+
 //        var $student = students[input.innerHTML];
-        
+
         var data = {
             student: $('#input').html(),
             reason: $('#reason').html(),
@@ -49,7 +51,7 @@ $(document).ready(function () {
             end: $('#end').val(),
             active: false
         };
-        
+
         $.ajax({
             url: 'http://localhost:8080/resources/suspension-requests/createSuspensionRequest',
             method: 'POST',
