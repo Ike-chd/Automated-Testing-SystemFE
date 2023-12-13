@@ -201,8 +201,17 @@ body {
     background-color: #a5aaad;
 }
 
+
 /* Media Queries */
 @media screen and (max-width: 992px) {
+
+
+/* ---------- MEDIA QUERIES ---------- */
+
+
+/* Medium <= 992px */
+@media screen and (max-width: 2000px) {
+
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: 0.2fr 3fr;

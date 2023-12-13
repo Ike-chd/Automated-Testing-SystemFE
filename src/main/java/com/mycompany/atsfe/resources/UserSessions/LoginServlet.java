@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
             loggedIn.setEmail(request.getParameter("email"));
             loggedIn.setPassword(request.getParameter("password"));
             HttpRequest getRequest = HttpRequest.newBuilder()
-                    .uri(new URI("http://192.168.80.104:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
+                    .uri(new URI("http://http://192.168.8.131:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
                     .GET()
                     .build();
             HttpClient client = HttpClient.newHttpClient();

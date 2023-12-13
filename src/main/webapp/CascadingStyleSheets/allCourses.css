@@ -23,8 +23,6 @@ body {
 }
 
 .wrapper {
-    display: flex;
-    align-items: center;
     width: 90%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
@@ -64,40 +62,4 @@ a {
     font-size: 16px;
     color: var(--light);
     font-weight: 600;
-}
-
-.btns {
-    display: inline;
-    width: 50%;
-}
-
-.studentInfo {
-    display: inline;
-    width: 50%;
-}
-
-.btns button {
-    width: 150px;
-    height: 45px;
-    background: var(--success);
-    border: none;
-    outline: none;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--light);
-    font-weight: 600;
-    display: block;
-    margin-left: auto;
-}
-
-.btns .rej{
-    background: var(--danger);
-    display: block;
-    margin-top: 10px;
-}
-
-.btns button:hover {
-    opacity: .8;
 }
