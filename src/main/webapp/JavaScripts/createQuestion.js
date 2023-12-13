@@ -1,45 +1,41 @@
-var $qname = $('#q');
-var $mark = $('#mark');
 var ans = 0;
 var check = 0;
 var allTopics;
 var ip = "192.168.8.131";
+var inp;
 
 $(function () {
-    $('.dropdown').click(function () {
-        $(this).attr('tabindex', 1).focus();
-        $(this).toggleClass('active');
-        $(this).find('.dropdown-menu').slideToggle(300);
-    });
-
-    $('.dropdown').focusout(function () {
-        $(this).removeClass('active');
-        $(this).find('.dropdown-menu').slideUp(300);
-    });
-
-    $('.dropdown .dropdown-menu li').click(function () {
-        $(this).parents('.dropdown').find('span').text($(this).text());
-        $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
-    });
-
-    $('.dropdown-menu li').click(function () {
-        input = $(this).parents('.dropdown').find('input').val(),
-                msg = '<span id="input" class="msg">';
-        $('.msg').html(msg + input + '</span>');
-    });
-
     $.ajax({
         type: 'GET',
         url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/allTopics",
         success: function (topics) {
-            console.log(topics);
-            console.log(topics);
             allTopics = topics;
             $.each(topics, function (i, topic) {
-                $('#topics').append('<li value=' + i + '>' + topic.topicName + '</li>');
+                $('#topics').append('<li id=' + i + ' value=' + i + '>' + topic.topicName + '</li>');
+            });
+            $('.dropdown').click(function () {
+                $(this).attr('tabindex', 1).focus();
+                $(this).toggleClass('active');
+                $(this).find('.dropdown-menu').slideToggle(300);
+            });
+
+            $('.dropdown').focusout(function () {
+                $(this).removeClass('active');
+                $(this).find('.dropdown-menu').slideUp(300);
+            });
+
+            $('.dropdown .dropdown-menu li').click(function () {
+                $(this).parents('.dropdown').find('span').text($(this).text());
+                $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+            });
+
+            $('.dropdown-menu li').click(function () {
+                var input = $(this).parents('.dropdown').find('input').val(),
+                        msg = '<span id="input" class="msg">';
+                $('.msg').html(msg + this.id + '</span>');
             });
         },
-        error: function() {
+        error: function () {
             console.log("Not Found");
         }
     });
@@ -56,8 +52,8 @@ $(function () {
         }).get();
         check = 0;
         var data = {
-            question: $qname.html(),
-            markAllocation: $mark.val(),
+            question: $('#q').html(),
+            markAllocation: $('#mark').val(),
             answers: answers,
             topic: allTopics[parseInt($('#input').html())]
         };
@@ -68,12 +64,14 @@ $(function () {
         var settings = {
             url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/postQuestion",
             method: "POST",
-//            headers: {
-//                'Accept': 'application/json',
-//                'Content-Type': 'application/json'
-//            },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             data: JSON.stringify(data)
         };
+        
+        console.log(data);
 
         $.ajax(settings).done(function (response) {
             console.log(response);
@@ -89,4 +87,5 @@ $(function () {
     <span class="checkmark"></span>\n\
 </label>');
     });
-})();
+
+});
