@@ -77,7 +77,7 @@
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="createAccount.html">
+                        <a href="CreateAccount1.html">
                             <span class="material-icons-outlined">class</span> Create Account
                         </a>
                     </li>

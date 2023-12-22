@@ -39,9 +39,10 @@ $(document).ready(function () {
     });
 
     $('#submit').click(function () {
+        startDate = new Date();
         var data = {
             student: students[parseInt($('#input').html())],
-            comment: $('#reason').html(),
+            comment: document.getElementById('comment').innerHTML,
             faculty: {
                 userID: 12
             },
@@ -55,12 +56,12 @@ $(document).ready(function () {
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-//            complete: function (response) {
-//                if (response.status >= 200 && response.status <= 299) {
-//                    alert("Requst successfully admitted...");
-//                    window.history.go(-1);
-//                }
-//            }
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
+                    alert("Comment successfully admitted...");
+                    window.history.go(-1);
+                }
+            }
         });
     });
 });
