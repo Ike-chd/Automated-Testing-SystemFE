@@ -11,14 +11,6 @@
     --dark: #5a5c69;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    background: var(--light);
-}
-
 .tpage {
     display: flex;
     justify-content: center;

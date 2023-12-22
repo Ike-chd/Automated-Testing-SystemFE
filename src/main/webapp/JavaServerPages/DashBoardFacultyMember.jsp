@@ -34,8 +34,8 @@
                     <div id="slideMenu" class="sub-menu-wrap">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <h1>Welcome</h1>
-                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2>
+                                <h1>Welcome</h1><br>
+                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
                                 <h4><%=loggedIn.getEmail()%></h4>
                             </div>
                             <hr>
@@ -103,30 +103,11 @@
                 <div class="main-title">
                     <p class="font-weight-bold">DASHBOARD</p>
                 </div>
-
                 <div class="main-cards">
                     <a href="allStudents.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary">STUDENTS</p>
-                                <span class="material-icons-outlined text-blue">people</span>
-                            </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
-                        </div>
-                    </a>
-                    <a href="allFacultyMembers.html">
-                        <div class="card">
-                            <div class="card-inner">
-                                <p class="text-primary">Faculty Members</p>
-                                <span class="material-icons-outlined text-blue">people</span>
-                            </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
-                        </div>
-                    </a>
-                    <a href="allAdmins.html">
-                        <div class="card">
-                            <div class="card-inner">
-                                <p class="text-primary">Administrators</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
                             <span class="text-primary font-weight-bold">Total: XXX</span>
@@ -144,7 +125,7 @@
                     <a href="allModules.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Modules</p>
+                                <p class="text-primary">MODULES</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
                             <span class="text-primary font-weight-bold">Total: XXX</span>
@@ -153,7 +134,7 @@
                     <a href="allTopics.html" >
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Topics</p>
+                                <p class="text-primary">TOPICS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
                             <span class="text-primary font-weight-bold">Total: XX</span>
@@ -162,7 +143,7 @@
                     <a href="allTests.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Tests</p>
+                                <p class="text-primary">TESTS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
                             <span class="text-primary font-weight-bold">Total: XX</span>
@@ -171,8 +152,26 @@
                     <a href="BlockOrSuspend.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Suspension Requests</p>
+                                <p class="text-primary">Request Suspension</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
+                    <a href="Report.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">REPORTS</p>
+                                <i class='bx bxs-report' style="font-size: 30px;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
+                    <a href="comment.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">COMMENT</p>
+                                <i class='bx bxs-comment' style="font-size: 30px;"></i>
                             </div>
                             <span class="text-primary font-weight-bold">Average: XX</span>
                         </div>
@@ -180,20 +179,13 @@
                 </div>
                 <div class="charts">
                     <div class="charts-card">
-                        <p class="chart-title">Top Performing Courses</p>
-                        <div id="bar-chart"></div>
-                    </div>
-
-                    <div class="charts-card">
                         <p class="chart-title">Enrollment Trends</p>
                         <div id="area-chart"></div>
                     </div>
-
                 </div>
             </main>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-        <!-- Custom JS -->
         <script src="JavaScripts/dashboard.js"></script> 
     </body>
 </html>

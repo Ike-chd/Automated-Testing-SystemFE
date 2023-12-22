@@ -1,10 +1,15 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
+
 $(function () {
     $('#profile').click(function () {
         $("#slideMenu").slideToggle(500);
+    });
+    
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/students/numberOfStudents",
+        success: function (numOfStudents) {
+            document.getElementById('numOfStudents').innerHTML = "Total: "+numOfStudents+"";
+        }
     });
 });
 
@@ -33,15 +38,15 @@ function closeSidebar() {
 const barChartOptions = {
     series: [
         {
-            data: [10, 8, 6, 4, 2],
-        },
+            data: [5, 5, 5, 5, 5]
+        }
     ],
     chart: {
         type: 'bar',
         height: 350,
         toolbar: {
-            show: false,
-        },
+            show: false
+        }
     },
     colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
     plotOptions: {
@@ -49,23 +54,23 @@ const barChartOptions = {
             distributed: true,
             borderRadius: 4,
             horizontal: false,
-            columnWidth: '40%',
-        },
+            columnWidth: '40%'
+        }
     },
     dataLabels: {
-        enabled: false,
+        enabled: false
     },
     legend: {
-        show: false,
+        show: false
     },
     xaxis: {
-        categories: ['Laptop', 'Phone', 'Monitor', 'Headphones', 'Camera'],
+        categories: ['Zulu', 'English', 'Math', 'Geo', 'History']
     },
     yaxis: {
         title: {
-            text: 'Count',
-        },
-    },
+            text: 'Count'
+        }
+    }
 };
 
 const barChart = new ApexCharts(
@@ -79,48 +84,44 @@ const areaChartOptions = {
     series: [
         {
             name: 'Purchase Orders',
-            data: [31, 40, 28, 51, 42, 109, 100],
-        },
-        {
-            name: 'Sales Orders',
-            data: [11, 32, 45, 32, 34, 52, 41],
-        },
+            data: [31, 40, 28, 51, 42, 109, 100]
+        }
     ],
     chart: {
         height: 350,
         type: 'area',
         toolbar: {
-            show: false,
-        },
+            show: false
+        }
     },
     colors: ['#4f35a1', '#246dec'],
     dataLabels: {
-        enabled: false,
+        enabled: false
     },
     stroke: {
-        curve: 'smooth',
+        curve: 'smooth'
     },
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     markers: {
-        size: 0,
+        size: 0
     },
     yaxis: [
         {
             title: {
-                text: 'Purchase Orders',
-            },
+                text: 'Purchase Orders'
+            }
         },
         {
             opposite: true,
             title: {
-                text: 'Sales Orders',
-            },
-        },
+                text: 'Sales Orders'
+            }
+        }
     ],
     tooltip: {
         shared: true,
-        intersect: false,
-    },
+        intersect: false
+    }
 };
 
 const areaChart = new ApexCharts(

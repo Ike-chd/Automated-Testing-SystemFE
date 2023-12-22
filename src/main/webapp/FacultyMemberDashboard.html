@@ -5,11 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Admin Dashboard</title>
-
-        <!-- Montserrat Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-        <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
@@ -111,8 +107,8 @@
                 </div>
 
                 <div class="main-cards">
-                    <a href="allStudents.html">
-                        <div class="card">
+                    <a class="card" href="allStudents.html">
+                        <div>
                             <div class="card-inner">
                                 <p class="text-primary">STUDENTS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
@@ -120,26 +116,8 @@
                             <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
-                    <a href="allFacultyMembers.html">
-                        <div class="card">
-                            <div class="card-inner">
-                                <p class="text-primary">Faculty Members</p>
-                                <span class="material-icons-outlined text-blue">people</span>
-                            </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
-                        </div>
-                    </a>
-                    <a href="allAdmins.html">
-                        <div class="card">
-                            <div class="card-inner">
-                                <p class="text-primary">Administrators</p>
-                                <span class="material-icons-outlined text-blue">people</span>
-                            </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
-                        </div>
-                    </a>
-                    <a href="allCourses.html">
-                        <div class="card">
+                    <a class="card" href="allCourses.html">
+                        <div>
                             <div class="card-inner">
                                 <p class="text-primary">COURSES</p>
                                 <span class="material-icons-outlined text-orange">class</span>
@@ -147,8 +125,8 @@
                             <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
-                    <a href="allModules.html">
-                        <div class="card">
+                    <a class="card" href="allModules.html">
+                        <div>
                             <div class="card-inner">
                                 <p class="text-primary">Modules</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
@@ -177,7 +155,16 @@
                     <a href="BlockOrSuspend.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Suspension Requests</p>
+                                <p class="text-primary">Request Suspension</p>
+                                <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
+                    <a href="comment.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Comment</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
                             <span class="text-primary font-weight-bold">Average: XX</span>
@@ -194,17 +181,10 @@
                         <p class="chart-title">Enrollment Trends</p>
                         <div id="area-chart"></div>
                     </div>
-
                 </div>
             </main>
-            <!-- End Main -->
-
         </div>
-
-        <!-- Scripts -->
-        <!-- ApexCharts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-        <!-- Custom JS -->
-        <script src="JavaScripts/dashboard.js"></script> 
+        <script src="JavaScripts/dashboard.js"></script>
     </body>
 </html>

@@ -1,8 +1,9 @@
+var $tname = $('#topic');
+var $desc = $('#desc');
+var $link = $('#link');
+var ip = "192.168.8.113";
+
 $(function () {
-    var $tname = $('#topic');
-    var $desc = $('#desc');
-    var $link = $('#link');
-    var ip = "192.168.8.131";
 
     $('#submit').click(function () {
         check = 0;
@@ -20,7 +21,15 @@ $(function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            complete: function(response){
+                if(response.status >= 200 && response.status <= 299){
+                    alert("Topic successfully created...");
+                    window.history.go(-1);
+                } else {
+                    alert("Topic NOT successfully created...");
+                }
+            }
         };
         $.ajax(settings).done(function (response) {
             console.log(response);

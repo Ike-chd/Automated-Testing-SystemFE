@@ -11,38 +11,19 @@
     --dark: #5a5c69;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 .qpage {
     display: flex;
     justify-content: center;
-    background: var(--light);
 }
 
 h1{
     margin-top: 35px;
     display: block;
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
 h2 {
     color: black;
-}
-
-.wrapper {
-    width: 80%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    color: #fff;
-    border-radius: 20px;
-    padding: 30px 40px;
 }
 
 #question {
@@ -59,34 +40,8 @@ h2 {
     outline: none;
     background-color: rgba(230, 240, 242, .7);
 }
-
-.textarea {
-    border: 1px solid #ccc;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 1px 6px;
-    color: black;
-}
-
 .width-machine {
     padding: 0 1rem;
-}
-
-.textarea {
-    display: block;
-    overflow: hidden;
-    resize: none;
-    min-height: 40px;
-    line-height: 20px;
-    border: 2px solid rgba(0, 0, 0, .2);
-    border-radius: 7px;
-    font-size: 16px;
-    color: var(--dark);
-    padding: 20px 45px 20px 20px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px
 }
 
 .textarea[contenteditable]:empty::before {

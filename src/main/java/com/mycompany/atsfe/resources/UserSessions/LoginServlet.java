@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         loggedIn.setPassword(request.getParameter("password"));
         try {
             HttpRequest getRequest = HttpRequest.newBuilder()
-                    .uri(new URI("http://192.168.8.131:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
+                    .uri(new URI("http://192.168.8.113:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
                     .GET()
                     .build();
             HttpClient client = HttpClient.newHttpClient();
@@ -57,12 +57,12 @@ public class LoginServlet extends HttpServlet {
                     break;
                 case "Faculty Member":
                     FacultyMember facultyMember = gson.fromJson(response1.body(), FacultyMember.class);
-                    facultyMember.SetProfessor(false);
+                    facultyMember.setIsProfessor(false);
                     loggedIn = facultyMember;
                     break;
                 case "Professor":
                     FacultyMember prof = gson.fromJson(response1.body(), FacultyMember.class);
-                    prof.SetProfessor(true);
+                    prof.setIsProfessor(true);
                     loggedIn = prof;
                     break;
                 case "Student":

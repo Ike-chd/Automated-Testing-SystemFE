@@ -1,4 +1,5 @@
-var course = JSON.parse(localStorage.getItem('currentCourse'));
+var ip = "192.168.8.113";
+var course = JSON.parse(sessionStorage.getItem('course'));
 
 document.getElementById('cname').value = course.courseName;
 document.getElementById('cnum').value = course.courseNumber;
@@ -6,6 +7,7 @@ $(function () {
     $('#submit').click(function () {
         check = 0;
         var data = {
+            courseID: course.courseID,
             courseName: $('#cname').val(),
             courseNumber: $('#cnum').val()
         };
@@ -17,7 +19,16 @@ $(function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
+                    alert("Course successfully updated...");
+                    sessionStorage.removeItem('course');
+                    window.history.go(-1);
+                } else {
+                    alert("Course Not updated successfully");
+                }
+            }
         };
 
         $.ajax(settings).done(function (response) {
@@ -25,5 +36,5 @@ $(function () {
         });
 
     });
-    
+
 });

@@ -143,8 +143,6 @@ body {
     display: none;
 }
 
-/* ---------- SIDEBAR ---------- */
-
 #sidebar {
     grid-area: sidebar;
     height: 100%;
@@ -287,6 +285,8 @@ a{
 }
 
 .charts-card {
+    width: 80%;
+    margin-left: 10%;
     background-color: #ffffff;
     margin-bottom: 20px;
     padding: 25px;
@@ -304,9 +304,6 @@ a{
     font-size: 22px;
     font-weight: 600;
 }
-
-
-/* ---------- SCROLLBARS ---------- */
 
 ::-webkit-scrollbar {
     width: 5px;

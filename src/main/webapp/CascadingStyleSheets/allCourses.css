@@ -45,15 +45,14 @@ a {
 }
 
 .btnflex {
-    display: none;
+    display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .wrapper .btn {
-    width: 250px;
+    width: 25%;
     height: 70px;
-    background: var(--primary);
+    background: var(--dark);
     border: none;
     outline: none;
     border-radius: 10px;

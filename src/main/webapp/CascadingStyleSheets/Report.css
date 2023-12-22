@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --primary: #4e73df;
+    --info: #36b9cc;
+    --danger: #e74a3b;
+    --light: #f8f9fc;
+    --success: #1cc88a;
+    --warning: #f6c23e;
+    --secondary: #858796;
+    --dark: #5a5c69;
+}
+
+#download {
+    margin-left: 37.5%;
+    width: 25%;
+    height: 70px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--light);
+    background-color: var(--dark);
+    margin-bottom: 50px;
+}
+
+.bxs-download {
+    margin-left: 10px;
+    color: var(--light);
+}

@@ -1,17 +1,19 @@
-var ip = "192.168.8.131";
+var ip = "192.168.8.113";
+var input;
+var students;
+var startDate;
+var endDate;
 
 $(document).ready(function () {
-    var input;
-    var students;
-
     $.ajax({
         type: 'GET',
-        url: "http://192.168.80.170:8080/Automated-Testing-SystemBE/resources/students/allStudents",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/students/allStudents",
         success: function (allStudents) {
             students = allStudents;
             $.each(students, function (i, student) {
                 $('#dropdown-menu').append('<li id=' + i + '>' + student.name + ' ' + student.surname + '</li>');
             });
+
             $('.dropdown').click(function () {
                 $(this).attr('tabindex', 1).focus();
                 $(this).toggleClass('active');
@@ -36,35 +38,33 @@ $(document).ready(function () {
         }
     });
 
-    $('#blockOrSuspendForm').submit(function (event) {
-        event.preventDefault();
-
-//        var $student = students[input.innerHTML];
-
+    $('#submit').click(function () {
+        startDate = new Date($('#start').val());
+        endDate = new Date($('#end').val());
         var data = {
-            student: $('#input').html(),
+            student: students[parseInt($('#input').html())],
             reason: $('#reason').html(),
             requestedBy: {
-                email: localStorage.getItem('email')
+                userID: 12
             },
-            start: $('#start').val(),
-            end: $('#end').val(),
+            start: startDate.getTime(),
+            duration: endDate.getTime() - startDate.getTime(),
             active: false
         };
 
+        console.log(data);
+
         $.ajax({
-            url: 'http://localhost:8080/resources/suspension-requests/createSuspensionRequest',
+            url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/admitsrq',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function (response) {
-                console.log('Successfully submitted form:', response);
-                alert('Action completed successfully!');
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
+                    alert("Requst successfully admitted...");
+                    window.history.go(-1);
+                }
             }
-//            error: function (error) {
-//                console.error('Error submitting form:', error);
-//                alert('Error completing action. Please try again.');
-//            }
         });
     });
 });

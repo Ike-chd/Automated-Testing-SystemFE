@@ -4,8 +4,9 @@
         <title>Create a Topic</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CascadingStyleSheets/createTopic.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/comment.css">
         <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/webpage.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
@@ -39,7 +40,7 @@
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-cog'></i>
                                 <p>Settings</p>
-                                <span>></span>
+                                <span></span>
                             </a>
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-log-out' ></i>
@@ -50,65 +51,31 @@
                     </div>
                 </div>
             </header>
-            <aside id="sidebar">
-                <div class="sidebar-title">
-                    <div class="sidebar-brand">
-                        <span class="material-icons-outlined">school</span> Enrollment System
-                    </div>
-                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
-                </div>
-
-                <ul class="sidebar-list">
-                    <li class="sidebar-list-item">
-                        <a href="DashboardSuperAdmin.html">
-                            <span class="material-icons-outlined">dashboard</span> Dashboard
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="allStudents.html">
-                            <span class="material-icons-outlined">people</span> Students
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="CreateCourse.html">
-                            <span class="material-icons-outlined">class</span> Create Course
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="CreateModule.html">
-                            <span class="material-icons-outlined">event_note</span> Create Module
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="createQuestion.html">
-                            <span class="material-icons-outlined">grading</span> Create Question
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">assignment</span> Assignments
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">settings</span> Settings
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="main-container">
                 <h1>Comment on a Student</h1>
                 <div class="tpage">
                     <div class='wrapper'>
                         <h2>Student</h2>
-                        <input type="text" id="topic" placeholder="Topic...">
+                        <div class="container">    
+                            <div class="dropdown">
+                                <div class="select">
+                                    <span>Select Student</span>
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <input type="hidden" name="gender">
+                                <ul id='dropdown-menu' class="dropdown-menu">
+                                </ul>
+                            </div>
+                            <span class="msg"></span>
+                        </div>
                         <h2>Add Comment</h2>
                         <p><span id="desc" class="textarea" role="textbox" contenteditable></span></p>
+                        <button id="submit" class="btn">Submit</button>
                     </div>
                 </div>
             </main>
         </div>
-        <script src="JavaScripts/updateTopic.js"></script>
+        <script src="JavaScripts/comment.js"></script>
         <script src="JavaScripts/dashboard.js"></script>
     </body>
 </html>

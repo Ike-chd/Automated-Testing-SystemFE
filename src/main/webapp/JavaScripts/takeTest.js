@@ -1,11 +1,11 @@
 var numOfQuestions = 0;
 var q = 0;
+var test = JSON.parse(sessionStorage.getItem("currentTest"));
+var ip = "192.168.8.113";
+var student = JSON.parse(sessionStorage.getItem("loggedIn"));
 
 $(function () {
-    makePage(JSON.parse(localStorage.getItem("currentTest")));
-    var test = {test: "greetings"};
-    var student = {name: "Ike"};
-    var ip;
+    makePage(test);
 
     var countDownDate = new Date(localStorage.getItem(JSON.parse(localStorage.getItem("currentTest")).testName)).getTime();
 
@@ -20,6 +20,10 @@ $(function () {
 
         document.getElementById("timel").innerHTML = "Time Left : " + hours + ":"
                 + minutes + ":" + seconds;
+        
+        if (distance === 0) {
+            
+        }
     }, 1000);
 
     function makePage(gotTest) {
@@ -66,10 +70,10 @@ $(function () {
             if (this.checked === true) {
                 return {
                     student: student,
-                    question: {
-                        question: document.getElementById(this.parentElement.parentElement.classList[0]).children[0].innerHTML
-                    },
-                    correctAns: this.value === "true",
+//                    question: {
+//                        question: document.getElementById(this.parentElement.parentElement.classList[0]).children[0].innerHTML
+//                    },
+                    question: test.questions[parseInt(this.classList[0][3])],
                     test: test
                 };
             }
@@ -82,13 +86,21 @@ $(function () {
         };
 
         var settings = {
-            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/create",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/test-attempt/createTestAttempt",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(testAttempt)
+            data: JSON.stringify(testAttempt),
+            complete: function(response){
+                if(response.status >= 200 && response.status <= 299){
+                    alert("Test successfully taken...");
+                    window.history.go(-2);
+                } else {
+                    alert("There has been some issues with submiting the test...");
+                }
+            }
         };
         console.log(testAttempt);
         $.ajax(settings).done(function (response) {

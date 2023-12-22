@@ -60,28 +60,8 @@ h2 {
     background-color: rgba(230, 240, 242, .7);
 }
 
-.textarea {
-    border: 2px solid rgba(0, 0, 0, .2);
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: inherit;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    color: black;
-}
-
 .width-machine {
     padding: 0 1rem;
-}
-
-.textarea {
-    display: block;
-    overflow: hidden;
-    resize: none;
-    min-height: 50px;
-    line-height: 20px;
-    width: 100%;
 }
 
 .textarea[contenteditable]:empty::before {
@@ -233,10 +213,9 @@ input {
 }
 
 #add {
-    margin-left: auto;
     display: inline;
-    width: 120px;
-    height: 35px;
+    width: 200px;
+    height: 60px;
 }
 
 #submit {

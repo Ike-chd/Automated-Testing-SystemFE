@@ -1,7 +1,7 @@
 var ans = 0;
 var check = 0;
 var allTopics;
-var ip = "192.168.8.131";
+var ip = "192.168.8.116";
 var inp;
 
 $(function () {
@@ -46,7 +46,7 @@ $(function () {
         var answers = $('.answers').map(function () {
             check++;
             return {
-                answer: this.value,
+                text: this.value,
                 isCorrect: document.querySelector('#check' + check).checked
             };
         }).get();
@@ -54,15 +54,15 @@ $(function () {
         var data = {
             question: $('#q').html(),
             markAllocation: $('#mark').val(),
-            answers: answers,
-            topic: allTopics[parseInt($('#input').html())]
+            topic: allTopics[parseInt($('#input').html())],
+            answers: answers
         };
 
         console.log(data);
 
         var sTopic = document.getElementById('topics');
         var settings = {
-            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/postQuestion",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resourses/questions/postQuestion",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -70,7 +70,7 @@ $(function () {
             },
             data: JSON.stringify(data)
         };
-        
+
         console.log(data);
 
         $.ajax(settings).done(function (response) {
@@ -87,5 +87,4 @@ $(function () {
     <span class="checkmark"></span>\n\
 </label>');
     });
-
 });

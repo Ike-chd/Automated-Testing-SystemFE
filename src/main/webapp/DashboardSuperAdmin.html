@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Admin Dashboard</title>
-
-        <!-- Montserrat Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-        <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <link rel="stylesheet" href="CSS/dashboard.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     </head>
-
     <body>
         <div class="grid-container">
-
             <!-- Header -->
             <header class="header">
-                <div class="menu-icon" onclick="openSidebar()">
+                <div class="menu-icon" onclick="openSidebar()" style="cursor: pointer;">
                     <span class="material-icons-outlined">menu</span>
                 </div>
                 <div class="header-left">
@@ -44,17 +34,17 @@
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-user'></i>
                                 <p>Edit profile</p>
-                                <span>></span>
+                                <span></span>
                             </a>
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-cog'></i>
                                 <p>Settings</p>
-                                <span>></span>
+                                <span></span>
                             </a>
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-log-out' ></i>
                                 <p>Logout</p>
-                                <span>></span>
+                                <span></span>
                             </a>
                         </div>
                     </div>
@@ -111,7 +101,6 @@
                 <div class="main-title">
                     <p class="font-weight-bold">DASHBOARD</p>
                 </div>
-
                 <div class="main-cards">
                     <a href="allStudents.html">
                         <div class="card">
@@ -119,7 +108,6 @@
                                 <p class="text-primary">STUDENTS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allFacultyMembers.html">
@@ -128,7 +116,6 @@
                                 <p class="text-primary">Faculty Members</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allAdmins.html">
@@ -137,7 +124,6 @@
                                 <p class="text-primary">Administrators</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allCourses.html">
@@ -146,7 +132,6 @@
                                 <p class="text-primary">COURSES</p>
                                 <span class="material-icons-outlined text-orange">class</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allModules.html">
@@ -155,7 +140,6 @@
                                 <p class="text-primary">Modules</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allTopics.html" >
@@ -164,7 +148,6 @@
                                 <p class="text-primary">Topics</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="allTests.html">
@@ -173,7 +156,6 @@
                                 <p class="text-primary">Tests</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="BlockOrSuspend.html">
@@ -182,33 +164,12 @@
                                 <p class="text-primary">Suspension Requests</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
                 </div>
-                <div class="charts">
-                    <div class="charts-card">
-                        <p class="chart-title">Top Performing Courses</p>
-                        <div id="bar-chart"></div>
-                    </div>
-
-                    <div class="charts-card">
-                        <p class="chart-title">Enrollment Trends</p>
-                        <div id="area-chart"></div>
-                    </div>
-
-                </div>
             </main>
-            <!-- End Main -->
-
         </div>
-
-        <!-- Scripts -->
-        <!-- ApexCharts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-        <!-- Custom JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>\
         <script src="JavaScripts/dashboard.js"></script> 
-
     </body>
-
 </html>

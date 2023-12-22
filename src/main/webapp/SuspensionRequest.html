@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Block or Suspend Students</title>
-        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/BlockOrSuspend.css">
+        <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/SuspensionRequest.css">
         <link rel="stylesheet" type="text/css" href="CascadingStyleSheets/dashboard.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -50,85 +50,32 @@
                     </div>
                 </div>
             </header>
-            <aside id="sidebar">
-                <div class="sidebar-title">
-                    <div class="sidebar-brand">
-                        <span class="material-icons-outlined">school</span> Enrollment System
-                    </div>
-                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
-                </div>
-
-                <ul class="sidebar-list">
-                    <li class="sidebar-list-item">
-                        <a href="DashboardSuperAdmin.html">
-                            <span class="material-icons-outlined">dashboard</span> Dashboard
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="allStudents.html">
-                            <span class="material-icons-outlined">people</span> Students
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="CreateCourse.html">
-                            <span class="material-icons-outlined">class</span> Create Course
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="CreateModule.html">
-                            <span class="material-icons-outlined">event_note</span> Create Module
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="createQuestion.html">
-                            <span class="material-icons-outlined">grading</span> Create Question
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">assignment</span> Assignments
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="#">
-                            <span class="material-icons-outlined">settings</span> Settings
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="main-container">
                 <h1>Request Suspension</h1>
                 <div class="wrapper">
                     <h3>Select Student</h3>
-                    <form action="DashboardSuperAdmin.html" id="blockOrSuspendForm">
-                        <div class="container">    
-                            <div class="dropdown">
-                                <div class="select">
-                                    <span>Select Student</span>
-                                    <i class="fa fa-chevron-left"></i>
-                                </div>
-                                <input type="hidden" name="gender">
-                                <ul class="dropdown-menu">
-                                    <li id="Ike">Ike</li>
-                                    <li id="Junior">Junior</li>
-                                    <li id="Ridwaan">Ridwaan</li>
-                                    <li id="Saif">Saif</li>
-                                    <li id="Jeff">Jeff</li>
-                                    <li id="Quinton">Quinton</li>
-                                    <li id="Brian">Brian</li>
-                                </ul>
+                    <!--<form id="blockOrSuspendForm">-->
+                    <div class="container">    
+                        <div class="dropdown">
+                            <div class="select">
+                                <span>Select Student</span>
+                                <i class="fa fa-chevron-left"></i>
                             </div>
-                            <span class="msg"></span>
+                            <input type="hidden" name="gender">
+                            <ul id='dropdown-menu' class="dropdown-menu">
+                            </ul>
                         </div>
-                        <h3>Duration</h3>
-                        <h4>Start</h4>
-                        <input type="date" id="start" name="duration">
-                        <h4>End</h4>
-                        <input type="date" id="end" name="duration">
-                        <h3>Reason</h3>
-                        <p><span id="reason" class="textarea" role="textbox" contenteditable></span></p>
-                        <button id="submit" class="btn" type="submit">Submit</button>
-                    </form>
+                        <span class="msg"></span>
+                    </div>
+                    <h3>Duration</h3>
+                    <h4>Start</h4>
+                    <input type="date" id="start" name="duration">
+                    <h4>End</h4>
+                    <input type="date" id="end" name="duration">
+                    <h3>Reason</h3>
+                    <p><span id="reason" class="textarea" role="textbox" contenteditable></span></p>
+                    <button id="submit" class="btn" >Submit</button>
+                    <!--</form>-->
                 </div>
             </main>
         </div>

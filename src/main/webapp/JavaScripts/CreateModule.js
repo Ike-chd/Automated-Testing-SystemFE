@@ -1,11 +1,10 @@
 var module;
 var moduleId;
-var moduleHTML;
 var modules;
 var allModules;
-var ip;
+var ip = "192.168.8.113";
 var numOfModules = 0;
-var sendingModules = [];
+var sendingModules;
 
 $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
@@ -28,100 +27,67 @@ $('.dropdown-menu li').click(function () {
 });
 
 $(function () {
-
     $('#request').click(function () {
         $('.req').slideToggle(1000);
     });
-    var $moduleName = $('#module-name');
-    var $moduleDescription = $('#module-description');
-    var $numTests = $('#num-tests');
+    var $moduleName = $('#module');
+    var $moduleDescription = $('#desc');
 
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/module/allModules",
-        success: function (modules) {
-            allModules = modules;
-            $.each(modules, function (i, module) {
-                module = module.moduleName;
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/allModules",
+        success: function (Modules) {
+            allModules = Modules;
+            $.each(Modules, function (i, module) {
                 moduleId = i;
                 $('#allModules').append('\
-<label class="container">' + module + '\
+<label class="container">' + module.moduleName + '\
     <input class="modules" id="' + i + '" type="checkbox" name="category" value="' + moduleId + '">\n\
     <span class="checkmark"></span>\n\
 </label>');
             });
-
-            modules = document.getElementsByClassName('modules');
-            for (var i = 0; i < modules.length; i++) {
-                modules[i].addEventListener('click', function () {
-                    if (this.querySelector('input').checked === 'checked') {
-                        sendingModules[i] = allModules[parseInt(this.id)];
-                    }
-                });
-            }
         }
     });
 
+    modules = document.getElementsByClassName('modules');
+    var closebtn = document.getElementsByClassName('close');
 
+    closebtn[0].addEventListener('click', function () {
+        sendingModules = $('.modules').map(function () {
+            if (this.checked) {
+                return allModules[parseInt(this.id)];
+            }
+        }).get();
+    });
 
-//    function addModules(i) {
-//        $.each(allModules, function (i, module) {
-//            moduleName = module.topic;
-//            moduleId = i;
-//            $('#modules' + i).append(moduleHTML);
-//        });
-//    }
+    $('#add').click(function () {
+        sendingModules = [];
+    });
 
-    $('#submit').click(function (event) {
-        event.preventDefault();
+    $('#submit').click(function () {
         var module = {
             moduleName: $moduleName.val(),
-            moduleDescription: $moduleDescription.val(),
-            numTests: $numTests.val(),
+            moduleDescription: $moduleDescription.html(),
             modules: sendingModules
         };
         var settings = {
-            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/create",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/postModule",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(module)
+            data: JSON.stringify(module),
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
+                    alert("Module successfully created...");
+                    window.history.go(-1);
+                }
+            }
         };
         console.log(module);
         $.ajax(settings).done(function (response) {
             console.log(response);
         });
     });
-
-    $('#add').click(function () {
-        $('#answers').append('\
-<input type="text" class="answers" id="q' + numOfModules + '">\n\
-<label class="container">\n\
-    <input type="checkbox" id="check' + numOfModules + '">\n\
-    <span class="checkmark"></span>\n\
-</label>');
-        numOfModules++;
-    });
-
-//    $('#add').click(function () {
-//        numOfModules++;
-//        $('#allModules').append('\
-//<div class="container">\n\
-//    <span class="choose">Choose Module</span>\n\
-//    <div class="dropdown">\n\
-//        <div class="select">\n\
-//            <span>Select Modules</span>\n\
-//            <i class="fa fa-chevron-left"></i>\n\
-//        </div>\n\
-//        <input type="hidden" name="gender">\n\
-//        <ul id="modules' + numOfModules + '" class="dropdown-menu">\n\
-//        <li id="Networking">Networking</li>\n\
-//        </ul>\n\
-//    </div>\n\
-//    <span class="msg"></span>\n\
-//</div>');
-//        addModules(numOfModules);
-//    });
 });

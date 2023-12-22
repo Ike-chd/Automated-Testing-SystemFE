@@ -2,12 +2,9 @@ package Models.Users;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Admin extends User {
@@ -17,8 +14,7 @@ public class Admin extends User {
     public Admin(int userID, String name, String surname, String email, String idNumber, String password, AccessRole accessRole) {
         super(userID, name, surname, email, idNumber, password, accessRole);
     }
-    
-    public void setSuperAdmin(boolean isSuperAdmin){
-        this.isSuperAdmin = isSuperAdmin;
+
+    public Admin(int userId, String firstname, String surname, String email, String idNumber, String password, int accessRoleID) {
     }
 }

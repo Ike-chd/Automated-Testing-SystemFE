@@ -23,6 +23,7 @@ body {
 }
 
 .wrapper {
+    margin-top: 15px;
     width: 90%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
