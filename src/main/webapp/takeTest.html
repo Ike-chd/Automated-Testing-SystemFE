@@ -26,10 +26,11 @@
         </div>
         <div id="fl1" class="float">
             <div id="innerf1" class="innerf">
-                <h2><span onclick="document.getElementById('fl1').style.display = 'none'" class="close" title="Close Modal">&times;</span></h2>
-                <h2>Modules</h2>
-                <div id="allModules" class="flexbox">
-                </div>
+                <h2><span id="close" onclick="document.getElementById('fl1').style.display = 'none'" class="close" title="Close Modal">&times;</span></h2>
+                <h1>Thank you for taking the test, we would like a rating for statistics purposes</h1>
+                <h2>Rating</h2>
+                <input id="rating" type="number" min="0" max="10" required>
+                <button id="submit" class="btn">Submit Test</button>
             </div>
         </div>
     </body>

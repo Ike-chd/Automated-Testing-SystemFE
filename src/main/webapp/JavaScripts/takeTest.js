@@ -2,9 +2,12 @@ var numOfQuestions = 0;
 var q = 0;
 var test = JSON.parse(sessionStorage.getItem("currentTest"));
 var ip = sessionStorage.getItem('ip');
-var student = JSON.parse(sessionStorage.getItem("loggedIn"));
+var student = parseInt(sessionStorage.getItem("userID"));
+var start;
+var end;
 
 $(function () {
+    start = new Date();
     makePage(test);
 
     var countDownDate = new Date(sessionStorage.getItem(JSON.parse(sessionStorage.getItem("currentTest")).testName)).getTime();
@@ -20,9 +23,11 @@ $(function () {
 
         document.getElementById("timel").innerHTML = "Time Left : " + hours + ":"
                 + minutes + ":" + seconds;
-        
+
         if (distance === 0) {
-            
+            clearInterval(x);
+            document.getElementById("close").style.display = "none";
+            $("#fl1").slideDown(1500);
         }
     }, 1000);
 
@@ -35,9 +40,9 @@ $(function () {
             $('#que' + i).append('<div class="wrapper" id="q' + i + '"></div></div>');
             var answers = question.answers;
             $.each(answers, function (j, answer) {
-                var tf = answer.isCorrect ? "true" : "false";
+                var tf = answer.correct ? "true" : "false";
                 $('#q' + i).append('<div class="que' + i + '"><label class="container" id="a' + j + '">\n\
-                                        <input class="answers" type="checkbox" value="' + tf + '"><span class="checkmark"></span></label>\n\
+                                        <input class="answers ' + i + '" type="checkbox" value="' + tf + '"><span class="checkmark"></span></label>\n\
                                         <h3>' + answer.answer + '</h3><br></div>');
             });
         });
@@ -54,7 +59,7 @@ $(function () {
     });
 
     $('#next').click(function () {
-        if (q < numOfQuestions-1) {
+        if (q < numOfQuestions - 1) {
             $("#que" + q).animate({'margin-right': '100%'});
             $("#que" + q).fadeOut(0);
             q++;
@@ -63,38 +68,47 @@ $(function () {
         }
     });
 
-    $('#finish').click(function () {
+    $("#finish").click(function () {
+        $("#fl1").slideDown(1000);
+    });
+
+    $('#submit').click(function () {
+        end = new Date();
         var que = 0;
         var answers = $('.answers').map(function () {
             que++;
             if (this.checked === true) {
                 return {
-                    student: student,
-//                    question: {
-//                        question: document.getElementById(this.parentElement.parentElement.classList[0]).children[0].innerHTML
-//                    },
-                    question: test.questions[parseInt(this.classList[0][3])],
-                    test: test
+                    student: {
+                        userID: student
+                    },
+                    question: test.questions[parseInt(this.classList[1])],
+                    test: test,
+                    correctAns: this.value === "true"
                 };
             }
         }).get();
         var testAttempt = {
             test: test,
-            student: student,
+            student: {
+                userID: student
+            },
             rating: $('#rating').val(),
-            answers: answers
+            answers: answers,
+            startTime: start.getTime(),
+            endTime: end.getTime()
         };
 
         var settings = {
-            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/test-attempt/createTestAttempt",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/test-attempts/createTestAttempt",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             data: JSON.stringify(testAttempt),
-            complete: function(response){
-                if(response.status >= 200 && response.status <= 299){
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
                     alert("Test successfully taken...");
                     window.history.go(-2);
                 } else {

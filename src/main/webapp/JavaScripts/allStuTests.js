@@ -5,7 +5,7 @@ var alltests;
 $(function () {
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/tests/getAllMyTests/" + sessionStorage.getItem('id'),
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/tests/getAllMyTests/" + sessionStorage.getItem('cid'),
         success: function (tests) {
             alltests = tests;
             $.each(tests, function (i, test) {

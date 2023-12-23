@@ -43,7 +43,7 @@
                         <div class="sub-menu">
                             <div class="user-info">
                                 <h1>Welcome</h1><br>
-                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
+                                <h2><span id="ID" style="display: none;"><%=loggedIn.getUserID()%></span><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
                                 <h4><%=loggedIn.getEmail()%></h4>
                             </div>
                             <hr>

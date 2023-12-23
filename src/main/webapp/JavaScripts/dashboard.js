@@ -1,3 +1,4 @@
+var ip = "192.168.8.163";
 
 $(function () {
     sessionStorage.setItem('cid', $('#courseId').html());
