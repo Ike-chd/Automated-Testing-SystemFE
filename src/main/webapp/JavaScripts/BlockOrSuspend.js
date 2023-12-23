@@ -1,5 +1,6 @@
 var allSusp;
 var conbtns = document.getElementsByClassName("con");
+var ip = "192.168.8.163";
 
 $(document).ready(function () {
     $.ajax({

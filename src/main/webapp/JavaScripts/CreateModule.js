@@ -2,7 +2,7 @@ var module;
 var moduleId;
 var modules;
 var allModules;
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var numOfModules = 0;
 var sendingModules;
 

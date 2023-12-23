@@ -5,7 +5,7 @@ var allBtns;
 $(function () {
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/allModules",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/allModules/byCourse/" + sessionStorage.getItem('cid'),
         success: function (modules) {
             allModules = modules;
             $.each(modules, function (i, module) {
@@ -47,7 +47,7 @@ $(function () {
             }
 
             function viewAll(i) {
-                sessionStorage.setItem('mid', i);
+                sessionStorage.setItem('mid', allModules[i].moduleID);
                 window.location.href = 'allTestsUnderM.html';
             }
 

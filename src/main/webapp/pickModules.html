@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create a Module</title>
+        <link rel="stylesheet" href="CascadingStyleSheets/CreateModule.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                    <a id="profile" class="material-icons-outlined">account_circle</a>
+                    <div id="slideMenu" class="sub-menu-wrap">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <h2>Ike</h2>
+                            </div>
+                            <hr>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-user'></i>
+                                <p>Edit profile</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-cog'></i>
+                                <p>Settings</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-log-out' ></i>
+                                <p>Logout</p>
+                                <span>></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="main-container">
+                <h1>Add Modules</h1>
+                <div class="mpage">
+                    <div class='wrapper'>
+                        <div style='display: flex; justify-content: center; margin-bottom: 10px;'>
+                            <button id="add" class='btn' onclick = "document.getElementById('fl1').style.display = 'block'">Pick Modules</button>
+                        </div>
+                        <div id="Modules"></div>
+                        <button id="submit" class="btn" style="margin-top: 10px;">Submit</button>
+                    </div>
+                </div>
+                <div id="fl1" class="float">
+                    <div id="innerf1" class="innerf">
+                        <h2><span onclick="document.getElementById('fl1').style.display = 'none'" class="close" title="Close Modal">&times;</span></h2>
+                        <h2>Modules</h2>
+                        <div id="allModules" class="flexbox">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="JavaScripts/pickModules.js"></script>
+        <script src="JavaScripts/dashboard.js"></script>
+    </body>
+</html>

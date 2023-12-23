@@ -1,3 +1,5 @@
+var ip = sessionStorage.getItem('ip');
+
 $(function () {
     var answer = JSON.parse(sessionStorage.getItem('ans'));
     $('#answer').html(answer.answer);

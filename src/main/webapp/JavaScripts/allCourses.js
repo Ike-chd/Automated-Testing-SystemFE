@@ -1,5 +1,5 @@
 var allCourses;
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var allBtns;
 
 $(function () {
@@ -44,8 +44,8 @@ $(function () {
             }
 
             function viewAll(i) {
-                sessionStorage.setItem('qid', i);
-                window.location.href = 'allModules.html';
+                sessionStorage.setItem('cid', allCourses[i].courseID);
+                window.location.href = 'allCourseModules.html';
             }
 
             function Delete(i) {
@@ -67,7 +67,7 @@ $(function () {
             }
             
             function EditModules(i){
-                sessionStorage.setItem('qid', i);
+                sessionStorage.setItem('cid', allCourses[i].courseID);
                 window.location.href = 'pickModules.html';
             }
         }

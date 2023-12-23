@@ -1,5 +1,5 @@
 var allComments;
-var ip;
+var ip = sessionStorage.getItem('ip');
 
 $(function () {
     $.ajax({
@@ -19,7 +19,6 @@ $(function () {
         <div id="f1" class="btnflex">\n\
             <button class="btn ' + i + '">Update</button>\n\
             <button class="btn ' + i + '">Delete</button>\n\
-            <button class="btn ' + i + '">View All Topics</button>\n\
         </div>\n\
     </div>');
             });

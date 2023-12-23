@@ -1,5 +1,5 @@
 var allTopics;
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var allBtns;
 
 $(function () {
@@ -17,7 +17,7 @@ $(function () {
         </h5><h5 style="display: block; margin-left: 30px;"><i class="fa fa-list" aria-hidden="true" style="margin-right: 5px;"></i><span class="time">' + topic.description + '</span></h5>\n\
         <div style="margin-top: 7px;" id="f1" class="btnflex">\n\
             <button class="btn ' + i + '">Update</button>\n\
-            <button class="btn ' + i + '">View All Questiions</button>\n\
+            <button class="btn ' + i + '">View All Questions</button>\n\
             <button class="btn ' + i + '">Delete</button>\n\
         </div>\n\
     </div>');
@@ -42,7 +42,8 @@ $(function () {
             }
 
             function viewAll(i) {
-                sessionStorage.setItem('tid', i);
+                sessionStorage.setItem('tid', allTopics[i].topicID);
+                window.location.href = 'allQuestions.html';
             }
 
             function Delete(i) {
@@ -50,7 +51,7 @@ $(function () {
                 if (choice.toString().toLowerCase() === 'yes') {
                     $.ajax({
                         type: 'GET',
-                        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/deleteTopic/" + allModules[i].moduleID,
+                        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/deleteTopic/" + allTopics[i].topicID,
                         complete: function (response) {
                             if (response.status >= 200 && response.status <= 299) {
                                 alert("Topics successfully deleted...");

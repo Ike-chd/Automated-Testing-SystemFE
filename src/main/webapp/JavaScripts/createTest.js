@@ -1,4 +1,4 @@
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var allModules;
 var allTopics;
 var sendingTopics;

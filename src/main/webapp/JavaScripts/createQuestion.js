@@ -1,7 +1,7 @@
 var ans = 0;
 var check = 0;
 var allTopics;
-var ip = "192.168.8.116";
+var ip = sessionStorage.getItem('ip');
 var inp;
 
 $(function () {
@@ -46,7 +46,7 @@ $(function () {
         var answers = $('.answers').map(function () {
             check++;
             return {
-                text: this.value,
+                answer: this.value,
                 isCorrect: document.querySelector('#check' + check).checked
             };
         }).get();
@@ -62,13 +62,19 @@ $(function () {
 
         var sTopic = document.getElementById('topics');
         var settings = {
-            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resourses/questions/postQuestion",
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/postQuestion",
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            data: JSON.stringify(data)
+            data: JSON.stringify(data),
+            complete: function(response){
+                if(response.status >= 200 && response.status <= 299){
+                    alert("Question successfully created...");
+                    window.history.go(-1);
+                }
+            }
         };
 
         console.log(data);

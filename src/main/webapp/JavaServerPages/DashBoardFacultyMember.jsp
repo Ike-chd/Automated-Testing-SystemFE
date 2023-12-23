@@ -34,8 +34,8 @@
                     <div id="slideMenu" class="sub-menu-wrap">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <h1>Welcome</h1><br>
-                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
+                                <h1>Welcome</h1>
+                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2>
                                 <h4><%=loggedIn.getEmail()%></h4>
                             </div>
                             <hr>
@@ -74,27 +74,12 @@
                     </li>
                     <li class="sidebar-list-item">
                         <a href="CreateCourse.html">
-                            <span class="material-icons-outlined">class</span> Create Course
+                            <span class="material-icons-outlined">class</span> Create Comment
                         </a>
                     </li>
                     <li class="sidebar-list-item">
                         <a href="CreateModule.html">
-                            <span class="material-icons-outlined">event_note</span> Create Module
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="createQuestion.html">
-                            <span class="material-icons-outlined">grading</span> Create Question
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="createTopic.html">
-                            <span class="material-icons-outlined">assignment</span> Create A Topic
-                        </a>
-                    </li>
-                    <li class="sidebar-list-item">
-                        <a href="createTest.html">
-                            <span class="material-icons-outlined">assignment</span> Create A Test
+                            <span class="material-icons-outlined">event_note</span> Create Suspension Request
                         </a>
                     </li>
                 </ul>
@@ -149,10 +134,10 @@
                             <span class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
-                    <a href="BlockOrSuspend.html">
+                    <a href="SuspensionRequest.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Request Suspension</p>
+                                <p class="text-primary">My REQUESTs</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
                             <span class="text-primary font-weight-bold">Average: XX</span>
@@ -170,7 +155,7 @@
                     <a href="comment.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">COMMENT</p>
+                                <p class="text-primary">My COMMENTs</p>
                                 <i class='bx bxs-comment' style="font-size: 30px;"></i>
                             </div>
                             <span class="text-primary font-weight-bold">Average: XX</span>

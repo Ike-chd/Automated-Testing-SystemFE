@@ -1,5 +1,9 @@
 
 $(function () {
+    sessionStorage.setItem('cid', $('#courseId').html());
+    sessionStorage.setItem('ip', "192.168.8.163");
+    sessionStorage.setItem('userID', $('#ID').html());
+    
     $('#profile').click(function () {
         $("#slideMenu").slideToggle(500);
     });

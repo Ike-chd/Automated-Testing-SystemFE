@@ -1,13 +1,13 @@
 var numOfQuestions = 0;
 var q = 0;
 var test = JSON.parse(sessionStorage.getItem("currentTest"));
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var student = JSON.parse(sessionStorage.getItem("loggedIn"));
 
 $(function () {
     makePage(test);
 
-    var countDownDate = new Date(localStorage.getItem(JSON.parse(localStorage.getItem("currentTest")).testName)).getTime();
+    var countDownDate = new Date(sessionStorage.getItem(JSON.parse(sessionStorage.getItem("currentTest")).testName)).getTime();
 
     var x = setInterval(function () {
         var now = new Date().getTime();

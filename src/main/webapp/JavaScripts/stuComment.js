@@ -1,4 +1,4 @@
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var input;
 var students;
 var startDate;
@@ -10,12 +10,11 @@ $(document).ready(function () {
     $('#name').html('Comment on: '+student.name + ' ' + student.surname);
 
     $('#submit').click(function () {
+        startDate = new Date();
         var data = {
             student: JSON.parse(sessionStorage.getItem('stu')),
             comment: $('#reason').html(),
-            faculty: {
-                userID: 12
-            },
+            faculty: JSON.parse(sessionStorage.getItem('loggedIn')),
             commentDate: startDate.getTime()
         };
 
@@ -26,12 +25,12 @@ $(document).ready(function () {
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-//            complete: function (response) {
-//                if (response.status >= 200 && response.status <= 299) {
-//                    alert("Requst successfully admitted...");
-//                    window.history.go(-1);
-//                }
-//            }
+            complete: function (response) {
+                if (response.status >= 200 && response.status <= 299) {
+                    alert("Commment successfully admitted...");
+                    window.history.go(-2);
+                }
+            }
         });
     });
 });

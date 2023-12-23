@@ -1,9 +1,10 @@
+var ip = sessionStorage.getItem('ip');
+
 $(function () {
     var $sbtn = $('#sbtn');
     var $fbtn = $('#fbtn');
     var $abtn = $('#abtn');
     var allCourses;
-    var ip = "192.168.8.113";
 
     $sbtn.click(function () {
         $('#wr2').fadeOut(1000);

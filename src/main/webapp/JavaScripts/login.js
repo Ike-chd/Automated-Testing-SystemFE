@@ -1,7 +1,7 @@
 var lock = document.getElementById('lock');
 var open = document.getElementById('olock');
 var password = document.getElementById('password');
-var ip = "192.168.8.131";
+var ip = "192.168.8.163";
 
 lock.addEventListener('click', hideL);
 open.addEventListener('click', hideO);
@@ -33,6 +33,7 @@ $(function () {
     });
 
     $('#email').blur(function () {
+        sessionStorage.setItem('ip', "192.168.8.163");
         $.ajax({
             type: 'GET',
             url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/getAccount/byEmail/" + $('#email').val(),

@@ -1,5 +1,5 @@
 var tests = document.getElementsByClassName('tests');
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 var alltests;
 
 $(function () {
@@ -16,7 +16,7 @@ $(function () {
         <h5 style="display: inline; margin-left: 30px;"><i class="bx bx-link-alt" style="margin-right: 5px;"></i><span>' + test.module.moduleName + '</span></h5>\n\
         <h5 style="display: inline; margin-left: 30px;"><i class="bx bx-check-double"></i><span></span></h5>\n\
         <h5 style="display: inline; margin-left: 30px;"><i class="bx bxs-time-five"></i><span class="time">' + Math.floor(test.duration / 3600) + ':' + (test.duration % 3600) / 60 + '</span></h5><h5></h5>\n\
-        <div id="f1" class="btnflex">\n\
+        <div class="btnflex">\n\
             <button class="btn ' + i + '">Update</button>\n\
             <button class="btn ' + i + '">Delete</button>\n\
             <button class="btn ' + i + '">View All Topics</button>\n\
@@ -28,6 +28,8 @@ $(function () {
                 allBtns[i].addEventListener('click', function () {
                     if (this.innerHTML === 'Update') {
                         update(parseInt(this.classList[1]));
+                    } else if (this.innerHTML === 'View All Topics') {
+                        viewAll(parseInt(this.classList[1]));
                     } else if (this.innerHTML === 'Delete') {
                         Delete(parseInt(this.classList[1]));
                     }
@@ -37,6 +39,11 @@ $(function () {
             function update(i) {
                 sessionStorage.setItem('test', JSON.stringify(allTests[i]));
                 window.location.href = 'updateTest.html';
+            }
+            
+            function viewAll(i) {
+                sessionStorage.setItem('teID', allTests[i].testID);
+                window.location.href = 'allTopicsInTest.html';
             }
 
             function Delete(i) {

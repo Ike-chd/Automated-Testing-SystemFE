@@ -46,8 +46,8 @@ a {
 }
 
 .btnflex {
-    display: none;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 

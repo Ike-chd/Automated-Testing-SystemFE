@@ -40,7 +40,7 @@
                         <div class="sub-menu">
                             <div class="user-info">
                                 <h1>Welcome</h1><br>
-                                <h2><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
+                                <h2><span id="ID" style="display: none;"><%=loggedIn.getUserID()%></span><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
                                 <h4><%=loggedIn.getEmail()%></h4>
                             </div>
                             <hr>
@@ -71,13 +71,13 @@
                     <a href="allTests.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">My Course: <%=loggedIn.getCurrentCourse().getCourseName()%></p>
+                                <p class="text-primary"><span id="courseId" style="display: none;"><%=loggedIn.getCurrentCourse().getCourseID()%></span>My Course: <%=loggedIn.getCurrentCourse().getCourseName()%></p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
                             <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
-                    <a href="allTests.html">
+                    <a href="allCourseModules.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary">My Modules</p>

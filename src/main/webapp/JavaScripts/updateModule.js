@@ -1,5 +1,5 @@
 var module = JSON.parse(sessionStorage.getItem('mod'));
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 
 document.getElementById('module').value = module.moduleName;
 document.getElementById('desc').innerHTML = module.moduleDescription;

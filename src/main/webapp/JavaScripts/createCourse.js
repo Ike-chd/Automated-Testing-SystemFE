@@ -1,7 +1,8 @@
+var ip = sessionStorage.getItem('ip');
+
 $(function () {
     var $cname = $('#cname');
     var $cnum = $('#cnum');
-    var ip = "192.168.8.113";
 
     $('#submit').click(function () {
         check = 0;

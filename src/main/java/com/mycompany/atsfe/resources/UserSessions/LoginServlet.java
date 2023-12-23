@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         loggedIn.setPassword(request.getParameter("password"));
         try {
             HttpRequest getRequest = HttpRequest.newBuilder()
-                    .uri(new URI("http://192.168.8.113:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
+                    .uri(new URI("http://192.168.8.163:8080/Automated-Testing-SystemBE/resources/accounts/getUser/byEmail/" + request.getParameter("email")))
                     .GET()
                     .build();
             HttpClient client = HttpClient.newHttpClient();
@@ -76,6 +76,7 @@ public class LoginServlet extends HttpServlet {
 
         if (loggedIn instanceof Admin && ((Admin) loggedIn).isSuperAdmin()) {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
+                loggedIn.setPassword(null);
                 session.setAttribute("user", loggedIn);
                 request.getRequestDispatcher("/JavaServerPages/DashboardSuperAdmin.jsp").include(request, response);
             } else {
@@ -83,6 +84,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else if (loggedIn instanceof Admin) {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
+                loggedIn.setPassword(null);
                 session.setAttribute("user", loggedIn);
                 request.getRequestDispatcher("/JavaServerPages/DashBoardAdmin.jsp").include(request, response);
             } else {
@@ -90,6 +92,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else if (loggedIn instanceof FacultyMember && ((FacultyMember) loggedIn).isProfessor()) {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
+                loggedIn.setPassword(null);
                 session.setAttribute("user", loggedIn);
                 request.getRequestDispatcher("/JavaServerPages/DashboardProfessor.jsp").include(request, response);
             } else {
@@ -97,6 +100,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else if (loggedIn instanceof FacultyMember) {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
+                loggedIn.setPassword(null);
                 session.setAttribute("user", loggedIn);
                 request.getRequestDispatcher("/JavaServerPages/DashBoardFacultyMember.jsp").include(request, response);
             } else {
@@ -104,6 +108,7 @@ public class LoginServlet extends HttpServlet {
             }
         } else {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
+                loggedIn.setPassword(null);
                 session.setAttribute("user", loggedIn);
                 request.getRequestDispatcher("/JavaServerPages/StudentDashBoard.jsp").include(request, response);
             } else {

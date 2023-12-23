@@ -1,5 +1,5 @@
 var topic = JSON.parse(localStorage.getItem('currentTopic'));
-var ip = "192.168.8.131";
+var ip = sessionStorage.getItem('ip');
 
 document.getElementById('topic').value = JSON.parse(localStorage.getItem('currentTopic')).topicName;
 document.getElementById('link').value = JSON.parse(localStorage.getItem('currentTopic')).infoLink;

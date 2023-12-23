@@ -1,7 +1,7 @@
 var $tname = $('#topic');
 var $desc = $('#desc');
 var $link = $('#link');
-var ip = "192.168.8.113";
+var ip = sessionStorage.getItem('ip');
 
 $(function () {
 
