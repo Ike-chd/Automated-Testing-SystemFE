@@ -32,7 +32,7 @@ $(document).ready(function () {
                 allSusp[i].confirmedBy = {email: sessionStorage.getItem('email')};
                 allSusp[i].active = true;
                 $.ajax({
-                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq',
+                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i] + '/' + sessionStorage.getItem("ID") + '/' + 1,
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(allSusp[i]),
@@ -50,7 +50,7 @@ $(document).ready(function () {
                 allSusp[i].confirmedBy = {email: sessionStorage.getItem('email')};
                 allSusp[i].active = false;
                 $.ajax({
-                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq',
+                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i] + '/' + sessionStorage.getItem("ID") + '/' + 0,
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(allSusp[i]),

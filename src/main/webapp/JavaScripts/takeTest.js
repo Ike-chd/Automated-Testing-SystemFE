@@ -40,7 +40,7 @@ $(function () {
             $('#que' + i).append('<div class="wrapper" id="q' + i + '"></div></div>');
             var answers = question.answers;
             $.each(answers, function (j, answer) {
-                var tf = answer.correct ? "true" : "false";
+                var tf = answer.isCorrect ? "true" : "false";
                 $('#q' + i).append('<div class="que' + i + '"><label class="container" id="a' + j + '">\n\
                                         <input class="answers ' + i + '" type="checkbox" value="' + tf + '"><span class="checkmark"></span></label>\n\
                                         <h3>' + answer.answer + '</h3><br></div>');
