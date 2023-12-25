@@ -38,11 +38,9 @@
                     <a id="profile" class="material-icons-outlined">account_circle</a>
                     <div id="slideMenu" class="sub-menu-wrap">
                         <div class="sub-menu">
-                            <div class="user-info">
                                 <h1>Welcome</h1><br>
                                 <h2><span id="ID" style="display: none;"><%=loggedIn.getUserID()%></span><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
                                 <h4><%=loggedIn.getEmail()%></h4>
-                            </div>
                             <hr>
                             <a href="#" class="sub-menu-link">
                                 <i class='bx bx-user'></i>

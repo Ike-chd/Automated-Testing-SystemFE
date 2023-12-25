@@ -109,7 +109,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
                 loggedIn.setPassword(null);
-                if (loggedIn.getName().equals("is supended")) {
+                if (loggedIn.getName().equals("is suspended")) {
                     request.getRequestDispatcher("suspendedPage.html").include(request, response);
                 } else {
                     session.setAttribute("user", loggedIn);
