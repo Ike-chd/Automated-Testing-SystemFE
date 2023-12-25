@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CascadingStyleSheets/createTest.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/webpage.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Create a Test</h1>
+        <div class="tpage" style='margin-bottom: 50px;'>
+            <div class='wrapper'>
+                <h2>Test Name:</h2>
+                <input id='test' type="text" placeholder="Test Name...">
+                <h2>Dates:</h2>
+                <h4>Opening Date</h4>
+                <input id='start' type='date'>
+                <h2>Test Allocation:</h2>
+                <div>
+                    <h4 style="color: black">Hours</h4>
+                    <input id='hours' type="number" min="0">
+                </div>
+                <div>
+                    <h4 style="color: black">Minutes</h4>
+                    <input id='mins' type="number" min='0' max="59">
+                </div>
+                <button id="submit" class="btn">Submit</button>
+            </div>
+            <div id="fl1" class="float">
+                <div id="innerf1" class="innerf">
+                    <h2><span onclick="document.getElementById('fl1').style.display = 'none'" class="close" title="Close Modal">&times;</span></h2>
+                    <h2>Topics</h2>
+                    <div id="allTopics" class="flexbox">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="JavaScripts/createTest.js"></script>
+    </body>
+</html>

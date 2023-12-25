@@ -68,17 +68,22 @@
 
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="DashboardSuperAdmin.html">
+                        <a href="">
                             <span class="material-icons-outlined">dashboard</span> Dashboard
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="CreateCourse.html">
+                        <a href="createAccountFac.html">
+                            <span class="material-icons-outlined">dashboard</span> Create Student
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="comment.html">
                             <span class="material-icons-outlined">class</span> Create Comment
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="CreateModule.html">
+                        <a href="SuspensionRequest.html">
                             <span class="material-icons-outlined">event_note</span> Create Suspension Request
                         </a>
                     </li>
@@ -95,7 +100,7 @@
                                 <p class="text-primary">STUDENTS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfStudents" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allCourses.html">
@@ -104,7 +109,7 @@
                                 <p class="text-primary">COURSES</p>
                                 <span class="material-icons-outlined text-orange">class</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfCourses" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allModules.html">
@@ -113,7 +118,7 @@
                                 <p class="text-primary">MODULES</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfModules" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allTopics.html" >
@@ -122,7 +127,7 @@
                                 <p class="text-primary">TOPICS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTopics" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="allTests.html">
@@ -131,7 +136,7 @@
                                 <p class="text-primary">TESTS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTests" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="SuspensionRequest.html">
@@ -152,7 +157,7 @@
                             <span class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
-                    <a href="comment.html">
+                    <a href="allFacMComments.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary">My COMMENTs</p>

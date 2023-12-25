@@ -11,7 +11,11 @@
     --dark: #5a5c69;
 }
 
-#download {
+body {
+    background-color: var(--light);
+}
+
+.btn1 {
     margin-left: 37.5%;
     width: 25%;
     height: 70px;

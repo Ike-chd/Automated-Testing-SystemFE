@@ -11,14 +11,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title><%=loggedIn.getName() + "'s"%> Dashboard</title>
-
-        <!-- Montserrat Font -->
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-        <!-- Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -31,7 +25,7 @@
 
             <!-- Header -->
             <header class="header">
-                <div class="menu-icon" onclick="openSidebar()">
+                <div class="menu-icon" onclick="openSidebar()" style="cursor: pointer;">
                     <span class="material-icons-outlined">menu</span>
                 </div>
                 <div class="header-left">
@@ -44,8 +38,8 @@
                     <div id="slideMenu" class="sub-menu-wrap">
                         <div class="sub-menu">
                             <div class="user-info">
-                                <h1>Welcome</h1><br>
-                                <h2><span id="ID" style="display: none;"><%=loggedIn.getUserID()%></span><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2><br>
+                                <h1 style='color: red;'>Welcome</h1>
+                                <h2><span id="ID" style="display: none;"><%=loggedIn.getUserID()%></span><%=loggedIn.getName() + " " + loggedIn.getSurname()%></h2>
                                 <h4><%=loggedIn.getEmail()%></h4>
                             </div>
                             <hr>
@@ -68,9 +62,6 @@
                     </div>
                 </div>
             </header>
-            <!-- End Header -->
-
-            <!-- Sidebar -->
             <aside id="sidebar">
                 <div class="sidebar-title">
                     <div class="sidebar-brand">
@@ -81,8 +72,13 @@
 
                 <ul class="sidebar-list">
                     <li class="sidebar-list-item">
-                        <a href="DashboardSuperAdmin.html">
+                        <a href="/JavaServerPages/DashboardSuperAdmin.jsp">
                             <span class="material-icons-outlined">dashboard</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="CreateAccount1.html">
+                            <span class="material-icons-outlined">class</span> Create Account
                         </a>
                     </li>
                     <li class="sidebar-list-item">
@@ -112,14 +108,11 @@
                     </li>
                 </ul>
             </aside>
-            <!-- End Sidebar -->
 
-            <!-- Main -->
             <main class="main-container">
                 <div class="main-title">
                     <p class="font-weight-bold">DASHBOARD</p>
                 </div>
-
                 <div class="main-cards">
                     <a href="allStudents.html">
                         <div class="card">
@@ -127,25 +120,16 @@
                                 <p class="text-primary">STUDENTS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfStudents" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allFacultyMembers.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Faculty Members</p>
+                                <p class="text-primary">FACULTY MEMBERS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
-                        </div>
-                    </a>
-                    <a href="allAdmins.html">
-                        <div class="card">
-                            <div class="card-inner">
-                                <p class="text-primary">Administrators</p>
-                                <span class="material-icons-outlined text-blue">people</span>
-                            </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfFacM" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allCourses.html">
@@ -154,34 +138,34 @@
                                 <p class="text-primary">COURSES</p>
                                 <span class="material-icons-outlined text-orange">class</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfCourses" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allModules.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Modules</p>
+                                <p class="text-primary">MODULES</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfModules" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allTopics.html" >
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Topics</p>
+                                <p class="text-primary">TOPICS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTopics" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="allTests.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Tests</p>
+                                <p class="text-primary">TESTS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTests" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="BlockOrSuspend.html">
@@ -190,29 +174,13 @@
                                 <p class="text-primary">Suspension Requests</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Average: XX</span>
+                            <span id="numOfSus" class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
                 </div>
-                <div class="charts">
-                    <div class="charts-card">
-                        <p class="chart-title">Top Performing Courses</p>
-                        <div id="bar-chart"></div>
-                    </div>
-
-                    <div class="charts-card">
-                        <p class="chart-title">Enrollment Trends</p>
-                        <div id="area-chart"></div>
-                    </div>
-
-                </div>
             </main>
-            <!-- End Main -->
         </div>
-        <!-- Scripts -->
-        <!-- ApexCharts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-        <!-- Custom JS -->
         <script src="JavaScripts/dashboard.js"></script> 
     </body>
 </html>

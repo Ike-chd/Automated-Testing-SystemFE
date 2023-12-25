@@ -4,16 +4,80 @@ $(function () {
     sessionStorage.setItem('cid', $('#courseId').html());
     sessionStorage.setItem('ip', "192.168.8.163");
     sessionStorage.setItem('userID', $('#ID').html());
-    
+
     $('#profile').click(function () {
         $("#slideMenu").slideToggle(500);
     });
-    
+
     $.ajax({
         type: 'GET',
         url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/students/numberOfStudents",
         success: function (numOfStudents) {
-            document.getElementById('numOfStudents').innerHTML = "Total: "+numOfStudents+"";
+            document.getElementById('numOfStudents').innerHTML = "Total: " + numOfStudents + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/numberOfFacM",
+        success: function (numOfFacM) {
+            document.getElementById('numOfFacM').innerHTML = "Total: " + numOfFacM + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/accounts/numberOfAdmins",
+        success: function (numOfAdmins) {
+            document.getElementById('numOfAdmins').innerHTML = "Total: " + numOfAdmins + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/numberOfModules",
+        success: function (numOfModules) {
+            document.getElementById('numOfModules').innerHTML = "Total: " + numOfModules + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/tests/numberOfTests",
+        success: function (numOfTests) {
+            document.getElementById('numOfTests').innerHTML = "Total: " + numOfTests + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/courses/numberOfCourses",
+        success: function (numOfCourses) {
+            document.getElementById('numOfCourses').innerHTML = "Total: " + numOfCourses + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/topics/numberOfTopics",
+        success: function (numOfTopics) {
+            document.getElementById('numOfTopics').innerHTML = "Total: " + numOfTopics + "";
+        }
+    });
+    
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/suspension-requests/getNumOfUnApprovedSuspensionRequests",
+        success: function (numOfSus) {
+            document.getElementById('numOfSus').innerHTML = "Total: " + numOfSus + "";
+        }
+    });
+    
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/reports/courseAVG/"+sessionStorage.getItem('cid')+"/"+sessionStorage.getItem('userID'),
+        success: function (courseAVG) {
+            document.getElementById('courseAVG').innerHTML = "Aggregate: " + courseAVG + "";
         }
     });
 });

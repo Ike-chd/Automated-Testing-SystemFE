@@ -13,8 +13,10 @@ $(document).ready(function () {
         startDate = new Date();
         var data = {
             student: JSON.parse(sessionStorage.getItem('stu')),
-            comment: $('#reason').html(),
-            faculty: JSON.parse(sessionStorage.getItem('loggedIn')),
+            comment: $('#desc').html(),
+            faculty: {
+                userID: sessionStorage.getItem('userID')
+            },
             commentDate: startDate.getTime()
         };
 

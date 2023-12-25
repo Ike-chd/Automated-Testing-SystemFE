@@ -42,9 +42,9 @@ $(document).ready(function () {
         startDate = new Date();
         var data = {
             student: students[parseInt($('#input').html())],
-            comment: document.getElementById('comment').innerHTML,
+            comment: document.getElementById('comment').innerHTML.replace(/<br>/g, " "),
             faculty: {
-                userID: 12
+                userID: sessionStorage.getItem('userID')
             },
             commentDate: startDate.getTime()
         };

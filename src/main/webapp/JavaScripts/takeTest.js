@@ -24,10 +24,11 @@ $(function () {
         document.getElementById("timel").innerHTML = "Time Left : " + hours + ":"
                 + minutes + ":" + seconds;
 
-        if (distance === 0) {
+        if (distance < 0) {
             clearInterval(x);
             document.getElementById("close").style.display = "none";
             $("#fl1").slideDown(1500);
+            sessionStorage.removeItem(JSON.parse(sessionStorage.getItem("currentTest")).testName);
         }
     }, 1000);
 
@@ -73,6 +74,8 @@ $(function () {
     });
 
     $('#submit').click(function () {
+        sessionStorage.removeItem(JSON.parse(sessionStorage.getItem("currentTest")).testName);
+        sessionStorage.removeItem("currentTest");
         end = new Date();
         var que = 0;
         var answers = $('.answers').map(function () {

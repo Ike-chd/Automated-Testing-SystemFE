@@ -120,7 +120,7 @@
                                 <p class="text-primary">STUDENTS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfStudents" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allFacultyMembers.html">
@@ -129,7 +129,7 @@
                                 <p class="text-primary">FACULTY MEMBERS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfFacM" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allAdmins.html">
@@ -138,7 +138,7 @@
                                 <p class="text-primary">ADMINISTRATORS</p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfAdmins" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allCourses.html">
@@ -147,7 +147,7 @@
                                 <p class="text-primary">COURSES</p>
                                 <span class="material-icons-outlined text-orange">class</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfCourses" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allModules.html">
@@ -156,7 +156,7 @@
                                 <p class="text-primary">MODULES</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="numOfModules" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allTopics.html" >
@@ -165,7 +165,7 @@
                                 <p class="text-primary">TOPICS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTopics" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="allTests.html">
@@ -174,7 +174,7 @@
                                 <p class="text-primary">TESTS</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XX</span>
+                            <span id="numOfTests" class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
                     <a href="BlockOrSuspend.html">
@@ -183,7 +183,7 @@
                                 <p class="text-primary">Suspension Requests</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Average: XX</span>
+                            <span id="numOfSus" class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
                 </div>

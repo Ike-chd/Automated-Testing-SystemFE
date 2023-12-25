@@ -5,37 +5,42 @@ var ip = "192.168.8.163";
 $(document).ready(function () {
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Joint.Backend/resources/suspension-request/getUnApprovedSuspensionRequests",
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/suspension-requests/getUnApprovedSuspensionRequests",
         success: function (suspensions) {
             allSusp = suspensions;
             $.each(suspensions, function (i, sus) {
-                $('#suspensions').append('\
+                var start = new Date();
+                start.setTime(sus.start);
+                var end = new Date();
+                end.setTime(sus.start + sus.duration);
+                $('#allRequests').append('\
     <div class="wrapper">\n\
         <div class="studentInfo">\n\
             <h1>' + sus.student.name + ' ' + sus.student.surname + '</h1>\n\
-            <h2>Requested By: ' + sus.creator.name + ' ' + sus.creator.surname + ' ' + sus.creator.email + '</h2>\n\
-            <h5>' + sus.reason + '</h5>\n\
-            <div class="btns"><button class="btn ' + i + '">Confirm</button><button class="btn ' + i + '">Reject</button></div></div>');
+            <h2>Requested By: ' + sus.requestedBy.name + ' ' + sus.requestedBy.surname + '<i class="bx bx-envelope" style="margin-right: 5px;"></i>' + sus.requestedBy.email + '</h2>\n\
+            <h5>Reason: ' + sus.reason + '</h5>\n\
+            <h5>From: ' + start + '</h5>\n\
+            <h5>To: ' + end + '</h5>\n\
+            <div class="btns"><button class="con btn ' + i + '">Confirm</button><button class="rej btn ' + i + '">Reject</button></div></div>');
             });
             allBtns = document.getElementsByClassName('btn');
             for (var i = 0; i < allBtns.length; i++) {
                 allBtns[i].addEventListener('click', function () {
                     if (this.innerHTML === 'Confirm') {
-                        confirm(parseInt(this.classList[1]));
+                        confirm(parseInt(this.classList[2]));
                     } else if (this.innerHTML === 'Reject') {
-                        reject(parseInt(this.classList[1]));
+                        reject(parseInt(this.classList[2]));
                     }
                 });
             }
 
             function confirm(i) {
-                allSusp[i].confirmedBy = {email: sessionStorage.getItem('email')};
+                allSusp[i].confirmedBy = {userID: sessionStorage.getItem('userID')};
                 allSusp[i].active = true;
                 $.ajax({
-                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i] + '/' + sessionStorage.getItem("ID") + '/' + 1,
+                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i].ssId + '/' + sessionStorage.getItem("userID") + '/' + 1,
                     method: 'POST',
                     contentType: 'application/json',
-                    data: JSON.stringify(allSusp[i]),
                     complete: function (response) {
                         if (response.status >= 200 && response.status <= 299) {
                             alert("Requst successfully confirmed...");
@@ -50,10 +55,9 @@ $(document).ready(function () {
                 allSusp[i].confirmedBy = {email: sessionStorage.getItem('email')};
                 allSusp[i].active = false;
                 $.ajax({
-                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i] + '/' + sessionStorage.getItem("ID") + '/' + 0,
+                    url: 'http://' + ip + ':8080/Automated-Testing-SystemBE/resources/suspension-requests/updatesrq/' + allSusp[i].ssId + '/' + sessionStorage.getItem("userID") + '/' + 0,
                     method: 'POST',
                     contentType: 'application/json',
-                    data: JSON.stringify(allSusp[i]),
                     complete: function (response) {
                         if (response.status >= 200 && response.status <= 299) {
                             alert("Requst successfully rejected...");

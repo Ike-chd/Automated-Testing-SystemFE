@@ -10,18 +10,25 @@ $(function () {
         isCorrect: $('#check').checked
     };
 
-    var answerCall = {
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resourses/answers/updateAnswer",
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    };
+    $('#submit').click(function () {
+        var answerCall = {
+            url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resourses/answers/updateAnswer",
+            type: "POST",
+            data: JSON.stringify(answer),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function() {
+                alert('Answer has been successfully updated');
+                window.history.go(-2);
+            }
+        };
 
-    data: JSON.stringify(answer);
+        
 
-    $.ajax(answerCall).done(function (response) {
-        console.log(response);
+        $.ajax(answerCall).done(function (response) {
+            console.log(response);
+        });
     });
 });

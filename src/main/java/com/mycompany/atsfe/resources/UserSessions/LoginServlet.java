@@ -109,8 +109,12 @@ public class LoginServlet extends HttpServlet {
         } else {
             if (loggedIn.getPassword().equals(request.getParameter("password"))) {
                 loggedIn.setPassword(null);
-                session.setAttribute("user", loggedIn);
-                request.getRequestDispatcher("/JavaServerPages/StudentDashBoard.jsp").include(request, response);
+                if (loggedIn.getName().equals("is supended")) {
+                    request.getRequestDispatcher("suspendedPage.html").include(request, response);
+                } else {
+                    session.setAttribute("user", loggedIn);
+                    request.getRequestDispatcher("/JavaServerPages/StudentDashBoard.jsp").include(request, response);
+                }
             } else {
                 request.getRequestDispatcher("login.html").include(request, response);
             }

@@ -59,7 +59,7 @@ $(function () {
                                 alert("Course successfully deleted...");
                                 window.history.go(-1);
                             } else {
-                                alert("Course Not deleted successfully");
+                                alert("There are still students in this course. Please remove them first");
                             }
                         }
                     });

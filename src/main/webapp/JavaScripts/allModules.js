@@ -47,7 +47,7 @@ $(function () {
             }
 
             function viewAll(i) {
-                sessionStorage.setItem('mid', i);
+                sessionStorage.setItem('mid', allModules[i].moduleID);
                 window.location.href = 'allTestsUnderM.html';
             }
 

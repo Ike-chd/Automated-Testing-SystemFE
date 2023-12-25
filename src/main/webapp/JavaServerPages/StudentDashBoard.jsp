@@ -68,16 +68,16 @@
                     <p class="font-weight-bold">DASHBOARD</p>
                 </div>
                 <div class="main-cards">
-                    <a href="allTests.html">
+                    <a href="allCourseModules.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary"><span id="courseId" style="display: none;"><%=loggedIn.getCurrentCourse().getCourseID()%></span>My Course: <%=loggedIn.getCurrentCourse().getCourseName()%></p>
                                 <span class="material-icons-outlined text-blue">people</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="courseAVG" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
-                    <a href="allCourseModules.html">
+                    <a href="allStuCourseModules.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary">My Modules</p>
@@ -104,7 +104,7 @@
                             <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
-                    <a href="stuReport.html">
+                    <a href="Report.html">
                         <div class="card">
                             <div class="card-inner">
                                 <p class="text-primary">My Report</p>

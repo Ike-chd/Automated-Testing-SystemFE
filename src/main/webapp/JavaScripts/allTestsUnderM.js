@@ -13,7 +13,7 @@ $(function () {
     <div class="wrapper">\n\
         <h1 style="display: inline">' + test.testName + '</h1>\n\
         <h5 style="display: inline; margin-left: 30px;"><i class="bx bx-link-alt" style="margin-right: 5px;"></i><span>' + test.module.moduleName + '</span></h5>\n\
-        <h5 style="display: inline; margin-left: 30px;"><i class="bx bx-check-double"></i><span></span></h5>\n\
+        <h5 style="display: inline; margin-left: 30px;"><span id="total' + i + '"></span><i class="bx bx-check-double"></i></h5>\n\
         <h5 style="display: inline; margin-left: 30px;"><i class="bx bxs-time-five"></i><span class="time">' + Math.floor(test.duration / 3600) + ':' + (test.duration % 3600) / 60 + '</span></h5><h5></h5>\n\
         <div id="f1" class="btnflex">\n\
             <button class="btn ' + i + '">Update</button>\n\
@@ -21,6 +21,13 @@ $(function () {
             <button class="btn ' + i + '">View All Topics</button>\n\
         </div>\n\
     </div>');
+                $.ajax({
+                    type: 'GET',
+                    url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/tests/getTestTotal/" + test.testID,
+                    success: function (total) {
+                        $('#total'+i).append(total+' marks');
+                    }
+                });
             });
             allBtns = document.getElementsByClassName('btn');
             for (var i = 0; i < allBtns.length; i++) {
@@ -61,18 +68,3 @@ $(function () {
         }
     });
 });
-
-for (var i = 0; i < tests.length; i++) {
-    tests[i].addEventListener('click', function () {
-        localStorage.setItem("currentTest", JSON.stringify(alltests[parseInt(this.id[1] - 1)]));
-        console.log(localStorage.getItem("currentTest"));
-        localStorage.removeItem("currentTime");
-        if (localStorage.getItem(alltests[parseInt(this.id[1] - 1)].testName) === null) {
-            var time = this.querySelector('.time').innerHTML.split(":");
-            var date = new Date();
-            date.setHours(date.getHours() + parseInt(time[0]));
-            date.setMinutes(date.getMinutes() + parseInt(time[1]));
-            localStorage.setItem(alltests[parseInt(this.id[1] - 1)].testName, date);
-        }
-    });
-}

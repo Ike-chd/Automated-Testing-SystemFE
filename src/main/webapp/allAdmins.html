@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CascadingStyleSheets/allStudents.css">
+        <link rel="stylesheet" href="CascadingStyleSheets/dashboard.css">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="grid-container">
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <span class="material-icons-outlined">menu</span>
+                </div>
+                <div class="header-left">
+                    <span class="material-icons-outlined">search</span>
+                </div>
+                <div class="header-right">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span class="material-icons-outlined">email</span>
+                    <a id="profile" class="material-icons-outlined">account_circle</a>
+                    <div id="slideMenu" class="sub-menu-wrap">
+                        <div class="sub-menu">
+                            <div class="user-info">
+                                <h2>Ike</h2>
+                            </div>
+                            <hr>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-user'></i>
+                                <p>Edit profile</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-cog'></i>
+                                <p>Settings</p>
+                                <span>></span>
+                            </a>
+                            <a href="#" class="sub-menu-link">
+                                <i class='bx bx-log-out' ></i>
+                                <p>Logout</p>
+                                <span>></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="main-container">
+                <div id='allAdmins'></div>
+            </main>
+        </div>
+        <script src="JavaScripts/allAdmins.js"></script>
     </body>
 </html>

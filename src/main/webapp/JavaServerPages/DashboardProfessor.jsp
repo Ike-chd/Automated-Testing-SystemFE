@@ -80,8 +80,18 @@
                         </a>
                     </li>
                     <li class="sidebar-list-item">
-                        <a href="createAccount.html">
-                            <span class="material-icons-outlined">class</span> Create Account
+                        <a href="createAccountFac.html">
+                            <span class="material-icons-outlined">dashboard</span> Create Student
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="comment.html">
+                            <span class="material-icons-outlined">class</span> Create Comment
+                        </a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <a href="SuspensionRequest.html">
+                            <span class="material-icons-outlined">event_note</span> Create Suspension Request
                         </a>
                     </li>
                 </ul>

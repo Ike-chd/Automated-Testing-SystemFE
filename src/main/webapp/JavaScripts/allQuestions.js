@@ -5,7 +5,7 @@ var allBtns;
 $(function () {
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/getQuestions/byTopic/"+sessionStorage.getItem('tid'),
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/questions/getQuestions/byTopic/" + sessionStorage.getItem('tid'),
         success: function (questions) {
             allQuestions = questions;
             $.each(questions, function (i, question) {
@@ -23,7 +23,7 @@ $(function () {
         </div>\n\
     </div>');
             });
-            
+
             allBtns = document.getElementsByClassName('btn');
             for (var i = 0; i < allBtns.length; i++) {
                 allBtns[i].addEventListener('click', function () {
@@ -33,17 +33,19 @@ $(function () {
                         viewAll(parseInt(this.classList[1]));
                     } else if (this.innerHTML === 'Delete') {
                         Delete(parseInt(this.classList[1]));
+                    } else if (this.innerHTML === 'Add Answer') {
+
                     }
                 });
             }
 
             function update(i) {
-                sessionStorage.setItem('que', JSON.stringify(allTopics[i]));
+                sessionStorage.setItem('que', JSON.stringify(allQuestions[i]));
                 window.location.href = 'updateQuestion.html';
             }
 
             function viewAll(i) {
-                sessionStorage.setItem('qid', i);
+                sessionStorage.setItem('qid', allQuestions[i].questionID);
                 window.location.href = 'allAnswers.html';
             }
 
@@ -63,6 +65,11 @@ $(function () {
                         }
                     });
                 }
+            }
+            
+            function addAns(i){
+                sessionStorage.setItem('qid', allQuestions[i].questionID);
+                window.location.href = 'addAnswers.html';
             }
         }
     });

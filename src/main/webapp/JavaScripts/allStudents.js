@@ -49,8 +49,9 @@ $(function () {
             }
 
             function report(i) {
-               sessionStorage.setItem('mod', JSON.stringify(allStudents[i]));
-               window.location.href = 'Report.html';
+                sessionStorage.setItem('cid', allStudents[i].currentCourse.courseID);
+                sessionStorage.setItem('userID', allStudents[i].userID);
+                window.location.href = 'Report.html';
             }
         }
     });
