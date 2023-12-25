@@ -83,7 +83,7 @@
                                 <p class="text-primary">My Modules</p>
                                 <span class="material-icons-outlined text-green">event_note</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="allMyModules" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allStuTests.html">
@@ -92,7 +92,7 @@
                                 <p class="text-primary">My Tests</p>
                                 <span class="material-icons-outlined text-red">grading</span>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="allMyTests" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allStuComments.html">
@@ -101,7 +101,7 @@
                                 <p class="text-primary">My Comments</p>
                                 <i class='bx bxs-chat' style="font-size: 30px;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                            <span id="allMyComments" class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="Report.html">
@@ -110,7 +110,6 @@
                                 <p class="text-primary">My Report</p>
                                 <i class='bx bxs-report' style="font-size: 30px;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                 </div>

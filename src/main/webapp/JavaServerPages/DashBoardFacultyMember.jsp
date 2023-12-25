@@ -148,13 +148,13 @@
                             <span class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
-                    <a href="Report.html">
+                    <a href="ReportFE.html">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">REPORTS</p>
+                                <p class="text-primary">Report</p>
                                 <i class='bx bxs-report' style="font-size: 30px;"></i>
                             </div>
-                            <span class="text-primary font-weight-bold">Average: XX</span>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                     <a href="allFacMComments.html">
@@ -166,12 +166,6 @@
                             <span class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
-                </div>
-                <div class="charts">
-                    <div class="charts-card">
-                        <p class="chart-title">Enrollment Trends</p>
-                        <div id="area-chart"></div>
-                    </div>
                 </div>
             </main>
         </div>

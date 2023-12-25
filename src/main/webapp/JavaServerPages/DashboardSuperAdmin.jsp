@@ -17,9 +17,7 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     </head>
-
     <body>
         <div class="grid-container">
 
@@ -108,7 +106,6 @@
                     </li>
                 </ul>
             </aside>
-
             <main class="main-container">
                 <div class="main-title">
                     <p class="font-weight-bold">DASHBOARD</p>
@@ -184,6 +181,15 @@
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
                             <span id="numOfSus" class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
+                    <a href="ReportFE.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Report</p>
+                                <i class='bx bxs-report' style="font-size: 30px;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                 </div>

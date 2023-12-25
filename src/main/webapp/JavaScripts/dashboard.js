@@ -64,7 +64,7 @@ $(function () {
             document.getElementById('numOfTopics').innerHTML = "Total: " + numOfTopics + "";
         }
     });
-    
+
     $.ajax({
         type: 'GET',
         url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/suspension-requests/getNumOfUnApprovedSuspensionRequests",
@@ -72,12 +72,36 @@ $(function () {
             document.getElementById('numOfSus').innerHTML = "Total: " + numOfSus + "";
         }
     });
-    
+
     $.ajax({
         type: 'GET',
-        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/reports/courseAVG/"+sessionStorage.getItem('cid')+"/"+sessionStorage.getItem('userID'),
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/reports/courseAVG/" + sessionStorage.getItem('cid') + "/" + sessionStorage.getItem('userID'),
         success: function (courseAVG) {
             document.getElementById('courseAVG').innerHTML = "Aggregate: " + courseAVG + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/tests/NumOfAllMyTests/" + sessionStorage.getItem('cid') + "/" + sessionStorage.getItem('userID'),
+        success: function (numOfTests) {
+            document.getElementById('allMyTests').innerHTML = "Total: " + numOfTests + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/comments/stu/NumOfAllComments/" + sessionStorage.getItem('userID'),
+        success: function (numOfComments) {
+            document.getElementById('allMyComments').innerHTML = "Total: " + numOfComments + "";
+        }
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: "http://" + ip + ":8080/Automated-Testing-SystemBE/resources/modules/NumOfAllModules/byCourse/" + sessionStorage.getItem('cid'),
+        success: function (numOfModules) {
+            document.getElementById('allMyModules').innerHTML = "Total: " + numOfModules + "";
         }
     });
 });

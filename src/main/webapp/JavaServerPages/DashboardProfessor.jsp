@@ -147,13 +147,22 @@
                             <span class="text-primary font-weight-bold">Total: XX</span>
                         </div>
                     </a>
-                    <a href="BlockOrSuspend.html">
+                    <a href="#">
                         <div class="card">
                             <div class="card-inner">
-                                <p class="text-primary">Request Suspension</p>
+                                <p class="text-primary">My Requests</p>
                                 <i class='bx bx-block' style="font-size: 30px; color: red; font-weight: bold;"></i>
                             </div>
                             <span class="text-primary font-weight-bold">Average: XX</span>
+                        </div>
+                    </a>
+                    <a href="ReportFE.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Report</p>
+                                <i class='bx bxs-report' style="font-size: 30px;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
                         </div>
                     </a>
                 </div>

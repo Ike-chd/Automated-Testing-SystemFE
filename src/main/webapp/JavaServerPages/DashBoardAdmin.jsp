@@ -177,6 +177,15 @@
                             <span id="numOfSus" class="text-primary font-weight-bold">Average: XX</span>
                         </div>
                     </a>
+                    <a href="ReportFE.html">
+                        <div class="card">
+                            <div class="card-inner">
+                                <p class="text-primary">Report</p>
+                                <i class='bx bxs-report' style="font-size: 30px;"></i>
+                            </div>
+                            <span class="text-primary font-weight-bold">Total: XXX</span>
+                        </div>
+                    </a>
                 </div>
             </main>
         </div>
